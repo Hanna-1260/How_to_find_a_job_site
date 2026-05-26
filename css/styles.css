@@ -681,6 +681,24 @@ button {
   left: 1.25rem;
 }
 
+/* Scene 3 specific bubble placement and sizing */
+.speech-bubble--scene3 {
+  top: 0.9rem;
+  right: 1rem;
+  left: auto;
+  width: 11rem;
+  max-width: 11.5rem;
+  min-height: 3.6rem;
+  font-size: 0.96rem;
+  padding: 0.5rem 0.75rem;
+  z-index: 6;
+}
+
+.speech-bubble--scene3::after {
+  right: 1.2rem;
+  left: auto;
+}
+
 .speech-bubble::after {
   content: "";
   position: absolute;
