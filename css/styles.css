@@ -389,6 +389,7 @@ button {
 }
 
 .feature-card,
+.feature-card,
 .resource-card,
 .faq-card,
 .preview-tile {
@@ -399,7 +400,6 @@ button {
   border-radius: var(--radius-lg);
   background: var(--color-surface);
   box-shadow: var(--shadow-sm);
-  transition: transform var(--transition), box-shadow var(--transition);
 }
 
 .feature-card:nth-child(1),
@@ -422,12 +422,31 @@ button {
   background: #fff2e8;
 }
 
+.scenario-grid .feature-card {
+  min-height: auto;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
 .feature-card:hover,
 .resource-card:hover,
 .faq-card:hover,
 .preview-tile:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-md);
+}
+
+/* Disable hover effects for comic/feature cards */
+.feature-card:hover {
+  transform: none !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+.scenario-grid .feature-card .card-number {
+  display: none;
 }
 
 .card-number {
@@ -610,6 +629,43 @@ button {
   inline-size: 100%;
   block-size: 100%;
   object-fit: cover;
+}
+
+/* Comic scene image and speech bubble styling */
+.scenario-grid .feature-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  object-fit: cover;
+}
+
+.speech-bubble {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  max-width: 68%;
+  background: #fff;
+  border: 2px solid var(--color-ink);
+  padding: 0.75rem 1rem;
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+  font-weight: 700;
+  color: var(--color-ink);
+  text-align: right;
+  line-height: 1.1;
+}
+
+.speech-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  right: 1.25rem;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 10px solid #fff;
 }
 
 .clean-list,
