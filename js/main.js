@@ -145,4 +145,10 @@
       status.textContent = "הטופס נשלח בהצלחה. נחזור אליכם בהקדם.";
     });
   }
+
+  window.addEventListener("DOMContentLoaded", () => {
+    if (!window.location.hash) {
+      window.scrollTo(0, 0);
+    }
+  });
 })();

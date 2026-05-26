@@ -287,12 +287,10 @@ button {
 
 .eyebrow {
   display: inline-flex;
-  padding: 0.4rem 1rem;
-  border: 2px solid var(--color-ink);
-  border-radius: var(--radius-pill);
-  background: var(--color-yellow);
+  padding: 0.4rem 0.4rem;
   color: var(--color-ink);
   font-weight: 800;
+  font-size: 2rem;
 }
 
 .hero-lead,
