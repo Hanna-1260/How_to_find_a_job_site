@@ -1,10 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&display=swap");
 
 :root {
-  --color-bg: #fffdf7;
+  --color-bg: #ffffff;
   --color-surface: #ffffff;
-  --color-soft: #f2f0ea;
-  --color-muted: #e8e5dc;
+  --color-soft: #ffffff;
+  --color-muted: #ffffff;
   --color-ink: #101112;
   --color-text: #2a2d2f;
   --color-subtle: #6a6f75;
@@ -55,10 +55,7 @@ body {
   direction: rtl;
   font-family: var(--font-main);
   color: var(--color-text);
-  background:
-    radial-gradient(circle at 8% 12%, rgba(141, 107, 242, 0.08), transparent 24rem),
-    radial-gradient(circle at 90% 22%, rgba(120, 242, 167, 0.18), transparent 20rem),
-    var(--color-bg);
+  background: var(--color-bg);
   font-size: var(--text-base);
   line-height: 1.65;
   overflow-x: hidden;
@@ -422,19 +419,19 @@ button {
 }
 
 .feature-card:nth-child(1) {
-  background: #f7f0ff;
+  background: var(--color-surface);
 }
 
 .feature-card:nth-child(2) {
-  background: #ecfff4;
+  background: var(--color-surface);
 }
 
 .feature-card:nth-child(3) {
-  background: #eef4ff;
+  background: var(--color-surface);
 }
 
 .feature-card:nth-child(4) {
-  background: #fff2e8;
+  background: var(--color-surface);
 }
 
 .scenario-grid .feature-card {
