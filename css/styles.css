@@ -699,6 +699,22 @@ button {
   left: auto;
 }
 
+/* Replace protruding tail with a sharp corner per scene */
+.speech-bubble--scene2,
+.speech-bubble--scene3 {
+  border-bottom-left-radius: 0;
+}
+
+.speech-bubble--scene4 {
+  border-bottom-right-radius: 0;
+}
+
+.speech-bubble--scene2::after,
+.speech-bubble--scene3::after,
+.speech-bubble--scene4::after {
+  display: none;
+}
+
 .speech-bubble::after {
   content: "";
   position: absolute;
