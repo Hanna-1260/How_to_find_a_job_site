@@ -13,6 +13,7 @@
   --color-primary-strong: #43dc80;
   --color-blue: #5d7cff;
   --color-purple: #8d6bf2;
+  --color-pink: #f47fbf;
   --color-orange: #ff6b2d;
   --color-yellow: #dfff4f;
   --space-1: 0.5rem;
@@ -446,7 +447,7 @@ button {
 
 .resource-card:hover {
   transform: translateY(-8px) scale(1.02);
-  box-shadow: var(--color-primary) 0 8px 18px;
+  box-shadow: var(--color-pink) 0 8px 18px;
 }
 
 /* Disable hover effects for comic/feature cards */
@@ -509,7 +510,7 @@ button {
   block-size: 76px;
   margin-block-end: var(--space-4);
   border-radius: 50%;
-  background: var(--color-primary);
+  background: var(--color-pink);
   color: var(--color-ink);
   font-size: 2rem;
   font-weight: 800;
