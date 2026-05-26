@@ -172,6 +172,20 @@ button {
   font-size: 0.95rem;
 }
 
+.brand-logo {
+  display: block;
+  inline-size: 56px;
+  block-size: 44px;
+  object-fit: contain;
+}
+
+.footer-logo {
+  display: block;
+  inline-size: 48px;
+  block-size: 36px;
+  object-fit: contain;
+}
+
 .primary-nav ul,
 .footer-links {
   display: flex;
