@@ -261,7 +261,7 @@ button {
 }
 
 .hero {
-  padding-block: clamp(4rem, 8vw, 7.5rem) var(--space-6);
+  padding-block: clamp(0, 8vw, 7.5rem) var(--space-6);
 }
 
 .hero-centered {
