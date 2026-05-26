@@ -174,14 +174,14 @@ button {
 
 .brand-logo {
   display: block;
-  inline-size: 96px;
+  inline-size: 150px;
   block-size: 64px;
   object-fit: contain;
 }
 
 .footer-logo {
   display: block;
-  inline-size: 160px;
+  inline-size: 300px;
   block-size: 100px;
   object-fit: contain;
 
