@@ -664,6 +664,23 @@ button {
   line-height: 1.1;
 }
 
+.speech-bubble--scene4 {
+  left: 0.85rem;
+  right: auto;
+  top: 0.85rem;
+  width: 7.5rem;
+  max-width: 8.5rem;
+  min-height: 3.8rem;
+  font-size: 0.9rem;
+  padding: 0.5rem 0.7rem;
+  z-index: 5;
+}
+
+.speech-bubble--scene4::after {
+  right: auto;
+  left: 1.25rem;
+}
+
 .speech-bubble::after {
   content: "";
   position: absolute;
