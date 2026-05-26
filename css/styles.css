@@ -430,9 +430,10 @@ button {
   min-height: auto;
   padding: 0;
   border: none;
-  border-radius: 0;
+  border-radius: 16px;
   background: transparent;
   box-shadow: none;
+  overflow: hidden;
 }
 
 .feature-card:hover,
@@ -451,15 +452,6 @@ button {
 
 .scenario-grid .feature-card .card-number {
   display: none;
-}
-
-.card-number {
-  display: inline-flex;
-  margin-block-end: var(--space-3);
-  color: var(--color-blue);
-  font-size: 2.2rem;
-  font-weight: 800;
-  line-height: 1;
 }
 
 .feature-card h3,
@@ -484,9 +476,6 @@ button {
   width: min(100%, 980px);
   margin-inline: auto;
   padding: clamp(1.6rem, 3vw, 2.4rem);
-  border: 2px solid var(--color-ink);
-  border-radius: var(--radius-pill);
-  background: var(--color-muted);
   text-align: center;
 }
 
@@ -640,7 +629,7 @@ button {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 18px;
+  border-radius: 0;
   object-fit: cover;
 }
 
