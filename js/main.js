@@ -89,15 +89,70 @@
     });
   }
 
-  document.querySelectorAll(".tab").forEach((tab) => {
-    tab.addEventListener("click", () => {
-      const group = tab.closest(".tabs");
-      group?.querySelectorAll(".tab").forEach((item) => {
-        item.classList.remove("is-active");
-        item.setAttribute("aria-pressed", "false");
+  const activatePressedTabGroup = (selector, groupSelector) => {
+    document.querySelectorAll(selector).forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const group = tab.closest(groupSelector);
+        group?.querySelectorAll(selector).forEach((item) => {
+          item.classList.remove("is-active");
+          item.setAttribute("aria-pressed", "false");
+        });
+        tab.classList.add("is-active");
+        tab.setAttribute("aria-pressed", "true");
       });
-      tab.classList.add("is-active");
-      tab.setAttribute("aria-pressed", "true");
+    });
+  };
+
+  activatePressedTabGroup(".project-tab", ".project-tabs");
+
+  const isKeyboardActivation = (event) => event.key === "Enter" || event.key === " ";
+  const expandableCards = [...document.querySelectorAll("[data-expand-card]")];
+
+  expandableCards.forEach((card) => {
+    const toggleCard = () => {
+      const willOpen = card.getAttribute("aria-expanded") !== "true";
+
+      expandableCards.forEach((item) => {
+        item.setAttribute("aria-expanded", "false");
+        item.querySelector(".project-more")?.setAttribute("aria-hidden", "true");
+      });
+
+      card.setAttribute("aria-expanded", String(willOpen));
+      card.querySelector(".project-more")?.setAttribute("aria-hidden", String(!willOpen));
+    };
+
+    card.addEventListener("click", toggleCard);
+    card.addEventListener("keydown", (event) => {
+      if (!isKeyboardActivation(event)) {
+        return;
+      }
+
+      event.preventDefault();
+      toggleCard();
+    });
+  });
+
+  document.querySelectorAll("[data-flip-card]").forEach((card) => {
+    const front = card.querySelector(".flip-card__front");
+    const back = card.querySelector(".flip-card__back");
+    front?.setAttribute("aria-hidden", "false");
+    back?.setAttribute("aria-hidden", "true");
+
+    const flipCard = () => {
+      const isFlipped = card.classList.toggle("is-flipped");
+      card.setAttribute("aria-pressed", String(isFlipped));
+      front?.setAttribute("aria-hidden", String(isFlipped));
+      back?.setAttribute("aria-hidden", String(!isFlipped));
+    };
+
+    card.addEventListener("click", flipCard);
+    card.addEventListener("keydown", (event) => {
+      if (!isKeyboardActivation(event)) {
+        return;
+      }
+
+      event.preventDefault();
+      flipCard();
     });
   });
 
