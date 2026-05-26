@@ -345,8 +345,7 @@ button {
   text-align: center;
 }
 
-.btn,
-.arrow-link {
+.btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -360,6 +359,18 @@ button {
   transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
 }
 
+.arrow-link {
+  width: 66px;
+  min-width: 66px;
+  min-height: 66px;
+  padding: 0;
+}
+
+.arrow-link__icon {
+  font-size: 3rem;
+  line-height: 1;
+}
+
 .btn-primary {
   background: var(--color-primary);
   box-shadow: 6px 7px 0 var(--color-ink);
@@ -370,14 +381,9 @@ button {
   box-shadow: 6px 7px 0 var(--color-ink);
 }
 
-.btn:hover,
-.arrow-link:hover {
+.btn:hover:hover {
   transform: translateY(-3px);
   box-shadow: 3px 4px 0 var(--color-ink);
-}
-
-.arrow-link {
-  background: var(--color-yellow);
 }
 
 .scenario-grid {
