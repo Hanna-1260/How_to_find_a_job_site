@@ -368,6 +368,8 @@ button {
   font-weight: 800;
   line-height: 1;
   transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+  background: var(--color-primary);
+  box-shadow: 6px 7px 0 var(--color-ink);
 }
 
 .arrow-link {
@@ -393,7 +395,7 @@ button {
 }
 
 .btn-secondary {
-  background: var(--color-surface);
+  background: var(--color-primary);
   box-shadow: 6px 7px 0 var(--color-ink);
 }
 
