@@ -446,8 +446,8 @@ button {
 }
 
 .resource-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--color-primary) 0 8px 18px;
 }
 
 /* Disable hover effects for comic/feature cards */
@@ -499,6 +499,8 @@ button {
   justify-items: center;
   min-height: 290px;
   text-align: center;
+  transition: transform 260ms cubic-bezier(.2,.9,.3,1), box-shadow 260ms cubic-bezier(.2,.9,.3,1);
+  will-change: transform, box-shadow;
 }
 
 .resource-icon {
