@@ -261,7 +261,7 @@ button {
 }
 
 .hero {
-  padding-block: clamp(0, 8vw, 7.5rem) var(--space-6);
+  padding-block: clamp(4rem, 8vw, 7.5rem) var(--space-6);
 }
 
 .hero-centered {
@@ -298,14 +298,6 @@ button {
 
 .page-hero h1 {
   margin-inline: auto;
-}
-
-.eyebrow {
-  display: inline-flex;
-  padding: 0.4rem 0.4rem;
-  color: var(--color-ink);
-  font-weight: 800;
-  font-size: 2rem;
 }
 
 .hero-lead,
@@ -346,6 +338,10 @@ button {
   line-height: 1.05;
 }
 
+.callout {
+  text-align: center;
+}
+
 .section-heading p {
   max-width: 780px;
   margin: var(--space-3) auto 0;
@@ -379,10 +375,15 @@ button {
   min-width: 66px;
   min-height: 66px;
   padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-inline: auto;
 }
 
 .arrow-link__icon {
-  font-size: 3rem;
+  width: 40px;
+  height: auto;
   line-height: 1;
 }
 
