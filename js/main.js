@@ -324,5 +324,22 @@
     if (!window.location.hash) {
       window.scrollTo(0, 0);
     }
+    
+    // Setup interactive flip cards for CV keywords section
+    const cvFlipCards = document.querySelectorAll('.cv-keywords-section .flip-card');
+    cvFlipCards.forEach(card => {
+      // Flip on click
+      card.addEventListener('click', () => {
+        card.classList.toggle('is-flipped');
+      });
+
+      // Flip on Enter or Space for accessibility
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          card.classList.toggle('is-flipped');
+        }
+      });
+    });
   });
 })();
