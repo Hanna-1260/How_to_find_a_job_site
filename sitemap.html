@@ -36,35 +36,134 @@
   <main id="main">
     <section class="hero page-hero">
       <div class="container">
-        <h1>מפת האתר שלנו</h1>
-        <p class="hero-lead">מוזמנים לנווט באתר ולקבל הצצה לדפים שעוד לא פתחתם.</p>
+        <h1>מפת האתר</h1>
       </div>
     </section>
 
     <section class="section" aria-labelledby="map-title">
-      <div class="container sitemap-panel">
-        <h2 id="map-title" class="sr-only">קישורי האתר</h2>
-        <div class="sitemap-grid">
-          <section>
-            <h3>דף הבית</h3>
-            <a href="index.html">דף הבית</a>
-            <a href="about.html">אודות</a>
-            <a href="contact.html">צור קשר</a>
-            <a href="sitemap.html">מפת האתר</a>
-          </section>
-          <section>
-            <h3>תיק עבודות מנצח</h3>
-            <a href="portfolio-builder.html">איך מתקבלים?</a>
-            <a href="portfolio-builder.html#projects-title">פרויקטים</a>
-            <a href="portfolio-builder.html#faq-title">שאלות לראיון</a>
-          </section>
-          <section>
-            <h3>סטודנטים מספרים</h3>
-            <a href="where-to-start.html">כלים שכדאי להכיר</a>
-            <a href="where-to-start.html#faq-title">כמפתחי למידה</a>
-            <a href="where-to-start.html#salary-title">כמעצבים</a>
-            <a href="where-to-start.html#projects-title">כמתכנתים</a>
-          </section>
+      <div class="container">
+        <h2 id="map-title" class="sr-only">מפת האתר היררכית</h2>
+        
+        <div class="sitemap-container">
+          
+          <!-- Root Node: דף הבית -->
+          <div class="sitemap-root-card">
+            <a href="index.html" class="sitemap-home-link">
+              <span class="home-badge-icon" aria-hidden="true">🏠</span>
+              <div class="sitemap-home-content">
+                <h3>דף הבית</h3>
+                <span class="sitemap-file-name">index.html</span>
+              </div>
+            </a>
+          </div>
+          
+          <!-- Grid of Sections under the Root -->
+          <div class="sitemap-branches-grid">
+            
+            <!-- Branch 1: בינה מלאכותית -->
+            <section class="sitemap-branch-card theme-purple" aria-labelledby="heading-ai">
+              <div class="branch-header">
+                <span class="branch-icon" aria-hidden="true">🤖</span>
+                <h3 id="heading-ai">בינה מלאכותית</h3>
+              </div>
+              <ul class="branch-links">
+                <li>
+                  <a href="sitemap.html" class="branch-link">
+                    <span class="link-bullet">↳</span>
+                    <span class="link-label">שימושים בלימודים</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="sitemap.html" class="branch-link">
+                    <span class="link-bullet">↳</span>
+                    <span class="link-label">דיוק קורות החיים</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="sitemap.html" class="branch-link">
+                    <span class="link-bullet">↳</span>
+                    <span class="link-label">שימושים במקום העבודה</span>
+                  </a>
+                </li>
+              </ul>
+            </section>
+            
+            <!-- Branch 2: קריירה -->
+            <section class="sitemap-branch-card theme-blue" aria-labelledby="heading-career">
+              <div class="branch-header">
+                <span class="branch-icon" aria-hidden="true">💼</span>
+                <h3 id="heading-career">קריירה</h3>
+              </div>
+              <ul class="branch-links">
+                <li>
+                  <a href="where-to-start.html" class="branch-link link-developed">
+                    <span class="link-bullet">↳</span>
+                    <span class="link-label">מאיפה מתחילים?</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="how-to-be-accepted.html" class="branch-link link-developed">
+                    <span class="link-bullet">↳</span>
+                    <span class="link-label">איך מתקבלים?</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="sitemap.html" class="branch-link">
+                    <span class="link-bullet">↳</span>
+                    <span class="link-label">עבודות לשנה א'</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="sitemap.html" class="branch-link">
+                    <span class="link-bullet">↳</span>
+                    <span class="link-label">עבודות לשנה ב'</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="sitemap.html" class="branch-link">
+                    <span class="link-bullet">↳</span>
+                    <span class="link-label">עבודות לשנה ג'</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="sitemap.html" class="branch-link">
+                    <span class="link-bullet">↳</span>
+                    <span class="link-label">עבודות לתואר שני</span>
+                  </a>
+                </li>
+              </ul>
+            </section>
+            
+            <!-- Branch 3: כלים שכדאי להכיר -->
+            <section class="sitemap-branch-card theme-orange" aria-labelledby="heading-tools">
+              <div class="branch-header">
+                <span class="branch-icon" aria-hidden="true">🛠️</span>
+                <h3 id="heading-tools">כלים שכדאי להכיר</h3>
+              </div>
+              <ul class="branch-links">
+                <li>
+                  <a href="sitemap.html" class="branch-link">
+                    <span class="link-bullet">↳</span>
+                    <span class="link-label">כלים למפתחי למידה</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="sitemap.html" class="branch-link">
+                    <span class="link-bullet">↳</span>
+                    <span class="link-label">כלים למעצבים</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="sitemap.html" class="branch-link">
+                    <span class="link-bullet">↳</span>
+                    <span class="link-label">כלים למתכנתים</span>
+                  </a>
+                </li>
+              </ul>
+            </section>
+            
+          </div>
+          
         </div>
       </div>
     </section>
