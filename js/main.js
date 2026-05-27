@@ -187,21 +187,27 @@
     });
   });
 
-  // Flip cards
-  const flipCards = document.querySelectorAll("[data-flip-card]");
+  document.querySelectorAll("[data-flip-card]").forEach((card) => {
+    const front = card.querySelector(".flip-card__front");
+    const back = card.querySelector(".flip-card__back");
+    front?.setAttribute("aria-hidden", "false");
+    back?.setAttribute("aria-hidden", "true");
 
-  flipCards.forEach((card) => {
-    card.addEventListener("click", () => {
+    const flipCard = () => {
       const isFlipped = card.classList.toggle("is-flipped");
-      card.setAttribute("aria-pressed", isFlipped);
-    });
+      card.setAttribute("aria-pressed", String(isFlipped));
+      front?.setAttribute("aria-hidden", String(isFlipped));
+      back?.setAttribute("aria-hidden", String(!isFlipped));
+    };
 
+    card.addEventListener("click", flipCard);
     card.addEventListener("keydown", (event) => {
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        const isFlipped = card.classList.toggle("is-flipped");
-        card.setAttribute("aria-pressed", isFlipped);
+      if (!isKeyboardActivation(event)) {
+        return;
       }
+
+      event.preventDefault();
+      flipCard();
     });
   });
 
@@ -250,38 +256,90 @@
     });
   }
 
-  // Jobs tabs
-  const jobTabs = document.querySelectorAll(".job-tab");
-  const jobPanels = document.querySelectorAll(".job-panel");
+  // Jobs tabs: switch visible panel when clicking tabs
+  const jobTabs = [...document.querySelectorAll('.job-tab')];
+  const jobPanels = [...document.querySelectorAll('[data-job-panel]')];
 
   if (jobTabs.length && jobPanels.length) {
-    const activateJobTab = (target) => {
-      // update tabs
-      jobTabs.forEach((tab) => {
-        const isActive = tab.dataset.jobTarget === target;
-        tab.classList.toggle("is-active", isActive);
-        tab.setAttribute("aria-selected", isActive);
-      });
-      // update panels
-      jobPanels.forEach((panel) => {
-        panel.hidden = panel.id !== target;
+    const getCurrentPanel = () => jobPanels.find((panel) => !panel.hasAttribute('hidden')) || jobPanels[0];
+
+    const hidePanel = (panel) => {
+      panel.classList.remove('fade-in');
+      panel.classList.add('fade-out');
+      panel.addEventListener('transitionend', function onEnd(event) {
+        if (event.target !== panel) return;
+        panel.removeEventListener('transitionend', onEnd);
+        panel.setAttribute('hidden', '');
+        panel.setAttribute('aria-hidden', 'true');
       });
     };
 
-    // click events
+    const showPanel = (panel) => {
+      panel.removeAttribute('hidden');
+      panel.setAttribute('aria-hidden', 'false');
+      panel.classList.remove('fade-out');
+      panel.classList.add('fade-in');
+    };
+
+    const activateJob = (target) => {
+      const nextPanel = document.getElementById(target);
+      if (!nextPanel) return;
+
+      jobTabs.forEach((tab) => {
+        const isActive = tab.dataset.jobTarget === target;
+        tab.classList.toggle('is-active', isActive);
+        tab.setAttribute('aria-selected', String(isActive));
+        tab.setAttribute('tabindex', isActive ? '0' : '-1');
+      });
+
+      const currentPanel = getCurrentPanel();
+      if (currentPanel === nextPanel) return;
+
+      if (!nextPanel.hasAttribute('hidden')) {
+        jobPanels.forEach((panel) => {
+          panel.hidden = panel.id !== target;
+          panel.setAttribute('aria-hidden', String(panel.id !== target));
+        });
+        return;
+      }
+
+      hidePanel(currentPanel);
+      showPanel(nextPanel);
+    };
+
     jobTabs.forEach((tab) => {
-      tab.addEventListener("click", () => {
-        activateJobTab(tab.dataset.jobTarget);
+      tab.addEventListener('click', () => activateJob(tab.dataset.jobTarget));
+      tab.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          activateJob(tab.dataset.jobTarget);
+        }
       });
     });
 
-    // default tab
-    activateJobTab("training");
+    activateJob(jobTabs[0].dataset.jobTarget);
   }
 
   window.addEventListener("DOMContentLoaded", () => {
     if (!window.location.hash) {
       window.scrollTo(0, 0);
     }
+    
+    // Setup interactive flip cards for CV keywords section
+    const cvFlipCards = document.querySelectorAll('.cv-keywords-section .cv-flip-card');
+    cvFlipCards.forEach(card => {
+      // Flip on click
+      card.addEventListener('click', () => {
+        card.classList.toggle('is-flipped');
+      });
+
+      // Flip on Enter or Space for accessibility
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          card.classList.toggle('is-flipped');
+        }
+      });
+    });
   });
 })();
