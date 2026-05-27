@@ -1944,7 +1944,7 @@ body.how-to-get-page {
    ========================================================================== */
 
 .cv-keywords-section {
-  overflow: hidden;
+  overflow: visible; /* Ensure it doesn't clip */
   padding-block: var(--space-6);
 }
 
@@ -1956,20 +1956,21 @@ body.how-to-get-page {
   perspective: 1200px;
 }
 
-.flip-card {
+.cv-flip-card {
   background-color: transparent;
   min-height: 480px;
   cursor: pointer;
   border-radius: var(--radius-lg);
   outline: none;
+  border: none; /* override old border if any */
 }
 
-.flip-card:focus-visible .flip-card-inner {
+.cv-flip-card:focus-visible .cv-flip-card-inner {
   outline: 4px solid var(--color-blue);
   outline-offset: 4px;
 }
 
-.flip-card-inner {
+.cv-flip-card-inner {
   position: relative;
   width: 100%;
   height: 100%;
@@ -1981,19 +1982,19 @@ body.how-to-get-page {
 }
 
 /* Hover Effect for the whole card */
-.flip-card:hover .flip-card-inner:not(.is-flipped) {
+.cv-flip-card:hover .cv-flip-card-inner:not(.is-flipped) {
   transform: translateY(-8px);
   box-shadow: 0 18px 38px var(--color-blue-soft);
 }
 
 /* Flipped State */
-.flip-card.is-flipped .flip-card-inner {
+.cv-flip-card.is-flipped .cv-flip-card-inner {
   transform: rotateY(180deg);
   box-shadow: 0 18px 38px var(--color-blue-soft);
 }
 
-.flip-card-front, 
-.flip-card-back {
+.cv-flip-card-front, 
+.cv-flip-card-back {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -2008,7 +2009,7 @@ body.how-to-get-page {
 }
 
 /* --- FRONT SIDE --- */
-.flip-card-front {
+.cv-flip-card-front {
   padding: clamp(1.5rem, 3vw, 2.5rem);
   justify-content: center;
   align-items: center;
@@ -2029,33 +2030,33 @@ body.how-to-get-page {
   transition: transform var(--transition);
 }
 
-.flip-card:nth-child(2) .card-icon {
+.cv-flip-card:nth-child(2) .card-icon {
   background: var(--color-yellow);
 }
 
-.flip-card:nth-child(3) .card-icon {
+.cv-flip-card:nth-child(3) .card-icon {
   background: var(--color-primary);
 }
 
-.flip-card:hover .card-icon {
+.cv-flip-card:hover .card-icon {
   transform: scale(1.1) rotate(5deg);
 }
 
-.flip-card-front h3 {
+.cv-flip-card-front h3 {
   margin: 0 0 var(--space-2);
   color: var(--color-ink);
   font-size: var(--text-section-title);
   line-height: 1.1;
 }
 
-.flip-card-front p {
+.cv-flip-card-front p {
   color: var(--color-text);
   font-size: var(--text-sub);
   margin: 0;
 }
 
 /* --- BACK SIDE --- */
-.flip-card-back {
+.cv-flip-card-back {
   transform: rotateY(180deg);
   padding: 0;
   text-align: right;
@@ -2147,10 +2148,10 @@ body.how-to-get-page {
 
 /* Responsive Tweaks */
 @media (max-width: 768px) {
-  .flip-card {
+  .cv-flip-card {
     min-height: 420px;
   }
-  .flip-card-front {
+  .cv-flip-card-front {
     padding: clamp(1rem, 5vw, 1.5rem);
   }
   .card-icon {

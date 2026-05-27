@@ -326,7 +326,7 @@
     }
     
     // Setup interactive flip cards for CV keywords section
-    const cvFlipCards = document.querySelectorAll('.cv-keywords-section .flip-card');
+    const cvFlipCards = document.querySelectorAll('.cv-keywords-section .cv-flip-card');
     cvFlipCards.forEach(card => {
       // Flip on click
       card.addEventListener('click', () => {
