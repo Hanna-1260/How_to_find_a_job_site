@@ -63,11 +63,10 @@
     });
   }
 
-  const faqFilter = document.querySelector("[data-faq-filter]");
   const faqItems = [...document.querySelectorAll("[data-faq-item]")];
   const faqChips = [...document.querySelectorAll("[data-faq-chip]")];
 
-  if (faqFilter && faqItems.length) {
+  if (faqItems.length) {
     const filterFaq = (value) => {
       const query = value.trim().toLowerCase();
       faqItems.forEach((item) => {
@@ -76,15 +75,18 @@
       });
     };
 
-    faqFilter.addEventListener("input", () => filterFaq(faqFilter.value));
-
     faqChips.forEach((chip) => {
       chip.addEventListener("click", () => {
+        const isActive = chip.classList.contains("is-active");
         faqChips.forEach((item) => item.classList.remove("is-active"));
+
+        if (isActive) {
+          filterFaq("");
+          return;
+        }
+
         chip.classList.add("is-active");
-        faqFilter.value = chip.dataset.faqChip || "";
-        filterFaq(faqFilter.value);
-        faqFilter.focus();
+        filterFaq(chip.dataset.faqChip || "");
       });
     });
   }
@@ -96,14 +98,62 @@
         group?.querySelectorAll(selector).forEach((item) => {
           item.classList.remove("is-active");
           item.setAttribute("aria-pressed", "false");
+          item.setAttribute("aria-selected", "false");
         });
         tab.classList.add("is-active");
         tab.setAttribute("aria-pressed", "true");
+        tab.setAttribute("aria-selected", "true");
       });
     });
   };
 
   activatePressedTabGroup(".project-tab", ".project-tabs");
+
+  const projectCategoryDescription = document.querySelector(".project-category-description");
+  const projectCategoryTitle = document.querySelector(".project-category-title");
+  const projectCards = [...document.querySelectorAll(".project-card[data-category]")];
+  const projectTabs = [...document.querySelectorAll(".project-tab")];
+
+  const projectCategoryData = {
+    videos: {
+      title: "סרטונים",
+      description: "פרוייקטים קצרים עם מבנה ברור: מטרה, קהל יעד, מה למד המשתמש ואיך הוידאו תומך בלמידה."
+    },
+    lessons: {
+      title: "לומדות",
+      description: "פרויקט לומדה שמנגיש תהליך, מסביר שלבים ומשלב משוב למשתמש בדרך ברורה ומקצועית."
+    },
+    websites: {
+      title: "אתרים / ווב אפס",
+      description: "פרויקט ממשק שמציג זרימה ברורה, גריד מידע טוב ועשייה שמתאימה למובייל ונגישה."
+    },
+    games: {
+      title: "משחקי למידה",
+      description: "פרויקט חווייתי שמחבר את המשתמש לאתגר לימודי, משוב מיידי ותובנות מקצועיות."
+    }
+  };
+
+  const setActiveProjectCategory = (category) => {
+    const selected = projectCategoryData[category] || projectCategoryData.videos;
+    projectCategoryTitle.textContent = selected.title;
+    projectCategoryDescription.textContent = selected.description;
+
+    projectCards.forEach((card) => {
+      const isVisible = card.dataset.category === category;
+      card.hidden = !isVisible;
+      card.setAttribute("aria-hidden", String(!isVisible));
+      card.setAttribute("aria-expanded", "false");
+      card.querySelector(".project-more")?.setAttribute("aria-hidden", "true");
+    });
+  };
+
+  projectTabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      setActiveProjectCategory(tab.dataset.category);
+    });
+  });
+
+  setActiveProjectCategory("videos");
 
   const isKeyboardActivation = (event) => event.key === "Enter" || event.key === " ";
   const expandableCards = [...document.querySelectorAll("[data-expand-card]")];

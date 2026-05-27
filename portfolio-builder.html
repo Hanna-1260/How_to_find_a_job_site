@@ -43,77 +43,46 @@
         <div class="howto-hero-copy">
           <h1 id="howto-title">איך<br>מתקבלים?</h1>
           <p class="howto-hero-lead">מה עושים כשכל עבודה <mark>רוצה ניסיון</mark>,<br>וצריך ניסיון כדי <mark>למצוא עבודה?</mark></p>
+          <a href="#projects-title" class="howto-hero-cta">
+            צעד ראשון - פרויקטים
+            <span aria-hidden="true" class="hero-cta-icon">↓</span>
+          </a>
         </div>
-      </div>
-    </section>
-
-    <section class="howto-reassurance" aria-label="פתיחת הדרך">
-      <div class="container">
-        <p class="howto-pill">אז אל חשש! יש הרבה מה לעשות!<br>כאן תמצאו מה צריך כדי לבנות תיק עבודות מנצח, ומה בכלל אומרים בראיון עבודה.</p>
       </div>
     </section>
 
     <section class="howto-section" aria-labelledby="projects-title">
       <div class="container">
         <div class="howto-heading">
-          <h2 id="projects-title">פרויקטים פרויקטים פרויקטים</h2>
+          <h2 id="projects-title" class="projects-anchor-title">פרויקטים</h2>
           <p>בחרו פרויקט, הרחיבו אותו וקבלו הצצה למבנה שכדאי להציג: תמונה, הסבר קצר, תהליך ותובנה מקצועית.</p>
-          <strong>דפדפו בין הקטגוריות השונות כדי לצפות בפרויקטים לדוגמה</strong>
         </div>
 
-        <div class="project-board" aria-label="פרויקטים לדוגמה">
-          <article class="project-card" role="button" tabindex="0" aria-expanded="false" data-expand-card>
-            <div class="project-thumb" aria-hidden="true">
-              <img src="design images/design-000001.png" alt="">
-            </div>
-            <div class="project-summary">
-              <h3>לומדה קצרה</h3>
-              <p>כאן יופיע הסבר על הפרויקט ומה היה התפקיד שלכם בתהליך.</p>
-              <div class="project-more" aria-hidden="true">
-                <span>הסבר בנקודות למה הפרויקט חשוב לתיק העבודות בטכנולוגיות למידה.</span>
-                <span>טיפים לביצוע בנקודות: קהל יעד, מטרת למידה, בדיקה ותובנות.</span>
-              </div>
-            </div>
-            <span class="project-toggle-icon" aria-hidden="true">⤢</span>
-          </article>
+        <div class="project-tools">
+          <div class="project-tabs" role="tablist" aria-label="קטגוריות פרויקטים">
+            <button type="button" class="project-tab is-active" role="tab" aria-selected="true" aria-controls="project-board" id="tab-videos" data-category="videos">סרטונים</button>
+            <button type="button" class="project-tab" role="tab" aria-selected="false" aria-controls="project-board" id="tab-lessons" data-category="lessons">לומדות</button>
+            <button type="button" class="project-tab" role="tab" aria-selected="false" aria-controls="project-board" id="tab-websites" data-category="websites">אתרים / ווב אפס</button>
+            <button type="button" class="project-tab" role="tab" aria-selected="false" aria-controls="project-board" id="tab-games" data-category="games">משחקי למידה</button>
+          </div>
 
-          <article class="project-card" role="button" tabindex="0" aria-expanded="false" data-expand-card>
-            <div class="project-thumb" aria-hidden="true">
-              <img src="design images/design-000002.png" alt="">
+          <div class="project-category-summary">
+            <span class="project-category-pill">קטגוריה נבחרת</span>
+            <div class="project-category-copy">
+              <h3 class="project-category-title">סרטונים</h3>
+              <p class="project-category-description">פרוייקטים קצרים עם מבנה ברור: מטרה, קהל יעד, מה למד המשתמש ואיך הוידאו תומך בלמידה.</p>
             </div>
-            <div class="project-summary">
-              <h3>משחק למידה</h3>
-              <p>כאן יופיע הסבר על בחירות העיצוב, המכניקה והמשוב למשתמש.</p>
-              <div class="project-more" aria-hidden="true">
-                <span>הציגו את האתגר הלימודי ואת הדרך שבה המשחק עוזר לתרגל אותו.</span>
-                <span>צרפו תובנה קצרה מבדיקת משתמשים או מהשיפור שעשיתם.</span>
-              </div>
-            </div>
-            <span class="project-toggle-icon" aria-hidden="true">⤢</span>
-          </article>
+          </div>
+        </div>
 
-          <article class="project-card" role="button" tabindex="0" aria-expanded="false" data-expand-card>
+        <div class="project-board" id="project-board" aria-live="polite" aria-label="פרויקטים לדוגמה">
+          <article class="project-card" role="button" tabindex="0" aria-expanded="false" data-expand-card data-category="videos" aria-hidden="false">
             <div class="project-thumb" aria-hidden="true">
-              <img src="design images/design-000003.png" alt="">
-            </div>
-            <div class="project-summary">
-              <h3>אתר או ווב אפ</h3>
-              <p>כאן יופיע הסבר על מבנה המידע, הזרימה והפתרון שבניתם.</p>
-              <div class="project-more" aria-hidden="true">
-                <span>הסבירו מה המשתמש צריך לעשות ואיך הממשק מקצר לו את הדרך.</span>
-                <span>ציינו טכנולוגיות, נגישות, התאמה למובייל ואתגר אחד שפתרתם.</span>
-              </div>
-            </div>
-            <span class="project-toggle-icon" aria-hidden="true">⤢</span>
-          </article>
-
-          <article class="project-card" role="button" tabindex="0" aria-expanded="false" data-expand-card>
-            <div class="project-thumb" aria-hidden="true">
-              <img src="design images/design-000004.png" alt="">
+              <img src="design images/design-000004.png" alt="דוגמת סרטון הדרכה">
             </div>
             <div class="project-summary">
               <h3>סרטון הדרכה</h3>
-              <p>כאן יופיע הסבר על תסריט, עריכה, המחשה והמסר המרכזי.</p>
+              <p>פרויקט שמספר סיפור מקצועי קצר: מטרת למידה, קהל יעד, מבנה ושלבי ההצגה.</p>
               <div class="project-more" aria-hidden="true">
                 <span>הראו איך פירקתם נושא מורכב לרצף קצר, ברור וקל לצפייה.</span>
                 <span>הוסיפו מטרת למידה, קהל יעד ומה הייתם משפרים בגרסה הבאה.</span>
@@ -121,18 +90,63 @@
             </div>
             <span class="project-toggle-icon" aria-hidden="true">⤢</span>
           </article>
-        </div>
 
-        <div class="project-tabs" aria-label="קטגוריות פרויקטים">
-          <button type="button" class="project-tab is-active" aria-pressed="true">סרטונים</button>
-          <button type="button" class="project-tab" aria-pressed="false">לומדות</button>
-          <button type="button" class="project-tab" aria-pressed="false">אתרים / ווב אפס</button>
-          <button type="button" class="project-tab" aria-pressed="false">משחקי למידה</button>
+          <article class="project-card" role="button" tabindex="0" aria-expanded="false" data-expand-card data-category="lessons" aria-hidden="true">
+            <div class="project-thumb" aria-hidden="true">
+              <img src="design images/design-000001.png" alt="דוגמת לומדה קצרה">
+            </div>
+            <div class="project-summary">
+              <h3>לומדה קצרה</h3>
+              <p>פרויקט למידה קלאסי שמסביר קונספט בשלבים, משוב ומה הסטודנט לומד בסוף.</p>
+              <div class="project-more" aria-hidden="true">
+                <span>הסבר בנקודות למה הפרויקט חשוב לתיק העבודות בטכנולוגיות למידה.</span>
+                <span>טיפים לביצוע: קהל יעד, מטרת למידה, בדיקה ותובנות.</span>
+              </div>
+            </div>
+            <span class="project-toggle-icon" aria-hidden="true">⤢</span>
+          </article>
+
+          <article class="project-card" role="button" tabindex="0" aria-expanded="false" data-expand-card data-category="websites" aria-hidden="true">
+            <div class="project-thumb" aria-hidden="true">
+              <img src="design images/design-000003.png" alt="דוגמת אתר או ווב אפ">
+            </div>
+            <div class="project-summary">
+              <h3>אתר או ווב אפ</h3>
+              <p>פרויקט ממשק שמציג זרימה ברורה, גבולות תהליך ופתרון שמדבר למשתמש.</p>
+              <div class="project-more" aria-hidden="true">
+                <span>הסבירו מה המשתמש צריך לעשות ואיך הממשק מקצר לו את הדרך.</span>
+                <span>ציינו טכנולוגיות, נגישות ותאימות למובייל.</span>
+              </div>
+            </div>
+            <span class="project-toggle-icon" aria-hidden="true">⤢</span>
+          </article>
+
+          <article class="project-card" role="button" tabindex="0" aria-expanded="false" data-expand-card data-category="games" aria-hidden="true">
+            <div class="project-thumb" aria-hidden="true">
+              <img src="design images/design-000002.png" alt="דוגמת משחק למידה">
+            </div>
+            <div class="project-summary">
+              <h3>משחק למידה</h3>
+              <p>פרויקט חווייתי שמשלב אתגר, משוב מיידי והנעה ללמידה פעילה.</p>
+              <div class="project-more" aria-hidden="true">
+                <span>הציגו את האתגר הלימודי ואת הדרך שבה המשחק עוזר לתרגל אותו.</span>
+                <span>ציינו פעולות, יחס למשתמש ומדד הצלחה פשוט.</span>
+              </div>
+            </div>
+            <span class="project-toggle-icon" aria-hidden="true">⤢</span>
+          </article>
         </div>
+      </div>
+
+      <div class="howto-cta-group">
+        <a href="#interview-title" class="howto-hero-cta">
+          צעד שני - ראיון עבודה
+          <span aria-hidden="true" class="hero-cta-icon">↓</span>
+        </a>
       </div>
     </section>
 
-    <section class="howto-section" aria-labelledby="faq-title">
+    <section class="howto-section" id="interview-title" aria-labelledby="faq-title">
       <div class="container">
         <div class="howto-heading">
           <h2 id="faq-title">שאלות שיש להן תשובות</h2>
@@ -140,21 +154,16 @@
         </div>
 
         <div class="faq-tools">
-          <div class="faq-search">
-            <label for="faq-filter" class="sr-only">חיפוש שאלות</label>
-            <input id="faq-filter" type="search" placeholder="חפשו שאלה בצורה חופשית, או הקליקו על קטגוריה" data-faq-filter>
-            <span aria-hidden="true" class="search-icon"></span>
-          </div>
           <div class="chip-row" aria-label="קטגוריות שאלות">
-            <button class="chip" type="button" data-faq-chip="עצמכם">על עצמכם</button>
-            <button class="chip" type="button" data-faq-chip="שכר">שכר</button>
-            <button class="chip" type="button" data-faq-chip="חוזקות">חוזקות</button>
-            <button class="chip" type="button" data-faq-chip="לבוש">לבוש</button>
+            <button class="chip" type="button" data-faq-chip="עצמכם">ספר על עצמך</button>
+            <button class="chip" type="button" data-faq-chip="שכר">ציפיות שכר</button>
+            <button class="chip" type="button" data-faq-chip="לא זה לא">לא זה לא</button>
+            <button class="chip" type="button" data-faq-chip="איפה חותמים?">איפה חותמים?</button>
           </div>
         </div>
 
         <div class="flip-grid" data-faq-list>
-          <article class="flip-card" role="button" tabindex="0" aria-pressed="false" data-flip-card data-faq-item data-keywords="עצמכם פתיחה ניסיון">
+          <article class="flip-card" role="button" tabindex="0" aria-pressed="false" data-flip-card data-faq-item data-keywords="עצמכם פתיחה ניסיון ספר על עצמך">
             <span class="flip-icon" aria-hidden="true">↪</span>
             <div class="flip-card__inner">
               <div class="flip-card__face flip-card__front">
@@ -166,7 +175,7 @@
             </div>
           </article>
 
-          <article class="flip-card" role="button" tabindex="0" aria-pressed="false" data-flip-card data-faq-item data-keywords="פרויקט נקודות תיק עבודות">
+          <article class="flip-card" role="button" tabindex="0" aria-pressed="false" data-flip-card data-faq-item data-keywords="פרויקט נקודות תיק עבודות לא זה לא">
             <span class="flip-icon" aria-hidden="true">↪</span>
             <div class="flip-card__inner">
               <div class="flip-card__face flip-card__front">
@@ -190,7 +199,7 @@
             </div>
           </article>
 
-          <article class="flip-card" role="button" tabindex="0" aria-pressed="false" data-flip-card data-faq-item data-keywords="חוזקות לבוש ראיון">
+          <article class="flip-card" role="button" tabindex="0" aria-pressed="false" data-flip-card data-faq-item data-keywords="חוזקות לבוש ראיון איפה חותמים?">
             <span class="flip-icon" aria-hidden="true">↪</span>
             <div class="flip-card__inner">
               <div class="flip-card__face flip-card__front">
@@ -198,6 +207,54 @@
               </div>
               <div class="flip-card__face flip-card__back">
                 <p>מכינים דוגמה לחוזקה, בוחרים לבוש נעים ומקצועי, ומתרגלים תשובה אחת בקול לפני הראיון.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="flip-card" role="button" tabindex="0" aria-pressed="false" data-flip-card data-faq-item data-keywords="חוזקות ניסיון חוזקות">
+            <span class="flip-icon" aria-hidden="true">↪</span>
+            <div class="flip-card__inner">
+              <div class="flip-card__face flip-card__front">
+                <h3>איך מתארים חוזקות בלי להגזים?</h3>
+              </div>
+              <div class="flip-card__face flip-card__back">
+                <p>בחרו שתי חוזקות אמיתיות, תנו דוגמה קצרה של פעם בה השתמשתם בהן ותסבירו איך הן קשורות לתפקיד.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="flip-card" role="button" tabindex="0" aria-pressed="false" data-flip-card data-faq-item data-keywords="שכר ציפיות משכורת הסבר">
+            <span class="flip-icon" aria-hidden="true">↪</span>
+            <div class="flip-card__inner">
+              <div class="flip-card__face flip-card__front">
+                <h3>מה נכון לענות על ציפיות שכר?</h3>
+              </div>
+              <div class="flip-card__face flip-card__back">
+                <p>תשובה טובה מדגישה גמישות ותמורה, ומזכירה שאתם מוכנים ללמוד ולהתפתח במקום המתאים.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="flip-card" role="button" tabindex="0" aria-pressed="false" data-flip-card data-faq-item data-keywords="לא זה לא גבול תקשורת לריאיון">
+            <span class="flip-icon" aria-hidden="true">↪</span>
+            <div class="flip-card__inner">
+              <div class="flip-card__face flip-card__front">
+                <h3>איך לענות לא בצורה מקצועית?</h3>
+              </div>
+              <div class="flip-card__face flip-card__back">
+                <p>אמירת לא מקצועית היא כנה, נעימה וברורה. אומרים מה אתם מחפשים במקום מה אתם לא רוצים.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="flip-card" role="button" tabindex="0" aria-pressed="false" data-flip-card data-faq-item data-keywords="איפה חותמים חוזה מסמך התחייבות">
+            <span class="flip-icon" aria-hidden="true">↪</span>
+            <div class="flip-card__inner">
+              <div class="flip-card__face flip-card__front">
+                <h3>איפה חותמים כשיש הצעת עבודה?</h3>
+              </div>
+              <div class="flip-card__face flip-card__back">
+                <p>בדרך כלל על חוזה ההעסקה או בנספח המסכם. תבדקו פרטים חשובים כמו תאריך תחילה ותנאי השכר לפני החתימה.</p>
               </div>
             </div>
           </article>
