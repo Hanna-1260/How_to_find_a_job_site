@@ -293,6 +293,10 @@ button {
   gap: 35px;
 }
 
+.hero-copy .btn {
+  align-self: flex-start;
+}
+
 .hero h1,
 .page-hero h1 {
   max-width: 1050px;
