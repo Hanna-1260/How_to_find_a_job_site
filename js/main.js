@@ -152,13 +152,15 @@
     });
   };
 
-  projectTabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
-      setActiveProjectCategory(tab.dataset.category);
+  if (projectCategoryTitle && projectCategoryDescription) {
+    projectTabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        setActiveProjectCategory(tab.dataset.category);
+      });
     });
-  });
 
-  setActiveProjectCategory("videos");
+    setActiveProjectCategory("videos");
+  }
 
   const isKeyboardActivation = (event) => event.key === "Enter" || event.key === " ";
   const expandableCards = [...document.querySelectorAll("[data-expand-card]")];
@@ -259,6 +261,7 @@
   // Jobs tabs: switch visible panel when clicking tabs
   const jobTabs = [...document.querySelectorAll('.job-tab')];
   const jobPanels = [...document.querySelectorAll('[data-job-panel]')];
+  const clearButton = document.querySelector('[data-job-action="clear"]');
 
   if (jobTabs.length && jobPanels.length) {
     const getCurrentPanel = () => jobPanels.find((panel) => !panel.hasAttribute('hidden')) || jobPanels[0];
@@ -266,12 +269,13 @@
     const hidePanel = (panel) => {
       panel.classList.remove('fade-in');
       panel.classList.add('fade-out');
-      panel.addEventListener('transitionend', function onEnd(event) {
+      const onTransitionEnd = (event) => {
         if (event.target !== panel) return;
-        panel.removeEventListener('transitionend', onEnd);
+        panel.removeEventListener('transitionend', onTransitionEnd);
         panel.setAttribute('hidden', '');
         panel.setAttribute('aria-hidden', 'true');
-      });
+      };
+      panel.addEventListener('transitionend', onTransitionEnd);
     };
 
     const showPanel = (panel) => {
@@ -293,7 +297,8 @@
       });
 
       const currentPanel = getCurrentPanel();
-      if (currentPanel === nextPanel) return;
+      const multipleVisible = jobPanels.filter(p => !p.hasAttribute('hidden')).length > 1;
+      if (currentPanel === nextPanel && !multipleVisible) return;
 
       if (!nextPanel.hasAttribute('hidden')) {
         jobPanels.forEach((panel) => {
@@ -307,7 +312,29 @@
       showPanel(nextPanel);
     };
 
+    const clearSelection = () => {
+      // Remove is-active class from all tabs
+      jobTabs.forEach((tab) => {
+        tab.classList.remove('is-active');
+        tab.setAttribute('aria-selected', 'false');
+        tab.setAttribute('tabindex', '-1');
+      });
+
+      // Show all panels
+      jobPanels.forEach((panel) => {
+        panel.removeAttribute('hidden');
+        panel.setAttribute('aria-hidden', 'false');
+        panel.classList.remove('fade-out');
+        panel.classList.add('fade-in');
+      });
+    };
+
     jobTabs.forEach((tab) => {
+      // Skip the clear button - it will have its own handler
+      if (tab.dataset.jobAction === 'clear') {
+        return;
+      }
+
       tab.addEventListener('click', () => activateJob(tab.dataset.jobTarget));
       tab.addEventListener('keydown', (event) => {
         if (event.key === 'Enter' || event.key === ' ') {
@@ -317,29 +344,40 @@
       });
     });
 
-    activateJob(jobTabs[0].dataset.jobTarget);
+    // Handle clear button click
+    if (clearButton) {
+      clearButton.addEventListener('click', clearSelection);
+      clearButton.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          clearSelection();
+        }
+      });
+    }
+
+    activateJob(jobTabs.find(tab => tab.dataset.jobTarget)?.dataset.jobTarget || 'training');
   }
+
+  // Setup interactive flip cards for CV keywords section
+  const cvFlipCards = document.querySelectorAll('.cv-keywords-section .cv-flip-card');
+  cvFlipCards.forEach(card => {
+    // Flip on click
+    card.addEventListener('click', () => {
+      card.classList.toggle('is-flipped');
+    });
+
+    // Flip on Enter or Space for accessibility
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        card.classList.toggle('is-flipped');
+      }
+    });
+  });
 
   window.addEventListener("DOMContentLoaded", () => {
     if (!window.location.hash) {
       window.scrollTo(0, 0);
     }
-    
-    // Setup interactive flip cards for CV keywords section
-    const cvFlipCards = document.querySelectorAll('.cv-keywords-section .cv-flip-card');
-    cvFlipCards.forEach(card => {
-      // Flip on click
-      card.addEventListener('click', () => {
-        card.classList.toggle('is-flipped');
-      });
-
-      // Flip on Enter or Space for accessibility
-      card.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          card.classList.toggle('is-flipped');
-        }
-      });
-    });
   });
 })();

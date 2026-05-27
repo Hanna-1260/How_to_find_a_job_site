@@ -55,6 +55,7 @@
         </div>
         <div class="job-tabs" aria-label="משרות ותפקידים">
           <div class="job-tab-list" role="tablist" aria-label="קטגוריות משרות">
+            <button id="tab-clear" type="button" class="job-tab job-tab-clear" role="button" data-job-action="clear">הצג הכל</button>
             <button id="tab-training" type="button" class="job-tab is-active" role="tab" aria-selected="true" aria-controls="training" data-job-target="training">הדרכה</button>
             <button id="tab-design" type="button" class="job-tab" role="tab" aria-selected="false" aria-controls="design" data-job-target="design">עיצוב</button>
             <button id="tab-dev" type="button" class="job-tab" role="tab" aria-selected="false" aria-controls="dev" data-job-target="dev">פיתוח</button>
@@ -299,12 +300,62 @@
           <h2 id="companies-title">חברות מובילות בארץ שכל סטודנט חייב להכיר</h2>
           <p>לחצו כדי להגיע לעמוד הדרושים שלהן ולבדוק משרות רלוונטיות.</p>
         </div>
-        <div class="logo-strip" aria-label="דוגמאות לחברות">
-          <a href="https://www.google.com/search?q=%D7%93%D7%A8%D7%95%D7%A9%D7%99%D7%9D+%D7%A4%D7%99%D7%AA%D7%95%D7%97+%D7%94%D7%93%D7%A8%D7%9B%D7%94" target="_blank" rel="noopener">חברת למידה א׳</a>
-          <a href="https://www.google.com/search?q=%D7%9E%D7%A2%D7%A6%D7%91%D7%99+%D7%9C%D7%9E%D7%99%D7%93%D7%94+%D7%93%D7%A8%D7%95%D7%A9%D7%99%D7%9D" target="_blank" rel="noopener">סטודיו למידה</a>
-          <a href="https://www.google.com/search?q=instructional+designer+israel+jobs" target="_blank" rel="noopener">מרכז הדרכה</a>
-          <a href="https://www.google.com/search?q=LX+designer+jobs+Israel" target="_blank" rel="noopener">חוויית למידה</a>
-          <a href="https://www.google.com/search?q=e-learning+developer+Israel+jobs" target="_blank" rel="noopener">פיתוח לומדות</a>
+        <div class="companies-carousel-container" aria-label="קרוסלת חברות מובילות">
+          <div class="companies-carousel-track">
+            <!-- Set 1 -->
+            <a href="https://www.google.com/search?q=%D7%93%D7%A8%D7%95%D7%A9%D7%99%D7%9D+%D7%A4%D7%99%D7%AA%D7%95%D7%97+%D7%94%D7%93%D7%A8%D7%9B%D7%94" target="_blank" rel="noopener" class="company-card">
+              <div class="company-logo-placeholder">🏢</div>
+              <h3 class="company-name">חברת למידה א׳</h3>
+              <p class="company-info">חברת למידה מובילה המתמחה בפיתוח הדרכה, לומדות אינטראקטיביות ופתרונות למידה מתקדמים לארגונים.</p>
+            </a>
+            <a href="https://www.google.com/search?q=%D7%9E%D7%A2%D7%A6%D7%91%D7%99+%D7%9C%D7%9E%D7%99%D7%93%D7%94+%D7%93%D7%A8%D7%95%D7%A9%D7%99%D7%9D" target="_blank" rel="noopener" class="company-card">
+              <div class="company-logo-placeholder">🎨</div>
+              <h3 class="company-name">סטודיו למידה</h3>
+              <p class="company-info">סטודיו בוטיק לעיצוב חוויות למידה, אפיון ממשקים ופיתוח תכנים דיגיטליים יצירתיים.</p>
+            </a>
+            <a href="https://www.google.com/search?q=instructional+designer+israel+jobs" target="_blank" rel="noopener" class="company-card">
+              <div class="company-logo-placeholder">🏫</div>
+              <h3 class="company-name">מרכז הדרכה</h3>
+              <p class="company-info">מרכז פיתוח והדרכה גלובלי המציע משרות סטודנט רבות בתחום טכנולוגיות למידה.</p>
+            </a>
+            <a href="https://www.google.com/search?q=LX+designer+jobs+Israel" target="_blank" rel="noopener" class="company-card">
+              <div class="company-logo-placeholder">💡</div>
+              <h3 class="company-name">חוויית למידה</h3>
+              <p class="company-info">חברה המתמחה באפיון חוויית משתמש (UX/UI) ללמידה דיגיטלית ומערכות ניהול ידע.</p>
+            </a>
+            <a href="https://www.google.com/search?q=e-learning+developer+Israel+jobs" target="_blank" rel="noopener" class="company-card">
+              <div class="company-logo-placeholder">🎮</div>
+              <h3 class="company-name">פיתוח לומדות</h3>
+              <p class="company-info">סטודיו מוביל לפיתוח לומדות, משחקי למידה וסימולציות דיגיטליות מתקדמות.</p>
+            </a>
+
+            <!-- Duplicated Set 1 for Infinite Scroll -->
+            <a href="https://www.google.com/search?q=%D7%93%D7%A8%D7%95%D7%A9%D7%99%D7%9D+%D7%A4%D7%99%D7%AA%D7%95%D7%97+%D7%94%D7%93%D7%A8%D7%9B%D7%94" target="_blank" rel="noopener" class="company-card">
+              <div class="company-logo-placeholder">🏢</div>
+              <h3 class="company-name">חברת למידה א׳</h3>
+              <p class="company-info">חברת למידה מובילה המתמחה בפיתוח הדרכה, לומדות אינטראקטיביות ופתרונות למידה מתקדמים לארגונים.</p>
+            </a>
+            <a href="https://www.google.com/search?q=%D7%9E%D7%A2%D7%A6%D7%91%D7%99+%D7%9C%D7%9E%D7%99%D7%93%D7%94+%D7%93%D7%A8%D7%95%D7%A9%D7%99%D7%9D" target="_blank" rel="noopener" class="company-card">
+              <div class="company-logo-placeholder">🎨</div>
+              <h3 class="company-name">סטודיו למידה</h3>
+              <p class="company-info">סטודיו בוטיק לעיצוב חוויות למידה, אפיון ממשקים ופיתוח תכנים דיגיטליים יצירתיים.</p>
+            </a>
+            <a href="https://www.google.com/search?q=instructional+designer+israel+jobs" target="_blank" rel="noopener" class="company-card">
+              <div class="company-logo-placeholder">🏫</div>
+              <h3 class="company-name">מרכז הדרכה</h3>
+              <p class="company-info">מרכז פיתוח והדרכה גלובלי המציע משרות סטודנט רבות בתחום טכנולוגיות למידה.</p>
+            </a>
+            <a href="https://www.google.com/search?q=LX+designer+jobs+Israel" target="_blank" rel="noopener" class="company-card">
+              <div class="company-logo-placeholder">💡</div>
+              <h3 class="company-name">חוויית למידה</h3>
+              <p class="company-info">חברה המתמחה באפיון חוויית משתמש (UX/UI) ללמידה דיגיטלית ומערכות ניהול ידע.</p>
+            </a>
+            <a href="https://www.google.com/search?q=e-learning+developer+Israel+jobs" target="_blank" rel="noopener" class="company-card">
+              <div class="company-logo-placeholder">🎮</div>
+              <h3 class="company-name">פיתוח לומדות</h3>
+              <p class="company-info">סטודיו מוביל לפיתוח לומדות, משחקי למידה וסימולציות דיגיטליות מתקדמות.</p>
+            </a>
+          </div>
         </div>
       </div>
     </section>

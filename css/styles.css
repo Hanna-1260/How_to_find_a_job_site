@@ -1606,29 +1606,90 @@ body.how-to-get-page {
   font-weight: 800;
 }
 
-.logo-strip {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(120px, 1fr));
-  gap: var(--space-4);
+.companies-carousel-container {
+  overflow: hidden;
+  width: 100%;
+  padding-block: var(--space-4) var(--space-5);
+  position: relative;
+  mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
 }
 
-.logo-strip a {
-  display: grid;
-  place-items: center;
-  min-height: 130px;
-  padding: var(--space-3);
+.companies-carousel-track {
+  display: flex;
+  width: max-content;
+  gap: var(--space-4);
+  animation: marquee-scroll 32s linear infinite;
+}
+
+.companies-carousel-track:hover {
+  animation-play-state: paused;
+}
+
+.company-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 260px;
+  min-height: 250px;
+  padding: var(--space-4);
   border: 2px solid var(--color-ink);
   border-radius: var(--radius-md);
   background: var(--color-surface);
   color: var(--color-ink);
-  font-weight: 800;
+  text-decoration: none;
   text-align: center;
-  transition: background var(--transition), transform var(--transition);
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
 }
 
-.logo-strip a:hover {
+.company-card:hover {
   background: var(--color-yellow);
-  transform: translateY(-4px);
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.company-logo-placeholder {
+  width: 100%;
+  height: 90px;
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-soft);
+  margin-bottom: var(--space-3);
+  font-size: 2.2rem;
+  color: var(--color-subtle);
+  transition: background var(--transition);
+}
+
+.company-card:hover .company-logo-placeholder {
+  background: rgba(255, 255, 255, 0.5);
+  border-color: var(--color-ink);
+}
+
+.company-name {
+  margin: 0 0 var(--space-2);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--color-ink);
+}
+
+.company-info {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .contact-form {
@@ -1785,9 +1846,7 @@ body.how-to-get-page {
     block-size: 145px;
   }
 
-  .logo-strip {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+
 
   .howto-hero-grid {
     grid-template-columns: 1fr;
@@ -1913,8 +1972,7 @@ body.how-to-get-page {
     justify-self: center;
   }
 
-  .form-grid,
-  .logo-strip {
+  .form-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1982,7 +2040,7 @@ body.how-to-get-page {
 }
 
 /* Hover Effect for the whole card */
-.cv-flip-card:hover .cv-flip-card-inner:not(.is-flipped) {
+.cv-flip-card:not(.is-flipped):hover .cv-flip-card-inner {
   transform: translateY(-8px);
   box-shadow: 0 18px 38px var(--color-blue-soft);
 }
