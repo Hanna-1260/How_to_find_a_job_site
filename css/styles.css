@@ -1225,6 +1225,22 @@ body.how-to-get-page {
   transform: translateY(-2px);
 }
 
+.faq-list--hidden {
+  display: none;
+}
+
+.chip-clear {
+  padding-inline: 0.95rem;
+  background: var(--color-pink);
+  border-color: var(--color-ink);
+}
+
+.chip-clear:hover,
+.chip-clear:focus-visible {
+  background: var(--howto-green);
+  color: var(--color-ink);
+}
+
 .flip-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

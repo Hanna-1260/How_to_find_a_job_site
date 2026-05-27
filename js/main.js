@@ -65,6 +65,7 @@
 
   const faqItems = [...document.querySelectorAll("[data-faq-item]")];
   const faqChips = [...document.querySelectorAll("[data-faq-chip]")];
+  const faqClearButton = document.querySelector("[data-faq-clear]");
 
   if (faqItems.length) {
     const filterFaq = (value) => {
@@ -75,20 +76,24 @@
       });
     };
 
+    const clearFaqSelection = () => {
+      faqChips.forEach((item) => item.classList.remove("is-active"));
+      filterFaq("");
+    };
+
     faqChips.forEach((chip) => {
       chip.addEventListener("click", () => {
         const isActive = chip.classList.contains("is-active");
-        faqChips.forEach((item) => item.classList.remove("is-active"));
+        clearFaqSelection();
 
-        if (isActive) {
-          filterFaq("");
-          return;
+        if (!isActive) {
+          chip.classList.add("is-active");
+          filterFaq(chip.dataset.faqChip || "");
         }
-
-        chip.classList.add("is-active");
-        filterFaq(chip.dataset.faqChip || "");
       });
     });
+
+    faqClearButton?.addEventListener("click", clearFaqSelection);
   }
 
   const activatePressedTabGroup = (selector, groupSelector) => {
