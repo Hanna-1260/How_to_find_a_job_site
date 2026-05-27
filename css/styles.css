@@ -300,36 +300,115 @@ button {
 /* Jobs tabs and accordion */
 .job-tab-list {
   display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: calc(var(--radius-lg) * 1.2);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1.25rem;
 }
 .job-tab {
-  background: transparent;
-  border: 2px solid var(--color-ink);
-  padding: 0.5rem 1rem;
+  appearance: none;
+  border: 1px solid rgba(17, 24, 39, 0.15);
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--color-ink);
+  min-width: 100px;
+  padding: 0.85rem 1.1rem;
   border-radius: var(--radius-pill);
-  font-weight: 800;
+  font-weight: 700;
+  transition: all 180ms ease;
+  cursor: pointer;
+}
+.job-tab:hover,
+.job-tab:focus-visible {
+  transform: translateY(-1px);
+  border-color: var(--color-primary);
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.08);
 }
 .job-tab.is-active {
   background: var(--color-primary);
   color: var(--color-ink);
+  border-color: var(--color-primary);
+  box-shadow: 0 12px 30px rgba(33, 150, 243, 0.18);
 }
 .job-panels {
-  display: block;
+  display: grid;
+  gap: 1rem;
 }
 .job-panel {
-  padding: 0.5rem 0;
+  padding: 1rem;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.06);
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+.job-panel.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+.job-panel.fade-out {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+.job-panel[hidden] {
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  height: 0;
+  overflow: hidden;
 }
 .job-panel details {
-  border: 1px solid var(--color-border);
-  padding: 0.75rem 1rem;
-  margin-bottom: 0.75rem;
-  border-radius: var(--radius-sm);
-  background: var(--color-surface);
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  padding: 1rem 1.1rem;
+  margin-bottom: 0.85rem;
+  border-radius: var(--radius-md);
+  background: white;
+}
+.job-panel details:last-of-type {
+  margin-bottom: 0;
 }
 .job-panel summary {
   cursor: pointer;
   font-weight: 700;
+  list-style: none;
+  position: relative;
+  padding-right: 1.5rem;
+}
+.job-panel summary::-webkit-details-marker {
+  display: none;
+}
+.job-panel summary::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-right: 2px solid var(--color-ink);
+  border-bottom: 2px solid var(--color-ink);
+  transform: translateY(-50%) rotate(-45deg);
+  transition: transform 180ms ease;
+}
+.job-panel details[open] summary::after {
+  transform: translateY(-50%) rotate(45deg);
+}
+.job-panel summary,
+.job-panel p {
+  color: var(--color-ink);
+}
+.job-panel p {
+  margin: 0.75rem 0 0;
+  line-height: 1.65;
+  color: var(--color-text);
+}
+.job-panel[hidden] {
+  visibility: hidden;
+}
+.job-panel:not([hidden]) {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
 }
 
 .hero h1,

@@ -261,23 +261,62 @@
   const jobPanels = [...document.querySelectorAll('[data-job-panel]')];
 
   if (jobTabs.length && jobPanels.length) {
+    const getCurrentPanel = () => jobPanels.find((panel) => !panel.hasAttribute('hidden')) || jobPanels[0];
+
+    const hidePanel = (panel) => {
+      panel.classList.remove('fade-in');
+      panel.classList.add('fade-out');
+      panel.addEventListener('transitionend', function onEnd(event) {
+        if (event.target !== panel) return;
+        panel.removeEventListener('transitionend', onEnd);
+        panel.setAttribute('hidden', '');
+        panel.setAttribute('aria-hidden', 'true');
+      });
+    };
+
+    const showPanel = (panel) => {
+      panel.removeAttribute('hidden');
+      panel.setAttribute('aria-hidden', 'false');
+      panel.classList.remove('fade-out');
+      panel.classList.add('fade-in');
+    };
+
     const activateJob = (target) => {
-      jobTabs.forEach((t) => {
-        const isActive = t.dataset.jobTarget === target;
-        t.classList.toggle('is-active', isActive);
-        t.setAttribute('aria-selected', String(isActive));
+      const nextPanel = document.getElementById(target);
+      if (!nextPanel) return;
+
+      jobTabs.forEach((tab) => {
+        const isActive = tab.dataset.jobTarget === target;
+        tab.classList.toggle('is-active', isActive);
+        tab.setAttribute('aria-selected', String(isActive));
+        tab.setAttribute('tabindex', isActive ? '0' : '-1');
       });
 
-      jobPanels.forEach((p) => {
-        p.hidden = p.id !== target;
-      });
+      const currentPanel = getCurrentPanel();
+      if (currentPanel === nextPanel) return;
+
+      if (!nextPanel.hasAttribute('hidden')) {
+        jobPanels.forEach((panel) => {
+          panel.hidden = panel.id !== target;
+          panel.setAttribute('aria-hidden', String(panel.id !== target));
+        });
+        return;
+      }
+
+      hidePanel(currentPanel);
+      showPanel(nextPanel);
     };
 
     jobTabs.forEach((tab) => {
       tab.addEventListener('click', () => activateJob(tab.dataset.jobTarget));
+      tab.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          activateJob(tab.dataset.jobTarget);
+        }
+      });
     });
 
-    // default to first tab
     activateJob(jobTabs[0].dataset.jobTarget);
   }
 

@@ -54,14 +54,14 @@
 לכן בנינו את מילון המשרות :)</p>
         </div>
         <div class="job-tabs" aria-label="משרות ותפקידים">
-          <div class="job-tab-list" role="tablist" aria-label="קטגוריות">
-            <button class="job-tab is-active" role="tab" aria-selected="true" data-job-target="training">הדרכה</button>
-            <button class="job-tab" role="tab" aria-selected="false" data-job-target="design">עיצוב</button>
-            <button class="job-tab" role="tab" aria-selected="false" data-job-target="dev">פיתוח</button>
+          <div class="job-tab-list" role="tablist" aria-label="קטגוריות משרות">
+            <button id="tab-training" type="button" class="job-tab is-active" role="tab" aria-selected="true" aria-controls="training" data-job-target="training">הדרכה</button>
+            <button id="tab-design" type="button" class="job-tab" role="tab" aria-selected="false" aria-controls="design" data-job-target="design">עיצוב</button>
+            <button id="tab-dev" type="button" class="job-tab" role="tab" aria-selected="false" aria-controls="dev" data-job-target="dev">פיתוח</button>
           </div>
 
           <div class="job-panels">
-            <div id="training" class="job-panel" data-job-panel>
+            <div id="training" class="job-panel" role="tabpanel" aria-labelledby="tab-training" data-job-panel>
               <details>
                 <summary>מעצב/ת למידה</summary>
                 <p>מתכננים חוויות למידה דיגיטליות בצורה מעניינת, ברורה ואפקטיבית.</p>
@@ -92,7 +92,7 @@
               </details>
             </div>
 
-            <div id="design" class="job-panel" data-job-panel hidden>
+            <div id="design" class="job-panel" role="tabpanel" aria-labelledby="tab-design" data-job-panel hidden aria-hidden="true">
               <details>
                 <summary>מאפיין/ת מוצר (Product Designer)</summary>
                 <p>אחראים על חוויית המשתמש והמראה של המוצר הדיגיטלי — מאפיון המסכים ועד העיצוב הסופי, תוך חשיבה על צרכי המשתמש והמטרות העסקיות.</p>
@@ -123,7 +123,7 @@
               </details>
             </div>
 
-            <div id="dev" class="job-panel" data-job-panel hidden>
+            <div id="dev" class="job-panel" role="tabpanel" aria-labelledby="tab-dev" data-job-panel hidden aria-hidden="true">
               <details>
                 <summary>Front-End Developer</summary>
                 <p>מפתחים את הצד שהמשתמש רואה באתר או באפליקציה — מסכים, כפתורים ואינטראקציות.</p>
