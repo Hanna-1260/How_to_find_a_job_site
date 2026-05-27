@@ -256,6 +256,31 @@
     });
   }
 
+  // Jobs tabs: switch visible panel when clicking tabs
+  const jobTabs = [...document.querySelectorAll('.job-tab')];
+  const jobPanels = [...document.querySelectorAll('[data-job-panel]')];
+
+  if (jobTabs.length && jobPanels.length) {
+    const activateJob = (target) => {
+      jobTabs.forEach((t) => {
+        const isActive = t.dataset.jobTarget === target;
+        t.classList.toggle('is-active', isActive);
+        t.setAttribute('aria-selected', String(isActive));
+      });
+
+      jobPanels.forEach((p) => {
+        p.hidden = p.id !== target;
+      });
+    };
+
+    jobTabs.forEach((tab) => {
+      tab.addEventListener('click', () => activateJob(tab.dataset.jobTarget));
+    });
+
+    // default to first tab
+    activateJob(jobTabs[0].dataset.jobTarget);
+  }
+
   window.addEventListener("DOMContentLoaded", () => {
     if (!window.location.hash) {
       window.scrollTo(0, 0);

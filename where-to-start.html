@@ -50,25 +50,114 @@
       <div class="container">
         <div class="section-heading">
           <h2 id="jobs-title">מילון משרות ותפקידים שיש בשוק</h2>
-          <p>לא בטוחים מה ההבדל בין עיצוב למידה, הדרכה ותכנות? בנינו מילון משרות קצר ומכוון.</p>
+          <p>אנחנו בטוחים שנתקלתם במשרות שאין לכם מושג מה הן אומרות או למי הן מיועדות...
+לכן בנינו את מילון המשרות :)</p>
         </div>
-        <div class="job-list">
-          <details open>
-            <summary>מעצב/ת למידה</summary>
-            <p>אחראים על תכנון חוויית למידה: מטרות, מבנה, פעילויות, מדידה ותוכן.</p>
-          </details>
-          <details>
-            <summary>מפתח/ת הדרכה</summary>
-            <p>כותבים תסריטים, מצגות, לומדות ותוצרי הדרכה שמלווים תהליכי הכשרה.</p>
-          </details>
-          <details>
-            <summary>מפתח/ת לומדות</summary>
-            <p>מחברים בין תוכן, אינטראקציה וכלים טכנולוגיים כדי ליצור חוויית למידה דיגיטלית.</p>
-          </details>
-          <details>
-            <summary>רכז/ת למידה דיגיטלית</summary>
-            <p>מנהלים מערכות למידה, קורסים, משתמשים, נתונים ושיפור שוטף של תהליכי למידה.</p>
-          </details>
+        <div class="job-tabs" aria-label="משרות ותפקידים">
+          <div class="job-tab-list" role="tablist" aria-label="קטגוריות">
+            <button class="job-tab is-active" role="tab" aria-selected="true" data-job-target="training">הדרכה</button>
+            <button class="job-tab" role="tab" aria-selected="false" data-job-target="design">עיצוב</button>
+            <button class="job-tab" role="tab" aria-selected="false" data-job-target="dev">פיתוח</button>
+          </div>
+
+          <div class="job-panels">
+            <div id="training" class="job-panel" data-job-panel>
+              <details>
+                <summary>מעצב/ת למידה</summary>
+                <p>מתכננים חוויות למידה דיגיטליות בצורה מעניינת, ברורה ואפקטיבית.</p>
+              </details>
+              <details>
+                <summary>מפתח/ת הדרכה</summary>
+                <p>בונים תכני הדרכה, מצגות, קורסים וחומרי למידה לעובדים או לסטודנטים.</p>
+              </details>
+              <details>
+                <summary>מפתח/ת לומדות</summary>
+                <p>מפתחים לומדות אינטראקטיביות באמצעות כלים דיגיטליים כמו Storyline או Rise.</p>
+              </details>
+              <details>
+                <summary>רכז/ת למידה דיגיטלית</summary>
+                <p>מנהלים מערכות למידה דיגיטליות, מעלים תכנים ועוקבים אחרי תהליכי למידה בארגון.</p>
+              </details>
+              <details>
+                <summary>מטמיע/ת מערכות למידה</summary>
+                <p>מלמדים עובדים להשתמש במערכות חדשות ומסייעים בהטמעה שלהן בארגון.</p>
+              </details>
+              <details>
+                <summary>כותב/ת תוכן לימודי</summary>
+                <p>כותבים תכנים מקצועיים לקורסים, הדרכות ולומדות דיגיטליות.</p>
+              </details>
+              <details>
+                <summary>מומחה/ית LMS</summary>
+                <p>אחראים על ניהול ותפעול מערכות למידה כמו Moodle או Canvas.</p>
+              </details>
+            </div>
+
+            <div id="design" class="job-panel" data-job-panel hidden>
+              <details>
+                <summary>מאפיין/ת מוצר (Product Designer)</summary>
+                <p>אחראים על חוויית המשתמש והמראה של המוצר הדיגיטלי — מאפיון המסכים ועד העיצוב הסופי, תוך חשיבה על צרכי המשתמש והמטרות העסקיות.</p>
+              </details>
+              <details>
+                <summary>מעצב/ת UX</summary>
+                <p>חוקרים ומתכננים את חוויית המשתמש במוצר כדי להפוך אותה לנוחה, ברורה ואינטואיטיבית יותר.</p>
+              </details>
+              <details>
+                <summary>מעצב/ת UI</summary>
+                <p>אחראים על העיצוב הוויזואלי של הממשק — צבעים, כפתורים, טיפוגרפיה, אייקונים ושפה גרפית.</p>
+              </details>
+              <details>
+                <summary>UX Writer</summary>
+                <p>כותבים את הטקסטים שמופיעים בממשק — הודעות, כפתורים, שגיאות והנחיות למשתמש.</p>
+              </details>
+              <details>
+                <summary>חוקר/ת UX</summary>
+                <p>מבצעים מחקרי משתמשים, ראיונות ובדיקות שימושיות כדי להבין איך אנשים משתמשים במוצר.</p>
+              </details>
+              <details>
+                <summary>מאפיין/ת אינטראקציה</summary>
+                <p>מתכננים איך המשתמש זז ופועל בתוך המערכת — אנימציות, מעברים והתנהגות המסכים.</p>
+              </details>
+              <details>
+                <summary>מעצב/ת גרפי לדיגיטל</summary>
+                <p>יוצרים חומרים גרפיים למוצרים דיגיטליים, רשתות חברתיות, אתרים וקמפיינים.</p>
+              </details>
+            </div>
+
+            <div id="dev" class="job-panel" data-job-panel hidden>
+              <details>
+                <summary>Front-End Developer</summary>
+                <p>מפתחים את הצד שהמשתמש רואה באתר או באפליקציה — מסכים, כפתורים ואינטראקציות.</p>
+              </details>
+              <details>
+                <summary>Back-End Developer</summary>
+                <p>אחראים על הצד הטכנולוגי שמאחורי הקלעים — שרתים, בסיסי נתונים ולוגיקה של המערכת.</p>
+              </details>
+              <details>
+                <summary>Full Stack Developer</summary>
+                <p>משלבים עבודה גם על ה־Front-End וגם על ה־Back-End.</p>
+              </details>
+              <details>
+                <summary>Web Developer</summary>
+                <p>מפתחים ובונים אתרים ומערכות אינטרנט.</p>
+              </details>
+              <details>
+                <summary>JavaScript Developer</summary>
+                <p>מתמחים בפיתוח באמצעות JavaScript ובבניית אינטראקציות דינמיות באתר.</p>
+              </details>
+              <details>
+                <summary>WordPress Developer</summary>
+                <p>בונים ומעצבים אתרי WordPress ולעיתים גם מפתחים תוספים ותבניות.</p>
+              </details>
+              <details>
+                <summary>QA Tester</summary>
+                <p>בודקים מערכות ואתרים כדי למצוא באגים ולוודא שהמוצר עובד בצורה תקינה.</p>
+              </details>
+              <details>
+                <summary>Technical Support</summary>
+                <p>נותנים תמיכה טכנית למשתמשים ועוזרים בפתרון תקלות במערכות דיגיטליות.</p>
+              </details>
+            </div>
+          </div>
         </div>
       </div>
     </section>
