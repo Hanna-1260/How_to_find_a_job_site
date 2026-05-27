@@ -287,6 +287,12 @@ button {
   gap: clamp(1.5rem, 4vw, 3.5rem);
 }
 
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
 .hero h1,
 .page-hero h1 {
   max-width: 1050px;
@@ -295,6 +301,7 @@ button {
   font-size: var(--text-page-title);
   font-weight: 800;
   line-height: 0.95;
+  white-space: nowrap;
 }
 
 .page-hero h1 {
