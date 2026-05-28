@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="css/styles.css">
   <script src="js/main.js" defer></script>
 </head>
-<body>
+<body class="about-page-body">
   <a class="skip-link" href="#main">דלגו לתוכן המרכזי</a>
   <header class="site-header" data-site-header>
     <div class="container header-inner">
@@ -56,49 +56,93 @@
   <main id="main">
     <section class="hero page-hero">
       <div class="container">
-        <h1>ללכת בטל״מ</h1>
+        <h1>ללכת בטל"מ - מי אנחנו</h1>
         <p class="hero-lead">המדריך למציאת עבודה וכלים לעבודה לסטודנטים ובוגרי תואר בטכנולוגיות למידה, במכון הטכנולוגי חולון HIT</p>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="audience-title">
-      <div class="container content-stack">
-        <article class="info-row">
-          <h2 id="audience-title">קהל היעד</h2>
-          <p>סטודנטים ובוגרי תואר בטכנולוגיות למידה שרוצים להבין מה מחפשים בשוק, איך מסבירים ניסיון לימודי ואילו כלים כדאי להציג.</p>
-        </article>
-        <article class="info-row">
-          <h2>אתגרים שנתקלנו בהם בפיתוח האתר</h2>
-          <p>אפיון התוכן, פריסות עמודים שונות באתר, עבודה עם GitHub ושמירה על עקביות בין עמודי תוכן, טפסים וכרטיסים.</p>
-        </article>
-        <article class="split-card">
-          <div>
-            <h2>פותח על ידי</h2>
-            <ul class="clean-list">
-              <li>חני פלולי</li>
-              <li>נועה נורוזי</li>
-              <li>סול שגב</li>
-              <li>רעות רון</li>
-            </ul>
-          </div>
-          <figure class="image-frame">
-            <img src="design images/design-000009.png" alt="לוח השראה ויזואלי עם דוגמאות לממשקים צבעוניים" loading="lazy">
-          </figure>
-        </article>
-        <article class="info-row">
-          <h2>גם אנחנו מחפשות עבודה</h2>
-          <p>האתר נבנה מתוך חוויה אמיתית של סטודנטיות שמנסות להבין איך לקרוא משרות, איך להציג פרויקטים ואיך להפוך עבודות קורסים לתיק עבודות.</p>
-        </article>
-        <article class="info-row">
-          <h2>להלן הדפים שפותחו באתר</h2>
-          <ul class="inline-site-list">
-            <li><a href="index.html">עמוד הבית</a></li>
-            <li><a href="where-to-start.html">מאיפה מתחילים?</a></li>
-            <li><a href="portfolio-builder.html">בניית תיק עבודות מנצח</a></li>
-            <li><a href="contact.html">צור קשר</a></li>
-            <li><a href="sitemap.html">מפת האתר</a></li>
-          </ul>
-        </article>
+    <section class="section">
+      <div class="container">
+        <div class="about-grid">
+          
+          <!-- Card 1: Target Audience -->
+          <article class="about-card theme-green" aria-labelledby="audience-title">
+            <div class="card-icon" aria-hidden="true">🎯</div>
+            <div class="card-content">
+              <h2 id="audience-title">קהל היעד</h2>
+              <p>סטודנטים ובוגרי תואר בטכנולוגיות למידה שרוצים להבין מה מחפשים בשוק, איך מסבירים ניסיון לימודי ואילו כלים כדאי להציג לתיק העבודות.</p>
+            </div>
+          </article>
+
+          <!-- Card 2: Developer Team -->
+          <article class="about-card theme-pink">
+            <div class="card-icon" aria-hidden="true">💻</div>
+            <div class="card-content">
+              <h2>פותח על ידי</h2>
+              <p class="team-sub">סטודנטיות שנה א' לטכנולוגיות למידה:</p>
+              <div class="team-grid">
+                <span class="team-member">חני פלולי</span>
+                <span class="team-member">נוגה נורוזי</span>
+                <span class="team-member">סול שגב</span>
+                <span class="team-member">רעות רון</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3: Personal Connection -->
+          <article class="about-card theme-blue">
+            <div class="card-icon" aria-hidden="true">💡</div>
+            <div class="card-content">
+              <h2>גם אנחנו מחפשות עבודה</h2>
+              <p>האתר נבנה מתוך חוויה אמיתית של סטודנטיות שמנסות להבין איך לקרוא משרות, איך להציג פרויקטים ואיך להפוך עבודות קורסים לתיק עבודות שיפתח לנו דלתות בתעשייה.</p>
+            </div>
+          </article>
+
+          <!-- Card 4: Challenges -->
+          <article class="about-card theme-green">
+            <div class="card-icon" aria-hidden="true">⚡</div>
+            <div class="card-content">
+              <h2>אתגרים שנתקלנו בהם בפיתוח</h2>
+              <ul class="challenges-list">
+                <li><strong>אפיון התוכן:</strong> זיקוק הצרכים של סטודנטים בתחילת הדרך.</li>
+                <li><strong>פריסות עמודים:</strong> עיצוב ממשקים שונים אך עקביים ויזואלית.</li>
+                <li><strong>עבודה עם GitHub:</strong> ניהול גרסאות ועבודת צוות שיתופית.</li>
+                <li><strong>עקביות ויזואלית:</strong> שמירה על שפה גרפית אחידה של כרטיסים, טפסים ותפריטים.</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Card 5: Site Pages -->
+          <article class="about-card theme-black full-width">
+            <div class="card-content">
+              <h2>הדפים שפותחו באתר</h2>
+              <p class="pages-sub">מוזמנים לנווט בין עמודי הפרויקט השונים:</p>
+              <div class="pages-grid">
+                <a href="index.html" class="page-link-card">
+                  <span class="page-link-title">עמוד הבית</span>
+                  <span class="page-link-arrow">←</span>
+                </a>
+                <a href="where-to-start.html" class="page-link-card">
+                  <span class="page-link-title">איפה מתחילים?</span>
+                  <span class="page-link-arrow">←</span>
+                </a>
+                <a href="how-to-be-accepted.html" class="page-link-card">
+                  <span class="page-link-title">איך מתקבלים?</span>
+                  <span class="page-link-arrow">←</span>
+                </a>
+                <a href="contact.html" class="page-link-card">
+                  <span class="page-link-title">צור קשר</span>
+                  <span class="page-link-arrow">←</span>
+                </a>
+                <a href="sitemap.html" class="page-link-card">
+                  <span class="page-link-title">מפת האתר</span>
+                  <span class="page-link-arrow">←</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
       </div>
     </section>
   </main>

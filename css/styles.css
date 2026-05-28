@@ -2573,6 +2573,7 @@ body.how-to-get-page {
   gap: var(--space-3);
   position: relative;
   background-clip: padding-box;
+  overflow: hidden; /* Prevents top color bar from sticking out of the card's rounded borders */
 }
 
 .sitemap-branch-card:hover {
@@ -2588,18 +2589,16 @@ body.how-to-get-page {
   right: 0;
   height: 12px;
   border-bottom: 2px solid var(--color-ink);
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
 }
 
-.theme-purple::before {
-  background-color: var(--color-purple);
+.theme-green::before {
+  background-color: var(--color-primary);
+}
+.theme-pink::before {
+  background-color: var(--color-pink);
 }
 .theme-blue::before {
   background-color: var(--color-blue);
-}
-.theme-orange::before {
-  background-color: var(--color-orange);
 }
 
 .branch-header {
@@ -2689,4 +2688,192 @@ body.how-to-get-page {
   border-color: var(--color-ink);
   color: var(--color-ink);
 }
+
+/* ==========================================================================
+   ABOUT PAGE STYLES (.about-page-body)
+   ========================================================================== */
+
+.about-page-body .about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+
+.about-page-body .about-card {
+  position: relative;
+  padding: clamp(1.8rem, 3.2vw, 3rem);
+  border: 2px solid var(--color-ink);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: 6px 7px 0 var(--color-ink);
+  transition: transform var(--transition), box-shadow var(--transition);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  background-clip: padding-box;
+  overflow: hidden; /* Prevents absolute child elements (like the top color bar) from overflowing the rounded corners */
+}
+
+.about-page-body .about-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 10px 11px 0 var(--color-ink);
+}
+
+.about-page-body .about-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 12px;
+  border-bottom: 2px solid var(--color-ink);
+}
+
+.about-page-body .about-card.theme-green::before { background-color: var(--color-primary); }
+.about-page-body .about-card.theme-pink::before { background-color: var(--color-pink); }
+.about-page-body .about-card.theme-blue::before { background-color: var(--color-blue); }
+.about-page-body .about-card.theme-black::before { background-color: var(--color-ink); }
+
+.about-page-body .about-card.full-width {
+  grid-column: span 2;
+}
+
+.about-page-body .about-card .card-icon {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  font-size: 1.8rem;
+  background: var(--color-soft);
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--color-ink);
+  border-radius: 50%;
+  box-shadow: 3px 3px 0 var(--color-ink);
+}
+
+.about-page-body .about-card h2 {
+  margin: 10px 0 var(--space-2);
+  color: var(--color-ink);
+  font-size: var(--text-card-title);
+  font-weight: 800;
+  padding-left: 60px;
+}
+
+.about-page-body .team-sub {
+  margin: 0 0 var(--space-2);
+  font-weight: 600;
+  color: var(--color-subtle);
+}
+
+.about-page-body .team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: auto;
+}
+
+.about-page-body .team-member {
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  background: var(--color-soft);
+  border: 2px solid var(--color-ink);
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  color: var(--color-ink);
+  box-shadow: 3px 3px 0 var(--color-ink);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.about-page-body .team-member:hover {
+  transform: translateY(-2px);
+  box-shadow: 4px 4px 0 var(--color-ink);
+}
+
+.about-page-body .challenges-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.about-page-body .challenges-list li {
+  position: relative;
+  padding-right: 1.8rem;
+  font-size: 1.05rem;
+}
+
+.about-page-body .challenges-list li::before {
+  content: '✦';
+  position: absolute;
+  right: 0;
+  color: var(--color-orange);
+  font-weight: 800;
+}
+
+.about-page-body .pages-sub {
+  margin: 0 0 var(--space-3);
+  font-weight: 600;
+  color: var(--color-subtle);
+}
+
+.about-page-body .pages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-3);
+}
+
+.about-page-body .page-link-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.8rem 1.2rem;
+  border: 2px solid var(--color-ink);
+  border-radius: var(--radius-md);
+  background: var(--color-soft);
+  transition: transform var(--transition), box-shadow var(--transition), background-color var(--transition);
+  font-weight: 700;
+  color: var(--color-ink);
+  text-decoration: none !important;
+  box-shadow: 4px 4px 0 var(--color-ink);
+}
+
+.about-page-body .page-link-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 6px 6px 0 var(--color-ink);
+  background-color: var(--color-primary);
+}
+
+.about-page-body .page-link-title {
+  flex-grow: 1;
+}
+
+.about-page-body .page-link-arrow {
+  transition: transform var(--transition);
+}
+
+.about-page-body .page-link-card:hover .page-link-arrow {
+  transform: translateX(-4px);
+}
+
+@media (max-width: 980px) {
+  .about-page-body .about-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  .about-page-body .about-card.full-width {
+    grid-column: span 1;
+  }
+  .about-page-body .about-card {
+    padding: var(--space-4);
+  }
+  .about-page-body .about-card h2 {
+    padding-left: 0;
+    margin-top: 50px;
+  }
+}
+
 
