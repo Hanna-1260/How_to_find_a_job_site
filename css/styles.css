@@ -755,11 +755,12 @@ button {
 .scenario-grid .feature-card {
   min-height: auto;
   padding: 0;
-  border: none;
+  border: 2px solid var(--color-ink);
   border-radius: 16px;
-  background: transparent;
+  background: var(--color-surface);
   box-shadow: none;
   overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
 }
 
 .resource-card:hover {
@@ -767,9 +768,13 @@ button {
   box-shadow: var(--color-pink) 0 8px 18px;
 }
 
-/* Disable transform but keep a blue shadow for comic/feature cards */
 .feature-card:hover {
   box-shadow: 0 18px 38px var(--color-blue-soft);
+}
+
+.scenario-grid .feature-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: var(--color-pink) 0 8px 24px;
 }
 
 .scenario-grid .feature-card .card-number {
@@ -846,7 +851,7 @@ button {
   display: grid;
   align-content: center;
   padding: clamp(2rem, 4vw, 4rem);
-  border: 2px solid var(--color-forum-blue);
+  border: 2px solid var(--color-pink);
   border-radius: var(--radius-lg);
   background: var(--color-muted);
   text-align: center;
@@ -857,23 +862,39 @@ button {
   font-size: var(--text-sub);
 }
 
+.testimonial-card p,
+.testimonial-card strong {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.testimonial-wrap.is-animating .testimonial-card p,
+.testimonial-wrap.is-animating .testimonial-card strong {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
 .carousel-btn {
   display: grid;
   place-items: center;
   inline-size: 62px;
   block-size: 62px;
+  padding: 0;
   border: 2px solid var(--color-ink);
   border-radius: 50%;
   background: var(--color-surface);
   color: var(--color-ink);
-  font-size: 3rem;
-  line-height: 1;
   transition: background var(--transition), border-color var(--transition), color var(--transition), transform var(--transition);
 }
 
+.carousel-btn svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
 .carousel-btn:hover {
-  background: var(--color-forum-blue);
-  border-color: var(--color-forum-blue);
+  background: var(--color-pink);
+  border-color: var(--color-pink);
   color: #ffffff;
   transform: translateY(-2px);
 }
@@ -1027,6 +1048,7 @@ button {
   display: block;
   width: 100%;
   height: auto;
+  transform: scale(1.02);
   border-radius: 0;
   object-fit: cover;
 }

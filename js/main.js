@@ -72,18 +72,28 @@
     const quoteEl = carousel.querySelector("[data-carousel-quote]");
     const nameEl = carousel.querySelector("[data-carousel-name]");
     let current = 0;
+    let isTransitioning = false;
 
     const render = () => {
-      quoteEl.textContent = quotes[current].text;
-      nameEl.textContent = quotes[current].name;
+      if (isTransitioning) return;
+      isTransitioning = true;
+      carousel.classList.add("is-animating");
+      setTimeout(() => {
+        quoteEl.textContent = quotes[current].text;
+        nameEl.textContent = quotes[current].name;
+        carousel.classList.remove("is-animating");
+        isTransitioning = false;
+      }, 220);
     };
 
     carousel.querySelector("[data-carousel-next]")?.addEventListener("click", () => {
+      if (isTransitioning) return;
       current = (current + 1) % quotes.length;
       render();
     });
 
     carousel.querySelector("[data-carousel-prev]")?.addEventListener("click", () => {
+      if (isTransitioning) return;
       current = (current - 1 + quotes.length) % quotes.length;
       render();
     });
