@@ -2079,7 +2079,6 @@ body.how-to-get-page {
   border: 2px solid var(--color-ink);
   border-radius: var(--radius-md);
   background: var(--color-surface);
-  transition: transform var(--transition), box-shadow var(--transition);
 }
 
 .info-card::before {
@@ -2091,27 +2090,6 @@ body.how-to-get-page {
   border: 2px solid var(--color-ink);
   background: var(--color-ink);
   transform: translate(6px, 6px);
-  transition: transform var(--transition);
-}
-
-.info-card:hover {
-  transform: translate(-2px, -2px);
-}
-
-.info-card:hover::before {
-  transform: translate(8px, 8px);
-}
-
-.info-card.theme-green::before {
-  background: var(--color-primary);
-}
-
-.info-card.theme-pink::before {
-  background: var(--color-pink);
-}
-
-.info-card.theme-blue::before {
-  background: var(--color-blue);
 }
 
 .info-card-icon {
