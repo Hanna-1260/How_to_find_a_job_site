@@ -1,24 +1,32 @@
 @import url("https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&display=swap");
 
+/* ==========================================================================
+   הגדרת משתנים גלובליים (CSS Variables / Design Tokens)
+   ========================================================================== */
 :root {
-  --color-bg: #ffffff;
-  --color-surface: #ffffff;
-  --color-soft: #ffffff;
-  --color-muted: #ffffff;
-  --color-ink: #101112;
-  --color-text: #2a2d2f;
-  --color-subtle: #6a6f75;
-  --color-border: #d8d4ca;
-  --color-primary: #78f2a7;
-  --color-primary-strong: #43dc80;
-  --color-blue: #5d7cff;
-  --color-forum-blue: #4067FB;
-  --color-footer-bg: #7DFFB5;
-  --color-purple: #8d6bf2;
-  --color-pink: #F653D5;
-  --color-blue-soft: rgba(93, 124, 255, 0.35);
-  --color-orange: #ff6b2d;
-  --color-yellow: #dfff4f;
+  /* צבעי רקע סמנטיים (משמשים להפרדה והכנה נוחה למצב כהה / Dark Mode בעתיד) */
+  --color-bg: #ffffff;       /* צבע הרקע הראשי של דפי האתר */
+  --color-surface: #ffffff;  /* צבע הרקע של רכיבים וכרטיסיות (למשל כרטיסיות מילון משרות) */
+  --color-soft: #ffffff;     /* צבע רקע עדין משני */
+  --color-muted: #ffffff;    /* צבע רקע מוחלש לתיבות ומידע משני */
+
+  /* צבעי טקסט ודיו */
+  --color-ink: #101112;      /* צבע כהה עיקרי לטקסט וכותרות (סגנון ניאו-ברוטליסטי) */
+  --color-text: #2a2d2f;     /* צבע טקסט רץ (קריא ורך יותר) */
+  --color-subtle: #6a6f75;   /* צבע טקסט משני עדין */
+  --color-border: #d8d4ca;   /* צבע גבולות ברירת מחדל */
+
+  /* צבעי מותג וצבעים אינטראקטיביים */
+  --color-primary: #78f2a7;         /* צבע ירוק ראשי (משמש לריחוף, כפתורים פעילים והדגשות) */
+  --color-primary-strong: #43dc80;  /* צבע ירוק כהה וחזק יותר */
+  --color-blue: #5d7cff;            /* צבע כחול ראשי */
+  --color-forum-blue: #4067FB;      /* צבע כחול לפורומים */
+  --color-footer-bg: #7DFFB5;       /* צבע רקע ירוק לחלק התחתון (Footer) */
+  --color-purple: #8d6bf2;          /* צבע סגול */
+  --color-pink: #F653D5;            /* צבע ורוד מודגש */
+  --color-blue-soft: rgba(93, 124, 255, 0.35); /* צבע כחול שקוף למחצה */
+  --color-orange: #ff6b2d;          /* צבע כתום */
+  --color-yellow: #dfff4f;          /* צבע צהוב זוהר */
   --space-1: 0.5rem;
   --space-2: 0.75rem;
   --space-3: 1rem;
@@ -526,6 +534,10 @@ button {
   border-color: var(--color-primary);
   box-shadow: 0 12px 30px rgba(33, 150, 243, 0.18);
 }
+/* --------------------------------------------------------------------------
+   מילון משרות ותפקידים - מיכלי המידע (Job Panels)
+   ניהול התצוגה, המעברים והאנימציות בעת סינון קטגוריות
+   -------------------------------------------------------------------------- */
 .job-panels {
   display: grid;
   gap: 1rem;
@@ -535,8 +547,25 @@ button {
   border-radius: var(--radius-lg);
   background: var(--color-surface);
   box-shadow: 0 12px 24px rgba(15, 23, 42, 0.06);
-  transition: opacity 220ms ease, transform 220ms ease;
+  /* טרנזקציה להעלמה והופעה חלקה של הקטגוריות */
+  transition: opacity 220ms ease, transform 220ms ease, visibility 220ms ease;
 }
+/* הגדרת מצב פעיל (גלוי) - סדר ההגדרות חשוב למניעת דריסת הטרנזקציות */
+.job-panel:not([hidden]) {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+/* הגדרת מצב כבוי (מוסתר) - קורס לחלוטין ומעלים את המיכל מהמסך */
+.job-panel[hidden] {
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+/* סגנונות מעבר (Transitions) - מוגדרים בסוף כדי שייגברו על הגדרות ברירת המחדל */
 .job-panel.fade-in {
   opacity: 1;
   transform: translateY(0);
@@ -544,13 +573,6 @@ button {
 .job-panel.fade-out {
   opacity: 0;
   transform: translateY(-10px);
-}
-.job-panel[hidden] {
-  opacity: 0;
-  transform: translateY(-10px);
-  pointer-events: none;
-  height: 0;
-  overflow: hidden;
 }
 .job-panel details {
   border: 1px solid rgba(17, 24, 39, 0.08);
@@ -596,14 +618,7 @@ button {
   line-height: 1.65;
   color: var(--color-text);
 }
-.job-panel[hidden] {
-  visibility: hidden;
-}
-.job-panel:not([hidden]) {
-  opacity: 1;
-  transform: translateY(0);
-  visibility: visible;
-}
+
 
 .hero h1,
 .page-hero h1 {
@@ -684,7 +699,7 @@ button {
   font-weight: 800;
   line-height: 1;
   transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
-  background: #ffffff;
+  background: var(--color-surface);
   box-shadow: 4px 4px 0 var(--color-primary);
 }
 
@@ -706,11 +721,11 @@ button {
 }
 
 .btn-primary {
-  background: #ffffff;
+  background: var(--color-surface);
 }
 
 .btn-secondary {
-  background: #ffffff;
+  background: var(--color-surface);
 }
 
 .btn:hover {
@@ -832,7 +847,7 @@ button {
   margin-block-end: var(--space-4);
   border-radius: 50%;
   background: var(--color-pink);
-  color: #ffffff;
+  color: var(--color-bg);
   font-size: 2rem;
   font-weight: 800;
 }
@@ -895,7 +910,7 @@ button {
 .carousel-btn:hover {
   background: var(--color-pink);
   border-color: var(--color-pink);
-  color: #ffffff;
+  color: var(--color-bg);
   transform: translateY(-2px);
 }
 
@@ -1058,7 +1073,7 @@ button {
   top: 0.85rem;
   right: 0.85rem;
   max-width: 68%;
-  background: #fff;
+  background: var(--color-surface);
   border: 2px solid var(--color-ink);
   padding: 0.75rem 1rem;
   border-radius: 16px;
@@ -1185,12 +1200,13 @@ button {
 
 body.how-to-get-page {
   --howto-pink: #ffd6f5;
+  --howto-pink-bright: #ff70e2;
   --howto-green: #93f7bd;
   --howto-green-strong: #6df2a8;
   --howto-blue: #4f73ff;
   --howto-lilac: #f9dbf4;
   --howto-ink: #101112;
-  background: #ffffff;
+  background: var(--color-surface);
 }
 
 .howto-page {
@@ -1277,7 +1293,7 @@ body.how-to-get-page {
 .howto-hero-lead {
   max-width: 34rem;
   margin: 4.2rem 0 0;
-  color: #101112;
+  color: var(--color-ink);
   font-size: clamp(1.45rem, 2.1vw, 1.9rem);
   font-weight: 600;
   line-height: 1.12;
@@ -1293,7 +1309,7 @@ body.how-to-get-page {
   padding: 0.85rem 1.45rem;
   border: 2px solid var(--color-ink);
   border-radius: var(--radius-pill);
-  background: #ffffff;
+  background: var(--color-surface);
   color: var(--color-ink);
   text-decoration: none;
   font-weight: 800;
@@ -1319,7 +1335,7 @@ body.how-to-get-page {
 
 .howto-hero-lead mark {
   padding: 0 0.04em;
-  background: linear-gradient(transparent 76%, #f653d5 76%, #f653d5 90%, transparent 90%);
+  background: linear-gradient(transparent 76%, var(--color-pink) 76%, var(--color-pink) 90%, transparent 90%);
 }
 
 .howto-cta-group {
@@ -1338,7 +1354,7 @@ body.how-to-get-page {
   padding: 0.72rem 1.6rem 0.9rem;
   border-radius: 34px 34px 0 0;
   background: var(--howto-blue);
-  color: #ffffff;
+  color: var(--color-bg);
   text-align: center;
   font-size: clamp(1.25rem, 1.9vw, 1.7rem);
   font-weight: 600;
@@ -1362,6 +1378,12 @@ body.how-to-get-page {
   font-size: clamp(2rem, 4.5vw, 3.85rem);
   font-weight: 800;
   line-height: 1.02;
+}
+
+.howto-heading h2 mark {
+  background: var(--howto-pink-bright);
+  color: inherit;
+  padding: 0 0.15em;
 }
 
 .howto-heading p {
@@ -1436,7 +1458,7 @@ body.how-to-get-page {
   margin-inline: auto;
   padding: clamp(1.25rem, 2.8vw, 2rem);
   border-radius: 32px;
-  background: #ffffff;
+  background: var(--color-surface);
   border: 1px solid rgba(15, 23, 42, 0.08);
   box-shadow: 0 24px 40px rgba(15, 23, 42, 0.08);
 }
@@ -1450,7 +1472,7 @@ body.how-to-get-page {
   padding: clamp(1.1rem, 2.4vw, 1.5rem);
   border: 1px solid rgba(15, 23, 42, 0.06);
   border-radius: 24px;
-  background: #ffffff;
+  background: var(--color-surface);
   color: var(--howto-ink);
   cursor: pointer;
   text-align: right;
@@ -1550,7 +1572,7 @@ body.how-to-get-page {
   block-size: 2.2rem;
   border-radius: var(--radius-pill);
   background: var(--howto-blue);
-  color: #ffffff;
+  color: var(--color-bg);
   font-size: 1.5rem;
   font-weight: 800;
   line-height: 1;
@@ -1624,7 +1646,7 @@ body.how-to-get-page {
   min-height: 2.75rem;
   padding: 0.65rem 1.2rem;
   border: 2px solid var(--color-ink);
-  background: #ffffff;
+  background: var(--color-surface);
   color: var(--color-ink);
   font-size: 0.95rem;
 }
@@ -1668,9 +1690,6 @@ body.how-to-get-page {
   min-height: 190px;
   width: 100%;
   padding: 0;
-  border: 2px solid var(--color-ink);
-  border-radius: 32px;
-  overflow: hidden;
   background: transparent;
   color: var(--howto-ink);
   cursor: pointer;
@@ -1694,13 +1713,19 @@ body.how-to-get-page {
   display: grid;
   place-items: center;
   padding: 2.2rem 1.4rem 1.5rem;
-  border-radius: 0 0 32px 32px;
+  border: 2px solid var(--color-ink);
+  border-radius: 32px;
+  overflow: hidden;
   background: var(--howto-lilac);
   backface-visibility: hidden;
 }
 
+.flip-card__front {
+  background: var(--color-surface);
+}
+
 .flip-card__back {
-  background: var(--howto-green);
+  background: var(--howto-pink-bright);
   transform: rotateY(180deg);
 }
 
@@ -1894,22 +1919,30 @@ body.how-to-get-page {
   font-weight: 800;
 }
 
+/* --------------------------------------------------------------------------
+   קרוסלת חברות מובילות (Infinite Marquee Carousel)
+   מנגנון תנועה אינסופי של לוגואים ומידע המותאם לדפי עברית (RTL)
+   -------------------------------------------------------------------------- */
 .companies-carousel-container {
   overflow: hidden;
   width: 100%;
   padding-block: var(--space-4) var(--space-5);
   position: relative;
+  /* אפקט טשטוש (Fade) בצדדים של הקרוסלה ליצירת מראה יוקרתי */
   mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
   -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
-  direction: ltr; /* Align the track to the left, ensuring overflow is on the right and works correctly in RTL */
+  /* הגדרה קריטית ל-LTR כדי שהקרוסלה תתחיל משמאל, ותאפשר גלישת תוכן ימינה מחוץ למסך בדפי עברית (RTL) */
+  direction: ltr; 
 }
 
 .companies-carousel-track {
   display: flex;
   width: max-content;
   gap: var(--space-4);
+  /* אנימציית הזזה רציפה (Marquee) */
   animation: marquee-scroll 32s linear infinite;
-  direction: ltr; /* Force track layout to LTR so translateX works consistently across all screens */
+  /* פריסת ה-Flex של הכרטיסיות משמאל לימין כדי להבטיח חישוב תזוזה תקין בכל המסכים */
+  direction: ltr; 
 }
 
 .companies-carousel-track:hover {
@@ -1953,7 +1986,7 @@ body.how-to-get-page {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #ffffff;
+  background: var(--color-surface);
   transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
   overflow: hidden;
 }
@@ -1997,29 +2030,162 @@ body.how-to-get-page {
   }
 }
 
-.contact-form {
-  max-width: 980px;
-  margin-inline: auto;
-  padding: clamp(1.5rem, 3.5vw, 3rem);
-  border: 2px solid var(--color-ink);
-  border-radius: var(--radius-lg);
-  background: var(--color-muted);
+/* --------------------------------------------------------------------------
+   עמוד צור קשר (Contact Page Layout & Cards)
+   -------------------------------------------------------------------------- */
+.contact-section {
+  padding-block: clamp(2rem, 5vw, 4rem) clamp(3.2rem, 7vw, 5.6rem);
 }
 
-.contact-form h2 {
-  margin-block-end: var(--space-5);
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1.12fr 0.88fr;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: start;
+}
+
+.contact-info {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.contact-info-title {
+  font-size: clamp(2rem, 3.5vw, 2.85rem);
+  font-weight: 800;
+  color: var(--color-ink);
+  line-height: 1.1;
+  margin: 0;
+}
+
+.contact-info-subtitle {
+  font-size: clamp(1.1rem, 1.4vw, 1.2rem);
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
+  line-height: 1.45;
+}
+
+.info-cards-grid {
+  display: grid;
+  gap: 1.25rem;
+  margin-block-start: 0.5rem;
+}
+
+.info-card {
+  position: relative;
+  display: flex;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  border: 2px solid var(--color-ink);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.info-card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  border-radius: inherit;
+  border: 2px solid var(--color-ink);
+  background: var(--color-ink);
+  transform: translate(6px, 6px);
+  transition: transform var(--transition);
+}
+
+.info-card:hover {
+  transform: translate(-2px, -2px);
+}
+
+.info-card:hover::before {
+  transform: translate(8px, 8px);
+}
+
+.info-card.theme-green::before {
+  background: var(--color-primary);
+}
+
+.info-card.theme-pink::before {
+  background: var(--color-pink);
+}
+
+.info-card.theme-blue::before {
+  background: var(--color-blue);
+}
+
+.info-card-icon {
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.info-card-content {
+  text-align: right;
+}
+
+.info-card-content h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-ink);
+}
+
+.info-card-content p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.contact-form-container {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.contact-form-container .contact-form {
+  max-width: 100%;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  background: var(--color-surface);
+  border: 2px solid var(--color-ink);
+  border-radius: var(--radius-lg);
+  position: relative;
+}
+
+.contact-form-container .contact-form::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  border-radius: inherit;
+  border: 2px solid var(--color-ink);
+  background: var(--color-ink);
+  transform: translate(8px, 8px);
+}
+
+.form-heading {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 800;
+  color: var(--color-ink);
+  margin-block-end: 1rem;
   text-align: center;
 }
 
-.form-grid {
+.form-required-note {
+  font-size: 0.9rem;
+  color: var(--color-subtle);
+  margin-block-start: -0.5rem;
+  margin-block-end: 1.5rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.form-group {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-4);
+  gap: var(--space-2);
 }
 
 .contact-form label {
-  display: grid;
-  gap: var(--space-2);
   color: var(--color-ink);
   font-size: var(--text-card-title);
   font-weight: 800;
@@ -2029,11 +2195,12 @@ body.how-to-get-page {
 .contact-form select,
 .contact-form textarea {
   inline-size: 100%;
-  border: 2px solid transparent;
+  border: 2px solid var(--color-ink);
   border-radius: var(--radius-md);
   background: var(--color-surface);
   color: var(--color-ink);
   font-weight: 500;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
 }
 
 .contact-form input,
@@ -2044,7 +2211,7 @@ body.how-to-get-page {
 
 .contact-form textarea {
   resize: vertical;
-  min-height: 260px;
+  min-height: 220px;
   padding: 1rem;
 }
 
@@ -2052,6 +2219,8 @@ body.how-to-get-page {
 .contact-form select:focus,
 .contact-form textarea:focus {
   border-color: var(--color-ink);
+  outline: none;
+  box-shadow: 4px 4px 0 var(--color-pink);
 }
 
 .full-span {
@@ -2067,6 +2236,13 @@ body.how-to-get-page {
   color: var(--color-ink);
   font-weight: 800;
   text-align: center;
+}
+
+@media (max-width: 980px) {
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
 }
 
 .sitemap-panel {

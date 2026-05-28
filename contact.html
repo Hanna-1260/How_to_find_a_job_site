@@ -56,45 +56,98 @@
   <main id="main">
     <section class="hero page-hero">
       <div class="container">
-        <h1>צריכים ייעוץ מסטודנטים עבר?</h1>
-        <p class="hero-lead">השאירו פרטים ובוגר מהתואר יחזור אליכם במהרה.</p>
+        <h1>צריכים ייעוץ מבוגרי התואר?</h1>
+        <p class="hero-lead">השאירו פרטים ובוגרי ובוגרות התואר יחזרו אליכם בהקדם.</p>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="contact-title">
+    <section class="contact-section" aria-labelledby="contact-title">
       <div class="container">
-        <form class="contact-form" aria-labelledby="contact-title" novalidate data-contact-form>
-          <h2 id="contact-title">טופס יצירת קשר</h2>
-          <div class="form-grid">
-            <label>שם פרטי *
-              <input type="text" name="firstName" autocomplete="given-name" placeholder="הזן את שמך הפרטי" required>
-            </label>
-            <label>שם משפחה *
-              <input type="text" name="lastName" autocomplete="family-name" placeholder="הזן את שם המשפחה שלך" required>
-            </label>
-            <label>מספר טלפון *
-              <input type="tel" name="phone" autocomplete="tel" placeholder="הקלד את מספר הטלפון שלך" required>
-            </label>
-            <label>כתובת מייל *
-              <input type="email" name="email" autocomplete="email" placeholder="הקלד את המייל שלך" required>
-            </label>
-            <label>בחר את הסטטוס שלך *
-              <select name="status" required>
-                <option value="">נא לבחור מה הכי נכון לך</option>
-                <option>סטודנט שנה א׳</option>
-                <option>סטודנט שנה ב׳</option>
-                <option>סטודנט שנה ג׳</option>
-                <option>סטודנט לתואר שני</option>
-                <option>בוגר/ת</option>
-              </select>
-            </label>
-            <label class="full-span">ספר/י לנו על עצמך
-              <textarea name="message" rows="8" placeholder="נשמח אם תכתבו כמה מילים: היכן אתם לומדים, באיזו שנה, מה התחום שבו תרצו לעסוק ואפילו סתם מחשבות או חששות"></textarea>
-            </label>
+        <div class="contact-layout">
+          
+          <!-- עמודת מידע וכרטיסים -->
+          <div class="contact-info">
+            <h2 id="contact-title" class="contact-info-title">איך אנחנו יכולים לעזור?</h2>
+            <p class="contact-info-subtitle">קהילת טכנולוגיות למידה (טל"מ) כאן כדי לתמוך בכם לאורך כל הדרך המקצועית.</p>
+            
+            <div class="info-cards-grid">
+              <div class="info-card theme-green">
+                <span class="info-card-icon" aria-hidden="true">🎯</span>
+                <div class="info-card-content">
+                  <h3>ייעוץ אישי והכוונה</h3>
+                  <p>סטודנטים ובוגרים משנים מתקדמות יחזרו אליכם כדי לענות על שאלות, לשתף מנסיונם ולסייע בהשתלבות בשוק העבודה.</p>
+                </div>
+              </div>
+              
+              <div class="info-card theme-pink">
+                <span class="info-card-icon" aria-hidden="true">✨</span>
+                <div class="info-card-content">
+                  <h3>פידבק על תיק עבודות</h3>
+                  <p>רוצים שמישהו מקצועי יעבור על קורות החיים שלכם או על פרויקט הגמר? נשמח לתת לכם טיפים לשיפור ודיוק.</p>
+                </div>
+              </div>
+              
+              <div class="info-card theme-blue">
+                <span class="info-card-icon" aria-hidden="true">🚀</span>
+                <div class="info-card-content">
+                  <h3>רשת קשרים והזדמנויות</h3>
+                  <p>השאירו פרטים כדי לקבל גישה לקבוצות המשרות והנטוורקינג הרשמיות של סטודנטים בטל"מ.</p>
+                </div>
+              </div>
+            </div>
           </div>
-          <p class="form-status" data-form-status role="status" aria-live="polite"></p>
-          <button class="btn btn-primary form-submit" type="submit">שלח/י את הטופס</button>
-        </form>
+          
+          <!-- עמודת הטופס -->
+          <div class="contact-form-container">
+            <form class="contact-form" aria-labelledby="form-heading" novalidate data-contact-form>
+              <h2 id="form-heading" class="form-heading">דברו איתנו</h2>
+              <p class="form-required-note">* מציין שדה חובה</p>
+              <div class="form-grid">
+                
+                <div class="form-group">
+                  <label for="firstName">שם פרטי *</label>
+                  <input type="text" id="firstName" name="firstName" autocomplete="given-name" placeholder="הזן את שמך הפרטי" required aria-required="true">
+                </div>
+                
+                <div class="form-group">
+                  <label for="lastName">שם משפחה *</label>
+                  <input type="text" id="lastName" name="lastName" autocomplete="family-name" placeholder="הזן את שם המשפחה שלך" required aria-required="true">
+                </div>
+                
+                <div class="form-group">
+                  <label for="phone">מספר טלפון *</label>
+                  <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="הקלד את מספר הטלפון שלך" required aria-required="true">
+                </div>
+                
+                <div class="form-group">
+                  <label for="email">כתובת מייל *</label>
+                  <input type="email" id="email" name="email" autocomplete="email" placeholder="הקלד את המייל שלך" required aria-required="true">
+                </div>
+                
+                <div class="form-group full-span">
+                  <label for="status">בחר את הסטטוס שלך *</label>
+                  <select id="status" name="status" required aria-required="true">
+                    <option value="">נא לבחור מה הכי נכון לך</option>
+                    <option>סטודנט שנה א׳</option>
+                    <option>סטודנט שנה ב׳</option>
+                    <option>סטודנט שנה ג׳</option>
+                    <option>סטודנט לתואר שני</option>
+                    <option>בוגר/ת</option>
+                  </select>
+                </div>
+                
+                <div class="form-group full-span">
+                  <label for="message">ספר/י לנו על עצמך</label>
+                  <textarea id="message" name="message" rows="5" placeholder="נשמח אם תכתבו כמה מילים: היכן אתם לומדים, באיזו שנה, מה התחום שבו תרצו לעסוק ואפילו סתם מחשבות או חששות"></textarea>
+                </div>
+                
+              </div>
+              <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+              <button class="btn btn-primary form-submit" type="submit">שלח/י את הטופס</button>
+            </form>
+          </div>
+          
+        </div>
       </div>
     </section>
   </main>

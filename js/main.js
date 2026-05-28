@@ -305,13 +305,25 @@
     const hidePanel = (panel) => {
       panel.classList.remove('fade-in');
       panel.classList.add('fade-out');
-      const onTransitionEnd = (event) => {
-        if (event.target !== panel) return;
+      
+      let hasCompleted = false;
+      const completeTransition = () => {
+        if (hasCompleted) return;
+        hasCompleted = true;
         panel.removeEventListener('transitionend', onTransitionEnd);
         panel.setAttribute('hidden', '');
         panel.setAttribute('aria-hidden', 'true');
       };
+      
+      const onTransitionEnd = (event) => {
+        if (event.target !== panel) return;
+        completeTransition();
+      };
+      
       panel.addEventListener('transitionend', onTransitionEnd);
+      
+      // Fallback timer: if transition does not fire within 300ms, trigger completion manually
+      setTimeout(completeTransition, 300);
     };
 
     const showPanel = (panel) => {
