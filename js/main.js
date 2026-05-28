@@ -21,9 +21,35 @@
     });
 
     nav.addEventListener("click", (event) => {
-      if (event.target.closest("a")) {
+      const link = event.target.closest("a");
+      // Close mobile nav when clicking a normal link, but not when clicking a dropdown toggle
+      if (link && !link.classList.contains("dropdown-toggle")) {
         setOpen(false);
       }
+    });
+
+    // Toggle dropdown menus (accordion behavior) on mobile/tablet viewports (<= 1200px)
+    const dropdownToggles = nav.querySelectorAll(".dropdown-toggle");
+    dropdownToggles.forEach((toggle) => {
+      toggle.addEventListener("click", (event) => {
+        event.preventDefault(); // Prevent page jump to "#"
+        if (window.innerWidth <= 1200) {
+          const parent = toggle.closest(".nav-dropdown");
+          const isOpen = parent.classList.contains("is-open");
+
+          // Close other dropdowns
+          nav.querySelectorAll(".nav-dropdown").forEach((item) => {
+            if (item !== parent) {
+              item.classList.remove("is-open");
+              item.querySelector(".dropdown-toggle")?.setAttribute("aria-expanded", "false");
+            }
+          });
+
+          // Toggle current dropdown
+          parent.classList.toggle("is-open", !isOpen);
+          toggle.setAttribute("aria-expanded", String(!isOpen));
+        }
+      });
     });
   }
 

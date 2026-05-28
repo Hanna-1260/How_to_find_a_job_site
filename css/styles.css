@@ -188,7 +188,7 @@ button {
 
 }
 
-.primary-nav ul {
+.primary-nav > ul {
   display: flex;
   align-items: center;
   gap: clamp(0.65rem, 1.4vw, 1.4rem);
@@ -223,7 +223,7 @@ button {
   transform: translateY(-1px);
 }
 
-.primary-nav a {
+.primary-nav > ul > li > a {
   display: inline-flex;
   align-items: center;
   min-height: 44px;
@@ -234,14 +234,14 @@ button {
   transition: color var(--transition), background var(--transition), transform var(--transition);
 }
 
-.primary-nav a:hover,
-.primary-nav a:focus-visible,
-.primary-nav a[aria-current="page"] {
+.primary-nav > ul > li > a:hover,
+.primary-nav > ul > li > a:focus-visible,
+.primary-nav > ul > li > a[aria-current="page"] {
   color: var(--color-ink);
   background: var(--color-primary);
 }
 
-.primary-nav a:hover {
+.primary-nav > ul > li > a:hover {
   transform: translateY(-2px);
 }
 
@@ -274,7 +274,7 @@ button {
     box-shadow: 4px 4px 0 var(--color-ink);
     min-width: 200px;
     list-style: none;
-    padding: var(--space-2) 0;
+    padding: 0;
     margin: var(--space-1) 0 0 0;
     z-index: 1000;
     
@@ -284,6 +284,17 @@ button {
     pointer-events: none;
     transform: translateY(8px);
     transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+  }
+
+  /* Transparent bridge to prevent losing hover when crossing the margin gap */
+  .dropdown-menu::before {
+    content: "";
+    position: absolute;
+    top: -12px;
+    left: 0;
+    right: 0;
+    height: 12px;
+    background: transparent;
   }
 
   .nav-dropdown:hover .dropdown-menu {
@@ -301,7 +312,7 @@ button {
   .dropdown-menu a {
     display: block;
     width: 100%;
-    padding: 0.6rem 1.2rem;
+    padding: 0.8rem 1.2rem;
     border-radius: 0 !important;
     color: var(--color-text);
     font-size: 0.95rem;
@@ -310,9 +321,21 @@ button {
     transition: background var(--transition), color var(--transition);
   }
 
+  /* Round top and bottom corners of the first and last links to match the container's rounded borders */
+  .dropdown-menu li:first-child a {
+    border-top-left-radius: calc(var(--radius-md) - 2px) !important;
+    border-top-right-radius: calc(var(--radius-md) - 2px) !important;
+  }
+
+  .dropdown-menu li:last-child a {
+    border-bottom-left-radius: calc(var(--radius-md) - 2px) !important;
+    border-bottom-right-radius: calc(var(--radius-md) - 2px) !important;
+  }
+
   .dropdown-menu a:hover,
-  .dropdown-menu a:focus-visible {
-    background-color: var(--color-yellow) !important;
+  .dropdown-menu a:focus-visible,
+  .dropdown-menu a[aria-current="page"] {
+    background-color: var(--color-primary) !important;
     color: var(--color-ink) !important;
     transform: none !important;
   }
@@ -359,9 +382,10 @@ button {
   }
 
   .dropdown-menu a:hover,
-  .dropdown-menu a:focus-visible {
+  .dropdown-menu a:focus-visible,
+  .dropdown-menu a[aria-current="page"] {
     color: var(--color-ink) !important;
-    background: var(--color-soft) !important;
+    background: var(--color-primary) !important;
   }
 
   .dropdown-toggle {
@@ -2059,12 +2083,12 @@ body.how-to-get-page {
     display: block;
   }
 
-  .primary-nav ul {
+  .primary-nav > ul {
     display: grid;
     gap: var(--space-1);
   }
 
-  .primary-nav a {
+  .primary-nav > ul > li > a {
     inline-size: 100%;
   }
 }
