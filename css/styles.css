@@ -273,16 +273,24 @@ button {
     border-radius: var(--radius-md);
     box-shadow: 4px 4px 0 var(--color-ink);
     min-width: 200px;
-    display: none;
     list-style: none;
     padding: var(--space-2) 0;
     margin: var(--space-1) 0 0 0;
     z-index: 1000;
+    
+    /* Smooth fade and slide transition */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(8px);
+    transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
   }
 
   .nav-dropdown:hover .dropdown-menu {
-    display: block;
-    animation: navFadeIn var(--transition) forwards;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
   }
 
   .dropdown-menu li {
@@ -313,12 +321,25 @@ button {
 /* Mobile dropdown (nested in the vertical flow) */
 @media (max-width: 1200px) {
   .dropdown-menu {
-    display: block;
+    display: none; /* Hide by default on mobile */
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    min-width: 0;
     list-style: none;
     padding: 0;
     margin: var(--space-1) var(--space-2) var(--space-1) 0;
     border-right: 2px solid var(--color-border);
     padding-inline-start: var(--space-2);
+  }
+
+  /* Show when open */
+  .nav-dropdown.is-open .dropdown-menu {
+    display: block;
   }
 
   .dropdown-menu li {
@@ -344,11 +365,17 @@ button {
   }
 
   .dropdown-toggle {
-    pointer-events: none; /* Make parent title non-clickable on mobile since it is just a header */
+    pointer-events: auto; /* Allow clicking the dropdown toggle on mobile */
+    cursor: pointer;
   }
   
   .nav-arrow {
-    display: none;
+    display: inline-block;
+    transition: transform var(--transition);
+  }
+
+  .nav-dropdown.is-open .nav-arrow {
+    transform: rotate(180deg);
   }
 }
 
