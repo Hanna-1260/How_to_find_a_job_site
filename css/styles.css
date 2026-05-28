@@ -685,7 +685,7 @@ button {
   line-height: 1;
   transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
   background: #ffffff;
-  box-shadow: 6px 7px 0 var(--color-ink);
+  box-shadow: 4px 4px 0 var(--color-primary);
 }
 
 .arrow-link {
@@ -707,17 +707,16 @@ button {
 
 .btn-primary {
   background: #ffffff;
-  box-shadow: 6px 7px 0 var(--color-ink);
 }
 
 .btn-secondary {
   background: #ffffff;
-  box-shadow: 6px 7px 0 var(--color-ink);
 }
 
 .btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 3px 4px 0 var(--color-ink);
+  background: var(--color-primary);
+  box-shadow: 0 0 0 transparent;
+  transform: translate(4px, 4px);
 }
 
 .scenario-grid {
@@ -1278,14 +1277,15 @@ body.how-to-get-page {
   font-weight: 800;
   font-size: clamp(1rem, 1.4vw, 1.15rem);
   line-height: 1;
-  box-shadow: 6px 7px 0 var(--color-ink);
+  box-shadow: 4px 4px 0 var(--color-primary);
   transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
 }
 
 .howto-hero-cta:hover,
 .howto-hero-cta:focus-visible {
-  transform: translateY(-3px);
-  box-shadow: 3px 4px 0 var(--color-ink);
+  background: var(--color-primary);
+  box-shadow: 0 0 0 transparent;
+  transform: translate(4px, 4px);
 }
 
 .hero-cta-icon {
