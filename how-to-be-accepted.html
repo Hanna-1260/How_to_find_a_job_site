@@ -78,77 +78,261 @@
 
         <div class="project-tools">
           <div class="project-tabs" role="tablist" aria-label="קטגוריות פרויקטים">
-            <button type="button" class="project-tab is-active" role="tab" aria-selected="true" aria-controls="project-board" id="tab-videos" data-category="videos">סרטונים</button>
+            <button type="button" class="project-tab is-active" role="tab" aria-selected="true" aria-controls="project-board" id="tab-simulations" data-category="simulations">סימולציות</button>
             <button type="button" class="project-tab" role="tab" aria-selected="false" aria-controls="project-board" id="tab-lessons" data-category="lessons">לומדות</button>
-            <button type="button" class="project-tab" role="tab" aria-selected="false" aria-controls="project-board" id="tab-websites" data-category="websites">אתרים / ווב אפס</button>
-            <button type="button" class="project-tab" role="tab" aria-selected="false" aria-controls="project-board" id="tab-games" data-category="games">משחקי למידה</button>
+            <button type="button" class="project-tab" role="tab" aria-selected="false" aria-controls="project-board" id="tab-sites" data-category="sites">אתרים</button>
+            <button type="button" class="project-tab" role="tab" aria-selected="false" aria-controls="project-board" id="tab-other" data-category="other">אחר</button>
           </div>
 
           <div class="project-category-summary">
             <span class="project-category-pill">קטגוריה נבחרת</span>
             <div class="project-category-copy">
-              <h3 class="project-category-title">סרטונים</h3>
-              <p class="project-category-description">פרוייקטים קצרים עם מבנה ברור: מטרה, קהל יעד, מה למד המשתמש ואיך הוידאו תומך בלמידה.</p>
+              <h3 class="project-category-title">סימולציות</h3>
+              <p class="project-category-description">סימולציות אינטראקטיביות המאפשרות תרגול מעשי של מיומנויות בסביבה בטוחה ומבוקרת.</p>
             </div>
           </div>
         </div>
 
         <div class="project-board" id="project-board" aria-live="polite" aria-label="פרויקטים לדוגמה">
-          <article class="project-card" role="button" tabindex="0" aria-expanded="false" data-expand-card data-category="videos" aria-hidden="false">
+          <!-- סימולציות -->
+          <article class="project-card" role="button" tabindex="0" aria-expanded="false" data-expand-card data-category="simulations" aria-hidden="false">
             <div class="project-thumb" aria-hidden="true">
-              <img src="design images/design-000004.png" alt="דוגמת סרטון הדרכה">
+              <img src="content/projects/CallMaster.png" alt="CallMaster">
             </div>
             <div class="project-summary">
-              <h3>סרטון הדרכה</h3>
-              <p>פרויקט שמספר סיפור מקצועי קצר: מטרת למידה, קהל יעד, מבנה ושלבי ההצגה.</p>
+              <h3>CallMaster</h3>
+              <p>סימולציית תרגול שיחה לנציגי שירות בחברת ביטוח, הכוללת משוב חכם ומותאם אישית.</p>
               <div class="project-more" aria-hidden="true">
-                <span>הראו איך פירקתם נושא מורכב לרצף קצר, ברור וקל לצפייה.</span>
-                <span>הוסיפו מטרת למידה, קהל יעד ומה הייתם משפרים בגרסה הבאה.</span>
+                <span><strong>סוג הפרויקט:</strong> סימולציה אינטראקטיבית</span>
+                <a href="#" class="project-card-link disabled" onclick="event.preventDefault(); alert('פרויקט זה זמין להתרשמות במסגרת תיק העבודות בלבד');">פרויקט להדגמה (אין קישור פעיל)</a>
               </div>
             </div>
             <span class="project-toggle-icon" aria-hidden="true">⤢</span>
           </article>
 
-          <article class="project-card" role="button" tabindex="0" aria-expanded="false" data-expand-card data-category="lessons" aria-hidden="true">
+          <article class="project-card" role="button" tabindex="0" aria-expanded="false" data-expand-card data-category="simulations" aria-hidden="false">
             <div class="project-thumb" aria-hidden="true">
-              <img src="design images/design-000001.png" alt="דוגמת לומדה קצרה">
+              <img src="content/projects/BoaTrainer.png" alt="BoaTrainer">
             </div>
             <div class="project-summary">
-              <h3>לומדה קצרה</h3>
-              <p>פרויקט למידה קלאסי שמסביר קונספט בשלבים, משוב ומה הסטודנט לומד בסוף.</p>
+              <h3>BoaTrainer</h3>
+              <p>סימולציית תרגול לקורס סקיפרים, בה ניתן לראות איך גורמים שונים משפיעים על השייט.</p>
               <div class="project-more" aria-hidden="true">
-                <span>הסבר בנקודות למה הפרויקט חשוב לתיק העבודות בטכנולוגיות למידה.</span>
-                <span>טיפים לביצוע: קהל יעד, מטרת למידה, בדיקה ותובנות.</span>
+                <span><strong>סוג הפרויקט:</strong> סימולציה פיזיקלית חזותית</span>
+                <a href="#" class="project-card-link disabled" onclick="event.preventDefault(); alert('פרויקט זה זמין להתרשמות במסגרת תיק העבודות בלבד');">פרויקט להדגמה (אין קישור פעיל)</a>
               </div>
             </div>
             <span class="project-toggle-icon" aria-hidden="true">⤢</span>
           </article>
 
-          <article class="project-card" role="button" tabindex="0" aria-expanded="false" data-expand-card data-category="websites" aria-hidden="true">
+          <article class="project-card" role="button" tabindex="0" aria-expanded="false" data-expand-card data-category="simulations" aria-hidden="false">
             <div class="project-thumb" aria-hidden="true">
-              <img src="design images/design-000003.png" alt="דוגמת אתר או ווב אפ">
+              <img src="content/projects/מבט אחר.png" alt="מבט אחר">
             </div>
             <div class="project-summary">
-              <h3>אתר או ווב אפ</h3>
-              <p>פרויקט ממשק שמציג זרימה ברורה, גבולות תהליך ופתרון שמדבר למשתמש.</p>
+              <h3>מבט אחר</h3>
+              <p>סימולציה שבה המשתמשים חווים את האתגרים שאדם בעל מוגבלות שכלית התפתחותית חווה.</p>
               <div class="project-more" aria-hidden="true">
-                <span>הסבירו מה המשתמש צריך לעשות ואיך הממשק מקצר לו את הדרך.</span>
-                <span>ציינו טכנולוגיות, נגישות ותאימות למובייל.</span>
+                <span><strong>סוג הפרויקט:</strong> סימולציה חווייתית</span>
+                <a href="#" class="project-card-link disabled" onclick="event.preventDefault(); alert('פרויקט זה זמין להתרשמות במסגרת תיק העבודות בלבד');">פרויקט להדגמה (אין קישור פעיל)</a>
               </div>
             </div>
             <span class="project-toggle-icon" aria-hidden="true">⤢</span>
           </article>
 
-          <article class="project-card" role="button" tabindex="0" aria-expanded="false" data-expand-card data-category="games" aria-hidden="true">
+          <article class="project-card" role="button" tabindex="0" aria-expanded="false" data-expand-card data-category="simulations" aria-hidden="false">
             <div class="project-thumb" aria-hidden="true">
-              <img src="design images/design-000002.png" alt="דוגמת משחק למידה">
+              <img src="content/projects/קטימבוט.png" alt="קתימבוט">
             </div>
             <div class="project-summary">
-              <h3>משחק למידה</h3>
-              <p>פרויקט חווייתי שמשלב אתגר, משוב מיידי והנעה ללמידה פעילה.</p>
+              <h3>קתימבוט</h3>
+              <p>ממשק תרגול אינטראקטיבי לשיפור האפקטיביות של אימון מיומנויות דיבור מול קהל.</p>
               <div class="project-more" aria-hidden="true">
-                <span>הציגו את האתגר הלימודי ואת הדרך שבה המשחק עוזר לתרגל אותו.</span>
-                <span>ציינו פעולות, יחס למשתמש ומדד הצלחה פשוט.</span>
+                <span><strong>סוג הפרויקט:</strong> ממשק אימון ותרגול אישי</span>
+                <a href="#" class="project-card-link disabled" onclick="event.preventDefault(); alert('פרויקט זה זמין להתרשמות במסגרת תיק העבודות בלבד');">פרויקט להדגמה (אין קישור פעיל)</a>
+              </div>
+            </div>
+            <span class="project-toggle-icon" aria-hidden="true">⤢</span>
+          </article>
+
+          <!-- לומדות -->
+          <article class="project-card" role="button" tabindex="0" aria-expanded="false" data-expand-card data-category="lessons" aria-hidden="true" hidden>
+            <div class="project-thumb" aria-hidden="true">
+              <img src="content/projects/IT'S OK.png" alt="IT'S OK">
+            </div>
+            <div class="project-summary">
+              <h3>IT'S OK</h3>
+              <p>לומדה אינטראקטיבית המלמדת כיצד להתמודד ולהתגבר על מצבי דחק.</p>
+              <div class="project-more" aria-hidden="true">
+                <span><strong>סוג הפרויקט:</strong> לומדה מובנית לתרגול וכלים</span>
+                <a href="#" class="project-card-link disabled" onclick="event.preventDefault(); alert('פרויקט זה זמין להתרשמות במסגרת תיק העבודות בלבד');">פרויקט להדגמה (אין קישור פעיל)</a>
+              </div>
+            </div>
+            <span class="project-toggle-icon" aria-hidden="true">⤢</span>
+          </article>
+
+          <article class="project-card" role="button" tabindex="0" aria-expanded="false" data-expand-card data-category="lessons" aria-hidden="true" hidden>
+            <div class="project-thumb" aria-hidden="true">
+              <img src="content/projects/החיים בין העצים.png" alt="החיים בין העצים">
+            </div>
+            <div class="project-summary">
+              <h3>החיים בין העצים</h3>
+              <p>לומדה לילדים המלמדת על חשיבות העצים בחולון.</p>
+              <div class="project-more" aria-hidden="true">
+                <span><strong>סוג הפרויקט:</strong> לומדה צבעונית משחקית לילדים</span>
+                <a href="#" class="project-card-link disabled" onclick="event.preventDefault(); alert('פרויקט זה זמין להתרשמות במסגרת תיק העבודות בלבד');">פרויקט להדגמה (אין קישור פעיל)</a>
+              </div>
+            </div>
+            <span class="project-toggle-icon" aria-hidden="true">⤢</span>
+          </article>
+
+          <article class="project-card" role="button" tabindex="0" aria-expanded="false" data-expand-card data-category="lessons" aria-hidden="true" hidden>
+            <div class="project-thumb" aria-hidden="true">
+              <img src="content/projects/פוקוס על הכלה.png" alt="פוקוס על הכלה">
+            </div>
+            <div class="project-summary">
+              <h3>פוקוס על הכלה</h3>
+              <p>לומדה לצילום כלות באופן מקצועי דרך האייפון.</p>
+              <div class="project-more" aria-hidden="true">
+                <span><strong>סוג הפרויקט:</strong> לומדת מיומנות וטכניקה מעשית</span>
+                <a href="#" class="project-card-link disabled" onclick="event.preventDefault(); alert('פרויקט זה זמין להתרשמות במסגרת תיק העבודות בלבד');">פרויקט להדגמה (אין קישור פעיל)</a>
+              </div>
+            </div>
+            <span class="project-toggle-icon" aria-hidden="true">⤢</span>
+          </article>
+
+          <article class="project-card" role="button" tabindex="0" aria-expanded="false" data-expand-card data-category="lessons" aria-hidden="true" hidden>
+            <div class="project-thumb" aria-hidden="true">
+              <img src="content/projects/הצללת המצב.png" alt="הצללת המצב">
+            </div>
+            <div class="project-summary">
+              <h3>הצללת המצב</h3>
+              <p>לומדה אינטראקטיבית לנוער ללמידת טיפול במקרי התייבשות ומכות חום.</p>
+              <div class="project-more" aria-hidden="true">
+                <span><strong>סוג הפרויקט:</strong> לומדה מבוססת תרחישי חירום</span>
+                <a href="#" class="project-card-link disabled" onclick="event.preventDefault(); alert('פרויקט זה זמין להתרשמות במסגרת תיק העבודות בלבד');">פרויקט להדגמה (אין קישור פעיל)</a>
+              </div>
+            </div>
+            <span class="project-toggle-icon" aria-hidden="true">⤢</span>
+          </article>
+
+          <!-- אתרים -->
+          <article class="project-card" role="button" tabindex="0" aria-expanded="false" data-expand-card data-category="sites" aria-hidden="true" hidden>
+            <div class="project-thumb" aria-hidden="true">
+              <img src="content/projects/כאן מציאן.png" alt="כאן מציאן">
+            </div>
+            <div class="project-summary">
+              <h3>כאן מציאן</h3>
+              <p>הנגשת תוכן נוסטלגי מארכיון רשות השידור לבני הגיל השלישי.</p>
+              <div class="project-more" aria-hidden="true">
+                <span><strong>סוג הפרויקט:</strong> אתר תוכן ונגישות מותאמת</span>
+                <a href="#" class="project-card-link disabled" onclick="event.preventDefault(); alert('פרויקט זה זמין להתרשמות במסגרת תיק העבודות בלבד');">פרויקט להדגמה (אין קישור פעיל)</a>
+              </div>
+            </div>
+            <span class="project-toggle-icon" aria-hidden="true">⤢</span>
+          </article>
+
+          <article class="project-card" role="button" tabindex="0" aria-expanded="false" data-expand-card data-category="sites" aria-hidden="true" hidden>
+            <div class="project-thumb" aria-hidden="true">
+              <img src="content/projects/נוטעים שורשים.png" alt="נוטעים שורשים">
+            </div>
+            <div class="project-summary">
+              <h3>נוטעים שורשים</h3>
+              <p>העלאת המוטיבציה ועזרה בהכנת עבודת שורשים לתלמידים ולמורים בכיתות ז'.</p>
+              <div class="project-more" aria-hidden="true">
+                <span><strong>סוג הפרויקט:</strong> אתר מלווה למידה בית ספרית</span>
+                <a href="#" class="project-card-link disabled" onclick="event.preventDefault(); alert('פרויקט זה זמין להתרשמות במסגרת תיק העבודות בלבד');">פרויקט להדגמה (אין קישור פעיל)</a>
+              </div>
+            </div>
+            <span class="project-toggle-icon" aria-hidden="true">⤢</span>
+          </article>
+
+          <article class="project-card" role="button" tabindex="0" aria-expanded="false" data-expand-card data-category="sites" aria-hidden="true" hidden>
+            <div class="project-thumb" aria-hidden="true">
+              <img src="content/projects/חולון ממחזרת.png" alt="חולון ממחזרת">
+            </div>
+            <div class="project-summary">
+              <h3>חולון ממחזרת</h3>
+              <p>הכוונת המשתמשים לפח המיחזור המתאים לפסולת שאותה הם מעוניינים למחזר, ועידוד למיחזור בחולון.</p>
+              <div class="project-more" aria-hidden="true">
+                <span><strong>סוג הפרויקט:</strong> אתר מקומי לקבלת החלטות ירוקות</span>
+                <a href="#" class="project-card-link disabled" onclick="event.preventDefault(); alert('פרויקט זה זמין להתרשמות במסגרת תיק העבודות בלבד');">פרויקט להדגמה (אין קישור פעיל)</a>
+              </div>
+            </div>
+            <span class="project-toggle-icon" aria-hidden="true">⤢</span>
+          </article>
+
+          <article class="project-card" role="button" tabindex="0" aria-expanded="false" data-expand-card data-category="sites" aria-hidden="true" hidden>
+            <div class="project-thumb" aria-hidden="true">
+              <img src="content/projects/ROBAT.png" alt="ROBAT">
+            </div>
+            <div class="project-summary">
+              <h3>ROBAT</h3>
+              <p>אתר ומשחק לימודי לבנות והוריהן שמטרתו עידוד הרשמה לתכנית רובוטיקה.</p>
+              <div class="project-more" aria-hidden="true">
+                <span><strong>סוג הפרויקט:</strong> אתר שיווקי וחווייתי משולב משחק</span>
+                <a href="#" class="project-card-link disabled" onclick="event.preventDefault(); alert('פרויקט זה זמין להתרשמות במסגרת תיק העבודות בלבד');">פרויקט להדגמה (אין קישור פעיל)</a>
+              </div>
+            </div>
+            <span class="project-toggle-icon" aria-hidden="true">⤢</span>
+          </article>
+
+          <!-- אחר -->
+          <article class="project-card" role="button" tabindex="0" aria-expanded="false" data-expand-card data-category="other" aria-hidden="true" hidden>
+            <div class="project-thumb" aria-hidden="true">
+              <img src="content/projects/אסקימוסי.png" alt="אסקימוקי">
+            </div>
+            <div class="project-summary">
+              <h3>אסקימוקי</h3>
+              <p>לומדים היסטוריה ועוזרים לאסקימואים לבנות את האיגלו.</p>
+              <div class="project-more" aria-hidden="true">
+                <span><strong>סוג הפרויקט:</strong> משחק למידה והרפתקה מבוסס משימות</span>
+                <a href="https://eskimoski.telem-hit.net/" target="_blank" rel="noopener noreferrer" class="project-card-link">מעבר לפרויקט הפעיל ↗</a>
+              </div>
+            </div>
+            <span class="project-toggle-icon" aria-hidden="true">⤢</span>
+          </article>
+
+          <article class="project-card" role="button" tabindex="0" aria-expanded="false" data-expand-card data-category="other" aria-hidden="true" hidden>
+            <div class="project-thumb" aria-hidden="true">
+              <img src="content/projects/סדרו ת'ניירת.png" alt="סדרו ת'ניירת">
+            </div>
+            <div class="project-summary">
+              <h3>סדרו ת’ניירת</h3>
+              <p>ממיינים עובדות גיאוגרפיות לפי היבשות.</p>
+              <div class="project-more" aria-hidden="true">
+                <span><strong>סוג הפרויקט:</strong> משחק מיון ותרגול ידע גיאוגרפי</span>
+                <a href="#" class="project-card-link disabled" onclick="event.preventDefault(); alert('פרויקט זה זמין להתרשמות במסגרת תיק העבודות בלבד');">פרויקט להדגמה (אין קישור פעיל)</a>
+              </div>
+            </div>
+            <span class="project-toggle-icon" aria-hidden="true">⤢</span>
+          </article>
+
+          <article class="project-card" role="button" tabindex="0" aria-expanded="false" data-expand-card data-category="other" aria-hidden="true" hidden>
+            <div class="project-thumb" aria-hidden="true">
+              <img src="content/projects/Hit & Quack.png" alt="Hit & Quack">
+            </div>
+            <div class="project-summary">
+              <h3>Hit & Quack</h3>
+              <p>פוגעים במטרות ולומדים עובדות מעניינות על מאכלים מהעולם.</p>
+              <div class="project-more" aria-hidden="true">
+                <span><strong>סוג הפרויקט:</strong> משחק קליעה למטרה המשלב טריוויה</span>
+                <a href="#" class="project-card-link disabled" onclick="event.preventDefault(); alert('פרויקט זה זמין להתרשמות במסגרת תיק העבודות בלבד');">פרויקט להדגמה (אין קישור פעיל)</a>
+              </div>
+            </div>
+            <span class="project-toggle-icon" aria-hidden="true">⤢</span>
+          </article>
+
+          <article class="project-card" role="button" tabindex="0" aria-expanded="false" data-expand-card data-category="other" aria-hidden="true" hidden>
+            <div class="project-thumb" aria-hidden="true">
+              <img src="content/projects/מבוך הידע.png" alt="מבוך הידע">
+            </div>
+            <div class="project-summary">
+              <h3>מבוך הידע</h3>
+              <p>לומדים על ההיסטוריה של מדינת ישראל ויוצאים מהמבוך.</p>
+              <div class="project-more" aria-hidden="true">
+                <span><strong>סוג הפרויקט:</strong> משחק מבוך היסטורי הרפתקני</span>
+                <a href="https://knowledgemaze.telem-hit.net/" target="_blank" rel="noopener noreferrer" class="project-card-link">מעבר לפרויקט הפעיל ↗</a>
               </div>
             </div>
             <span class="project-toggle-icon" aria-hidden="true">⤢</span>

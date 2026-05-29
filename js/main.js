@@ -156,26 +156,26 @@
   const projectTabs = [...document.querySelectorAll(".project-tab")];
 
   const projectCategoryData = {
-    videos: {
-      title: "סרטונים",
-      description: "פרוייקטים קצרים עם מבנה ברור: מטרה, קהל יעד, מה למד המשתמש ואיך הוידאו תומך בלמידה."
+    simulations: {
+      title: "סימולציות",
+      description: "סימולציות אינטראקטיביות המאפשרות תרגול מעשי של מיומנויות בסביבה בטוחה ומבוקרת."
     },
     lessons: {
       title: "לומדות",
-      description: "פרויקט לומדה שמנגיש תהליך, מסביר שלבים ומשלב משוב למשתמש בדרך ברורה ומקצועית."
+      description: "לומדות אינטראקטיביות מובנות להקניית ידע ותרגול בנושאים מגוונים."
     },
-    websites: {
-      title: "אתרים / ווב אפס",
-      description: "פרויקט ממשק שמציג זרימה ברורה, גריד מידע טוב ועשייה שמתאימה למובייל ונגישה."
+    sites: {
+      title: "אתרים",
+      description: "אתרי אינטרנט ואפליקציות רשת המונגשים למשתמשים ומספקים פתרונות למידה ומידע."
     },
-    games: {
-      title: "משחקי למידה",
-      description: "פרויקט חווייתי שמחבר את המשתמש לאתגר לימודי, משוב מיידי ותובנות מקצועיות."
+    other: {
+      title: "אחר",
+      description: "משחקי למידה אינטראקטיביים ופיתוחים מגוונים נוספים מתחום טכנולוגיות הלמידה."
     }
   };
 
   const setActiveProjectCategory = (category) => {
-    const selected = projectCategoryData[category] || projectCategoryData.videos;
+    const selected = projectCategoryData[category] || projectCategoryData.simulations;
     projectCategoryTitle.textContent = selected.title;
     projectCategoryDescription.textContent = selected.description;
 
@@ -195,7 +195,7 @@
       });
     });
 
-    setActiveProjectCategory("videos");
+    setActiveProjectCategory("simulations");
   }
 
   const isKeyboardActivation = (event) => event.key === "Enter" || event.key === " ";
@@ -222,6 +222,13 @@
 
       event.preventDefault();
       toggleCard();
+    });
+  });
+
+  // מניעת פעפוע בלחיצה על קישורים בתוך הכרטיסיות (כדי שהכרטיסייה לא תיסגר)
+  document.querySelectorAll(".project-card-link").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.stopPropagation();
     });
   });
 
