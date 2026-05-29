@@ -947,7 +947,8 @@ body.how-to-get-page {
 .howto-hero {
   padding-block: clamp(4rem, 8vw, 7.5rem) var(--space-6);
 }
-.projects-anchor-title {
+.projects-anchor-title,
+#jobs-title {
   scroll-margin-top: 120px;
 }
 .howto-hero-grid {
