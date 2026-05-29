@@ -151,32 +151,26 @@
   activatePressedTabGroup(".project-tab", ".project-tabs");
 
   const projectCategoryDescription = document.querySelector(".project-category-description");
-  const projectCategoryTitle = document.querySelector(".project-category-title");
   const projectCards = [...document.querySelectorAll(".project-card[data-category]")];
   const projectTabs = [...document.querySelectorAll(".project-tab")];
 
   const projectCategoryData = {
     simulations: {
-      title: "סימולציות",
       description: "סימולציות אינטראקטיביות המאפשרות תרגול מעשי של מיומנויות בסביבה בטוחה ומבוקרת."
     },
     lessons: {
-      title: "לומדות",
       description: "לומדות אינטראקטיביות מובנות להקניית ידע ותרגול בנושאים מגוונים."
     },
     sites: {
-      title: "אתרים",
       description: "אתרי אינטרנט ואפליקציות רשת המונגשים למשתמשים ומספקים פתרונות למידה ומידע."
     },
     other: {
-      title: "משחקים",
       description: "משחקי למידה אינטראקטיביים ופיתוחים מגוונים נוספים מתחום טכנולוגיות הלמידה."
     }
   };
 
   const setActiveProjectCategory = (category) => {
     const selected = projectCategoryData[category] || projectCategoryData.simulations;
-    projectCategoryTitle.textContent = selected.title;
     projectCategoryDescription.textContent = selected.description;
 
     projectCards.forEach((card) => {
@@ -188,7 +182,7 @@
     });
   };
 
-  if (projectCategoryTitle && projectCategoryDescription) {
+  if (projectCategoryDescription) {
     projectTabs.forEach((tab) => {
       tab.addEventListener("click", () => {
         setActiveProjectCategory(tab.dataset.category);
