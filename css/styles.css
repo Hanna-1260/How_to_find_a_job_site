@@ -2569,15 +2569,27 @@ body.how-to-get-page {
   align-items: center;
   padding: 1.2rem 1.5rem;
   background: var(--color-ink);
-  color: var(--color-bg);
+  color: var(--color-ink);
   border-bottom: 2px solid var(--color-ink);
+}
+
+.cv-flip-card:nth-child(1) .back-header {
+  background: var(--color-yellow);
+}
+
+.cv-flip-card:nth-child(2) .back-header {
+  background: var(--color-pink);
+}
+
+.cv-flip-card:nth-child(3) .back-header {
+  background: var(--color-primary);
 }
 
 .back-header h4 {
   margin: 0;
   font-size: 1.3rem;
   font-weight: 800;
-  color: var(--color-bg);
+  color: var(--color-ink);
 }
 
 .back-icon {
@@ -2592,6 +2604,12 @@ body.how-to-get-page {
   /* Styling scrollbar for aesthetics */
   scrollbar-width: thin;
   scrollbar-color: var(--color-ink) transparent;
+  direction: ltr;
+}
+
+.comparison-list > div,
+.comparison-list > ul {
+  direction: rtl;
 }
 
 .comparison-list::-webkit-scrollbar {
