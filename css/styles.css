@@ -3246,7 +3246,60 @@ body.how-to-get-page {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
-  margin-top: auto;
+  margin-top: var(--space-3);
+}
+
+.about-page-body .about-card .card-divider {
+  border: none;
+  border-top: 2px dashed rgba(15, 23, 42, 0.15);
+  margin-block: var(--space-4);
+  width: 100%;
+}
+
+.about-page-body .about-card .project-context {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--color-ink);
+  margin-block-end: var(--space-3);
+}
+
+.about-page-body .about-card .faculty-link-wrapper {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-block-end: var(--space-4);
+}
+
+.about-page-body .about-card .about-faculty-link {
+  color: var(--howto-ink);
+  text-decoration: underline;
+  font-weight: 800;
+  transition: color var(--transition);
+}
+
+.about-page-body .about-card .about-faculty-link:hover,
+.about-page-body .about-card .about-faculty-link:focus-visible {
+  color: var(--color-primary);
+}
+
+.about-page-body .about-card .hit-logo-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-block-start: var(--space-2);
+}
+
+.about-page-body .about-card .hit-card-logo {
+  height: 48px;
+  width: auto;
+  aspect-ratio: 877 / 273;
+  object-fit: contain;
+  transition: transform var(--transition);
+  display: block;
+}
+
+.about-page-body .about-card .hit-card-logo:hover {
+  transform: scale(1.05);
 }
 
 .about-page-body .team-member {
