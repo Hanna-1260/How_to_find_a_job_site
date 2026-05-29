@@ -1743,6 +1743,7 @@ body.how-to-get-page {
 .carousel-control-btn:hover {
   transform: translate(2px, 2px);
   box-shadow: 0 0 0 transparent;
+  background: rgba(147, 247, 189, 0.25);
 }
 .carousel-control-btn:focus-visible {
   outline: none;
@@ -1760,17 +1761,12 @@ body.how-to-get-page {
 .carousel-control-btn.is-paused .icon-pause {
   display: none;
 }
-.carousel-control-btn {
-  background: var(--color-surface);
-}
-.carousel-control-btn:hover {
-  background: var(--color-pink);
-}
 .carousel-control-btn.is-paused {
-  background: var(--color-pink);
+  background: var(--color-primary);
+  color: var(--color-ink);
 }
 .carousel-control-btn.is-paused:hover {
-  background: var(--color-primary);
+  background: var(--color-primary-strong);
 }
 .company-card {
   display: flex;
