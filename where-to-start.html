@@ -534,7 +534,7 @@
       <div class="container">
         <div class="section-heading">
           <h2 id="salary-title">הכירו את מחשבון השכר שלנו!</h2>
-          <p>בחרו תחום ומשרה לדוגמה כדי לקבל טווח שכר משוער</p>
+          <p>תוכלו לבחור את מה שהכי נכון לכן ותקבלו צפי לשכר</p>
         </div>
         <div class="calculator" data-salary-calculator>
           <form class="calculator-options">
@@ -542,24 +542,50 @@
               <legend>בחרו תחום ספציפי</legend>
               <label><input type="radio" name="field" value="training" checked>הדרכה</label>
               <label><input type="radio" name="field" value="design">עיצוב</label>
-              <label><input type="radio" name="field" value="tech">תכנות</label>
+              <label><input type="radio" name="field" value="dev">פיתוח</label>
             </fieldset>
             <fieldset>
               <legend>בחרו שם משרה</legend>
-              <label><input type="radio" name="role" value="junior" checked>משרה 1</label>
-              <label><input type="radio" name="role" value="mid">משרה 2</label>
-              <label><input type="radio" name="role" value="senior">משרה 3</label>
+              <!-- Training roles -->
+              <label data-role-group="training"><input type="radio" name="role" value="training_role_1" checked>מעצב/ת למידה</label>
+              <label data-role-group="training"><input type="radio" name="role" value="training_role_2">מפתח/ת הדרכה</label>
+              <label data-role-group="training"><input type="radio" name="role" value="training_role_3">מפתח/ת לומדות</label>
+              <label data-role-group="training"><input type="radio" name="role" value="training_role_4">רכז/ת למידה דיגיטלית</label>
+              <label data-role-group="training"><input type="radio" name="role" value="training_role_5">מטמיע/ת מערכות למידה</label>
+              <label data-role-group="training"><input type="radio" name="role" value="training_role_6">כותב/ת תוכן לימודי</label>
+              <label data-role-group="training"><input type="radio" name="role" value="training_role_7">מומחה/ית LMS</label>
+              
+              <!-- Design roles -->
+              <label data-role-group="design" hidden><input type="radio" name="role" value="design_role_1">Product Designer</label>
+              <label data-role-group="design" hidden><input type="radio" name="role" value="design_role_2">UX Designer</label>
+              <label data-role-group="design" hidden><input type="radio" name="role" value="design_role_3">UI Designer</label>
+              <label data-role-group="design" hidden><input type="radio" name="role" value="design_role_4">UX Writer</label>
+              <label data-role-group="design" hidden><input type="radio" name="role" value="design_role_5">UX Researcher</label>
+              <label data-role-group="design" hidden><input type="radio" name="role" value="design_role_6">מאפיין/ת אינטראקציה</label>
+              <label data-role-group="design" hidden><input type="radio" name="role" value="design_role_7">מעצב/ת גרפי לדיגיטל</label>
+              
+              <!-- Dev roles -->
+              <label data-role-group="dev" hidden><input type="radio" name="role" value="dev_role_1">Front-End Developer</label>
+              <label data-role-group="dev" hidden><input type="radio" name="role" value="dev_role_2">Back-End Developer</label>
+              <label data-role-group="dev" hidden><input type="radio" name="role" value="dev_role_3">Full Stack Developer</label>
+              <label data-role-group="dev" hidden><input type="radio" name="role" value="dev_role_4">Web Developer</label>
+              <label data-role-group="dev" hidden><input type="radio" name="role" value="dev_role_5">JavaScript Developer</label>
+              <label data-role-group="dev" hidden><input type="radio" name="role" value="dev_role_6">WordPress Developer</label>
+              <label data-role-group="dev" hidden><input type="radio" name="role" value="dev_role_7">QA Tester</label>
+              <label data-role-group="dev" hidden><input type="radio" name="role" value="dev_role_8">Technical Support</label>
             </fieldset>
             <fieldset>
               <legend>בחרו שנות ניסיון</legend>
-              <label><input type="radio" name="experience" value="student" checked>סטודנט שנה א׳</label>
-              <label><input type="radio" name="experience" value="graduate">סטודנט שנה ג׳</label>
-              <label><input type="radio" name="experience" value="plus">ניסיון קודם</label>
+              <label><input type="radio" name="experience" value="student_1" checked>סטודנט שנה א׳</label>
+              <label><input type="radio" name="experience" value="student_2">סטודנט שנה ב׳</label>
+              <label><input type="radio" name="experience" value="student_3">סטודנט שנה ג׳</label>
+              <label><input type="radio" name="experience" value="exp_1">שנה ניסיון</label>
+              <label><input type="radio" name="experience" value="exp_2">שנתיים ניסיון</label>
             </fieldset>
           </form>
           <aside class="salary-result" aria-live="polite">
             <p>לפי הפרטים שהזנתם</p>
-            <strong data-salary-output>8,500 ש״ח</strong>
+            <strong data-salary-output>5,500–6,500 ש״ח</strong>
             <span>טווח משוער לחודש במשרה מלאה</span>
           </aside>
         </div>

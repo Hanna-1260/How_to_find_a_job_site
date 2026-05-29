@@ -252,27 +252,69 @@
   const calculator = document.querySelector("[data-salary-calculator]");
   if (calculator) {
     const output = calculator.querySelector("[data-salary-output]");
-    const values = {
-      training: 7800,
-      design: 8500,
-      tech: 9800,
-      junior: 0,
-      mid: 1200,
-      senior: 2400,
-      student: -800,
-      graduate: 0,
-      plus: 1800
+    const roleLabels = calculator.querySelectorAll('[data-role-group]');
+    const form = calculator.querySelector("form");
+
+    const salaryRanges = {
+      training: {
+        student_1: "5,500–6,500",
+        student_2: "6,000–7,500",
+        student_3: "7,000–8,500",
+        exp_1: "8,000–10,000",
+        exp_2: "10,000–12,000"
+      },
+      design: {
+        student_1: "6,000–7,500",
+        student_2: "7,000–8,500",
+        student_3: "8,000–10,000",
+        exp_1: "10,000–12,000",
+        exp_2: "12,000–15,000"
+      },
+      dev: {
+        student_1: "7,000–8,500",
+        student_2: "8,000–10,000",
+        student_3: "9,000–12,000",
+        exp_1: "12,000–15,000",
+        exp_2: "15,000–18,000"
+      }
     };
 
-    const formatSalary = (value) => `${value.toLocaleString("he-IL")} ש״ח`;
-    const updateSalary = () => {
-      const selected = [...calculator.querySelectorAll("input:checked")];
-      const total = selected.reduce((sum, input) => sum + (values[input.value] || 0), 0);
-      output.textContent = formatSalary(total);
+    const updateUI = () => {
+      const fieldInput = form.querySelector('input[name="field"]:checked');
+      const expInput = form.querySelector('input[name="experience"]:checked');
+      if (!fieldInput || !expInput) return;
+      
+      const selectedField = fieldInput.value;
+      const selectedExp = expInput.value;
+
+      // Ensure at least one role is checked for the current field when switching
+      let hasCheckedRole = false;
+      roleLabels.forEach(label => {
+        const isMatch = label.dataset.roleGroup === selectedField;
+        label.hidden = !isMatch;
+        const input = label.querySelector('input');
+        
+        if (!isMatch) {
+          input.checked = false;
+        } else if (input.checked) {
+          hasCheckedRole = true;
+        }
+      });
+
+      if (!hasCheckedRole) {
+        const firstVisibleLabel = Array.from(roleLabels).find(l => l.dataset.roleGroup === selectedField);
+        if (firstVisibleLabel) {
+          firstVisibleLabel.querySelector('input').checked = true;
+        }
+      }
+
+      // Update salary text
+      const range = salaryRanges[selectedField]?.[selectedExp] || "לא ידוע";
+      output.textContent = `${range} ₪`;
     };
 
-    calculator.addEventListener("change", updateSalary);
-    updateSalary();
+    calculator.addEventListener("change", updateUI);
+    updateUI();
   }
 
   const contactForm = document.querySelector("[data-contact-form]");
