@@ -509,36 +509,41 @@ button {
 .job-tab-list {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.75rem;
   padding: 0.75rem;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: calc(var(--radius-lg) * 1.2);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
   margin-bottom: 1.25rem;
 }
 .job-tab {
   appearance: none;
-  border: 1px solid rgba(17, 24, 39, 0.15);
-  background: rgba(255, 255, 255, 0.85);
+  min-height: 2.75rem;
+  padding: 0.65rem 1.2rem;
+  border: 2px solid var(--color-ink);
+  background: var(--color-surface);
   color: var(--color-ink);
   min-width: 100px;
-  padding: 0.85rem 1.1rem;
   border-radius: var(--radius-pill);
   font-weight: 700;
+  font-size: 0.95rem;
   transition: all 180ms ease;
   cursor: pointer;
 }
 .job-tab:hover,
-.job-tab:focus-visible {
-  transform: translateY(-1px);
-  border-color: var(--color-primary);
-  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.08);
-}
+.job-tab:focus-visible,
 .job-tab.is-active {
-  background: var(--color-primary);
-  color: var(--color-ink);
-  border-color: var(--color-primary);
-  box-shadow: 0 12px 30px rgba(33, 150, 243, 0.18);
+  border-color: var(--color-ink);
+  background: #93f7bd;
+  color: #101112;
+  transform: translateY(-2px);
+  box-shadow: none;
+}
+.job-tab.job-tab-clear {
+  /* background removed to match default style */
+}
+.job-tab.job-tab-clear:hover,
+.job-tab.job-tab-clear:focus-visible {
+  background: #93f7bd;
+  color: #101112;
 }
 /* --------------------------------------------------------------------------
    מילון משרות ותפקידים - מיכלי המידע (Job Panels)
