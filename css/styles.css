@@ -578,7 +578,7 @@ button {
   background: var(--color-surface);
   box-shadow: none;
   overflow: hidden;
-  transition: transform var(--transition), box-shadow var(--transition);
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 .resource-card:hover {
   transform: translateY(-8px) scale(1.02);
@@ -589,7 +589,7 @@ button {
 }
 .scenario-grid .feature-card:hover {
   transform: translateY(-6px) scale(1.01);
-  box-shadow: var(--color-pink) 0 8px 24px;
+  box-shadow: var(--color-blue) 0 8px 24px;
 }
 .scenario-grid .feature-card .card-number {
   display: none;
@@ -692,9 +692,9 @@ button {
   height: 24px;
 }
 .carousel-btn:hover {
-  background: var(--color-pink);
-  border-color: var(--color-pink);
-  color: var(--color-bg);
+  background: var(--color-primary);
+  border-color: var(--color-ink);
+  color: var(--color-ink);
   transform: translateY(-2px);
 }
 .site-footer {
@@ -1029,10 +1029,7 @@ body.how-to-get-page {
   justify-content: center;
   font-size: 1.25rem;
 }
-.howto-hero-lead mark {
-  padding: 0 0.04em;
-  background: linear-gradient(transparent 76%, var(--color-pink) 76%, var(--color-pink) 90%, transparent 90%);
-}
+
 .howto-cta-group {
   display: flex;
   justify-content: center;
