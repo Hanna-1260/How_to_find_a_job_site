@@ -1312,28 +1312,31 @@ body.how-to-get-page {
   justify-content: center;
   gap: 0.75rem;
   max-width: 100%;
-  margin: 0 auto;
-  border: 2px solid var(--color-ink);
-  border-radius: var(--radius-lg);
-  padding: 0.8rem;
-  background: white;
+  margin: 0 auto 1.25rem;
+  padding: 0.75rem;
 }
 .project-tab {
+  appearance: none;
   min-height: 2.75rem;
   padding: 0.65rem 1.2rem;
-  border: 0;
+  border: 2px solid var(--color-ink);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  min-width: 100px;
   border-radius: var(--radius-pill);
-  background: transparent;
-  color: var(--howto-ink);
-  font-weight: 800;
-  transition: background var(--transition), color var(--transition), transform var(--transition);
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all 180ms ease;
+  cursor: pointer;
 }
 .project-tab:hover,
 .project-tab:focus-visible,
 .project-tab.is-active {
+  border-color: var(--color-ink);
   background: var(--howto-green);
   color: var(--howto-ink);
   transform: translateY(-2px);
+  box-shadow: none;
 }
 .faq-tools {
   max-width: 100%;
