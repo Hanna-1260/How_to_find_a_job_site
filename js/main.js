@@ -279,15 +279,24 @@
       }
     };
 
-    const updateUI = () => {
+    const fieldNames = {
+      training: "הדרכה",
+      design: "עיצוב",
+      dev: "פיתוח"
+    };
+
+    const fieldCompanies = {
+      training: ["גיל אור הדרכה", "מטח", "Matrix"],
+      design: ["Wix", "monday.com", "Playtika"],
+      dev: ["Check Point", "Amdocs", "Matrix"]
+    };
+
+    const updateRolesVisibility = () => {
       const fieldInput = form.querySelector('input[name="field"]:checked');
-      const expInput = form.querySelector('input[name="experience"]:checked');
-      if (!fieldInput || !expInput) return;
+      if (!fieldInput) return;
       
       const selectedField = fieldInput.value;
-      const selectedExp = expInput.value;
 
-      // Ensure at least one role is checked for the current field when switching
       let hasCheckedRole = false;
       roleLabels.forEach(label => {
         const isMatch = label.dataset.roleGroup === selectedField;
@@ -307,14 +316,81 @@
           firstVisibleLabel.querySelector('input').checked = true;
         }
       }
+    };
+
+    const calculateSalary = () => {
+      const fieldInput = form.querySelector('input[name="field"]:checked');
+      const expInput = form.querySelector('input[name="experience"]:checked');
+      const roleInput = form.querySelector('input[name="role"]:checked');
+      
+      if (!fieldInput || !expInput || !roleInput) return;
+      
+      const selectedField = fieldInput.value;
+      const selectedExp = expInput.value;
+      const selectedRoleName = roleInput.parentElement.textContent.trim();
+      const selectedFieldName = fieldNames[selectedField];
+
+      const output = calculator.querySelector("[data-salary-output]");
+      const placeholder = calculator.querySelector("[data-result-placeholder]");
+      const content = calculator.querySelector("[data-result-content]");
+      const descOutput = calculator.querySelector("[data-salary-desc]");
+      const companiesOutput = calculator.querySelector("[data-companies-list]");
 
       // Update salary text
       const range = salaryRanges[selectedField]?.[selectedExp] || "לא ידוע";
-      output.textContent = `${range} ₪`;
+      output.textContent = `${range} ש״ח`;
+
+      // Generate dynamic description
+      let descText = "";
+      if (selectedExp.startsWith("student")) {
+        descText = `נראה שאתם מתאימים למשרת Junior בתחום ה${selectedFieldName} (לדוגמה: ${selectedRoleName}), עם בסיס טוב להשתלבות בעולם העבודה והזדמנות להתחיל לצבור ניסיון מקצועי כבר במהלך התואר.`;
+      } else {
+        descText = `נראה שעם הניסיון שצברתם, אתם מתאימים למשרת ${selectedRoleName} בתחום ה${selectedFieldName}. יש לכם בסיס מצוין להשתלבות מהירה בצוותים מקצועיים והמשך צמיחה בקריירה.`;
+      }
+      descOutput.textContent = descText;
+
+      // Populate companies list
+      companiesOutput.innerHTML = "";
+      const companies = fieldCompanies[selectedField] || [];
+      companies.forEach(company => {
+        const span = document.createElement("span");
+        span.className = "company-tag";
+        span.textContent = company;
+        companiesOutput.appendChild(span);
+      });
+
+      // Show result, hide placeholder
+      placeholder.hidden = true;
+      content.hidden = false;
     };
 
-    calculator.addEventListener("change", updateUI);
-    updateUI();
+    const calcBtn = calculator.querySelector("[data-calculate-btn]");
+    const resetBtn = calculator.querySelector("[data-reset-btn]");
+
+    form.addEventListener("change", (e) => {
+      if (e.target.name === "field") {
+        updateRolesVisibility();
+      }
+    });
+
+    if (calcBtn) {
+      calcBtn.addEventListener("click", calculateSalary);
+    }
+
+    if (resetBtn) {
+      resetBtn.addEventListener("click", () => {
+        form.reset();
+        updateRolesVisibility();
+        const placeholder = calculator.querySelector("[data-result-placeholder]");
+        const content = calculator.querySelector("[data-result-content]");
+        if (placeholder && content) {
+          placeholder.hidden = false;
+          content.hidden = true;
+        }
+      });
+    }
+
+    updateRolesVisibility();
   }
 
   const contactForm = document.querySelector("[data-contact-form]");
@@ -464,6 +540,26 @@
       }
     });
   });
+
+  // Setup companies carousel accessibility controls
+  const carouselToggle = document.querySelector("[data-carousel-toggle]");
+  if (carouselToggle) {
+    const track = document.querySelector(".companies-carousel-track");
+    if (track) {
+      carouselToggle.addEventListener("click", () => {
+        const isPaused = track.classList.toggle("is-paused");
+        carouselToggle.classList.toggle("is-paused", isPaused);
+        
+        if (isPaused) {
+          carouselToggle.setAttribute("aria-label", "המשך תנועת קרוסלה");
+          carouselToggle.setAttribute("aria-pressed", "true");
+        } else {
+          carouselToggle.setAttribute("aria-label", "עצור תנועת קרוסלה");
+          carouselToggle.setAttribute("aria-pressed", "false");
+        }
+      });
+    }
+  }
 
   window.addEventListener("DOMContentLoaded", () => {
     if (!window.location.hash) {

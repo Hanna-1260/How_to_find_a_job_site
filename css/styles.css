@@ -741,12 +741,17 @@ button {
 
 .btn-secondary {
   background: var(--color-surface);
+  box-shadow: 4px 4px 0 var(--color-pink);
 }
 
 .btn:hover {
   background: var(--color-primary);
   box-shadow: 0 0 0 transparent;
   transform: translate(4px, 4px);
+}
+
+.btn-secondary:hover {
+  background: var(--color-pink);
 }
 
 .scenario-grid {
@@ -1228,12 +1233,9 @@ body.how-to-get-page {
   overflow: hidden;
 }
 
-.howto-page .container {
-  width: min(76%, 1040px);
-}
 
 .howto-hero {
-  padding-block: clamp(2.8rem, 7vw, 5.4rem) clamp(1.6rem, 3vw, 2.4rem);
+  padding-block: clamp(4rem, 8vw, 7.5rem) var(--space-6);
 }
 
 .projects-anchor-title {
@@ -1242,18 +1244,16 @@ body.how-to-get-page {
 
 .howto-hero-grid {
   display: grid;
-  grid-template-columns: minmax(320px, 0.9fr) minmax(360px, 1.1fr);
+  grid-template-columns: minmax(280px, 0.9fr) minmax(320px, 1fr);
   align-items: center;
-  gap: clamp(2.4rem, 7vw, 7rem);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
 }
 
 .howto-hero-visual {
   grid-column: 2;
   grid-row: 1;
-  width: 100%;
-  max-width: 520px;
-  justify-self: end;
-  object-fit: contain;
+  justify-self: center;
+  margin-inline: auto;
 }
 
 .howto-badge {
@@ -1282,14 +1282,14 @@ body.how-to-get-page {
 .howto-hero h1 {
   margin: 0;
   color: var(--howto-ink);
-  font-size: clamp(4.2rem, 7.2vw, 6.1rem);
+  font-size: var(--text-page-title);
   font-weight: 800;
-  line-height: 0.86;
+  line-height: 1.15;
 }
 
 .howto-hero-lead {
   max-width: 34rem;
-  margin: 4.2rem 0 0;
+  margin: 35px 0 0;
   color: var(--color-ink);
   font-size: clamp(1.45rem, 2.1vw, 1.9rem);
   font-weight: 600;
@@ -1301,7 +1301,7 @@ body.how-to-get-page {
   align-items: center;
   justify-content: center;
   gap: 0.7rem;
-  margin-top: 2.4rem;
+  margin-top: 35px;
   min-height: 56px;
   padding: 0.85rem 1.45rem;
   border: 2px solid var(--color-ink);
@@ -1765,8 +1765,7 @@ body.how-to-get-page {
   margin-block-start: var(--space-5);
 }
 
-.chip,
-.calculator-options label {
+.chip {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1781,30 +1780,49 @@ body.how-to-get-page {
 }
 
 .chip:hover,
-.chip.is-active,
-.calculator-options label:has(input:checked),
-.calculator-options label:has(input:focus-visible) {
+.chip.is-active {
   border-color: var(--color-ink);
   background: var(--color-primary);
   transform: translateY(-2px);
 }
 
+.calculator-options label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.55rem 1.2rem;
+  border: 2px solid var(--color-ink); /* black outline when unselected */
+  border-radius: var(--radius-pill);
+  background: transparent; /* transparent background when unselected */
+  color: var(--color-ink);
+  font-weight: 800;
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.calculator-options label:hover,
+.calculator-options label:has(input:checked),
+.calculator-options label:has(input:focus-visible) {
+  background: var(--color-primary); /* green background on hover/checked */
+  transform: translateY(-2px);
+  box-shadow: 2px 2px 0 var(--color-ink);
+}
+
 .calculator {
   display: grid;
-  grid-template-columns: 1.4fr 0.8fr;
-  gap: var(--space-3);
-  padding: clamp(1.25rem, 2.4vw, 2.1rem);
+  grid-template-columns: 1.2fr 0.8fr;
   border: 2px solid var(--color-ink);
   border-radius: var(--radius-lg);
-  background: var(--color-muted);
+  background: var(--color-surface); /* white background */
+  overflow: hidden;
 }
 
 .calculator-options {
   display: grid;
-  gap: var(--space-3);
-  padding: var(--space-3);
-  border-radius: var(--radius-md);
-  background: var(--color-surface);
+  gap: var(--space-4);
+  padding: clamp(1.25rem, 2.4vw, 2.1rem);
+  background: transparent;
 }
 
 .calculator-options fieldset {
@@ -1830,28 +1848,147 @@ body.how-to-get-page {
   pointer-events: none;
 }
 
-.salary-result {
-  display: grid;
-  place-items: center;
-  align-content: center;
-  min-height: 320px;
-  padding: var(--space-4);
-  border-radius: var(--radius-md);
-  background: var(--color-surface);
-  text-align: center;
+.calculator-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-block-start: var(--space-3);
 }
 
-.salary-result p,
-.salary-result span {
+.salary-result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--space-3);
+  padding: clamp(1.25rem, 2.4vw, 2.1rem);
+  background: transparent;
+  text-align: center;
+  border-inline-start: 2px solid var(--color-ink); /* black dividing line */
+  min-height: 420px;
+}
+
+.result-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding-block: var(--space-5);
+  color: var(--color-text);
+  font-size: var(--text-base);
+}
+
+.result-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+}
+
+.result-lead-text {
+  font-weight: 600;
+  color: var(--color-text);
   margin: 0;
 }
 
-.salary-result strong {
-  display: block;
-  margin: var(--space-3) 0;
+.salary-highlight-wrap {
+  display: inline-block;
+  margin-block: var(--space-1);
+}
+
+[data-salary-output] {
+  display: inline-block;
   color: var(--color-ink);
-  font-size: var(--text-section-title);
-  line-height: 1;
+  font-size: clamp(2rem, 3.2vw, 2.7rem);
+  line-height: 1.1;
+  background: #ff70e2; /* pink highlight background */
+  padding: 0.55rem 1.45rem;
+  border: 2px solid var(--color-ink);
+  border-radius: var(--radius-md);
+  box-shadow: 4px 4px 0 var(--color-ink);
+}
+
+.salary-subtext {
+  font-size: 0.9rem;
+  color: var(--color-text);
+  margin-block-end: var(--space-3);
+}
+
+.result-custom-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: 100%;
+  text-align: right; /* RTL align */
+  border-block-start: 1px dashed rgba(16, 17, 18, 0.15);
+  padding-block-start: var(--space-4);
+}
+
+.custom-info-title {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-ink);
+}
+
+.custom-info-desc {
+  margin: 0;
+  font-size: var(--text-base);
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+.salary-tip-box,
+.companies-box {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.tip-box-title,
+.companies-box-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--color-ink);
+}
+
+.tip-box-text {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--color-text);
+  line-height: 1.45;
+}
+
+.companies-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-block-start: 0.25rem;
+}
+
+.company-tag {
+  display: inline-flex;
+  padding: 0.35rem 0.75rem;
+  border: 2px solid var(--color-ink);
+  border-radius: var(--radius-sm);
+  background: var(--color-muted);
+  color: var(--color-ink);
+  font-size: 0.85rem;
+  font-weight: 700;
+  box-shadow: 2px 2px 0 var(--color-ink);
+}
+
+.salary-disclaimer {
+  margin-block-start: auto;
+  padding-block-start: var(--space-3);
+  font-size: 0.78rem;
+  color: rgba(16, 17, 18, 0.6);
+  line-height: 1.35;
+  text-align: center;
+  border-block-start: 1px solid rgba(16, 17, 18, 0.08);
+  width: 100%;
 }
 
 .job-list {
@@ -1944,6 +2081,76 @@ body.how-to-get-page {
 
 .companies-carousel-track:hover {
   animation-play-state: paused;
+}
+
+.companies-carousel-track.is-paused {
+  animation-play-state: paused !important;
+}
+
+.carousel-controls {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-block-start: var(--space-4);
+}
+
+.carousel-control-btn {
+  width: 52px;
+  height: 52px;
+  min-height: 52px !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+  background: var(--color-surface);
+  border: 2px solid var(--color-ink);
+  color: var(--color-ink);
+  box-shadow: 3px 3px 0 var(--color-ink);
+}
+
+.carousel-control-btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 0 0 0 transparent;
+}
+
+.carousel-control-btn:focus-visible {
+  outline: none;
+  box-shadow: 3px 3px 0 var(--color-ink), 0 0 0 3px var(--color-pink);
+}
+
+.carousel-control-btn .icon-play {
+  display: none;
+}
+
+.carousel-control-btn .icon-pause {
+  display: block;
+}
+
+.carousel-control-btn.is-paused .icon-play {
+  display: block;
+}
+
+.carousel-control-btn.is-paused .icon-pause {
+  display: none;
+}
+
+.carousel-control-btn {
+  background: var(--color-surface);
+}
+
+.carousel-control-btn:hover {
+  background: var(--color-pink);
+}
+
+.carousel-control-btn.is-paused {
+  background: var(--color-pink);
+}
+
+.carousel-control-btn.is-paused:hover {
+  background: var(--color-primary);
 }
 
 .company-card {
@@ -2290,6 +2497,12 @@ body.how-to-get-page {
     min-height: 330px;
   }
 
+  .salary-result {
+    border-inline-start: none;
+    border-block-start: 2px solid var(--color-ink);
+    min-height: auto;
+  }
+
   .shape-large {
     inline-size: 290px;
     block-size: 290px;
@@ -2316,8 +2529,7 @@ body.how-to-get-page {
   .howto-hero-visual {
     grid-row: 2;
     justify-self: center;
-    width: 100%;
-    max-width: 380px;
+    margin-inline: auto;
   }
 
   .howto-hero-copy {
@@ -2332,18 +2544,11 @@ body.how-to-get-page {
 }
 
 @media (max-width: 720px) {
-  .howto-page .container {
-    width: min(82%, 36rem);
-  }
 
   .howto-hero {
-    padding-block-start: 2rem;
+    padding-block: 4.5rem var(--space-5);
   }
 
-  .howto-hero-visual {
-    width: 100%;
-    max-width: 315px;
-  }
 
   .howto-badge {
     top: 48px;
@@ -2353,7 +2558,7 @@ body.how-to-get-page {
   }
 
   .howto-hero-lead {
-    margin-block-start: 2.2rem;
+    margin-block-start: 35px;
   }
 
   .project-board,
@@ -2402,7 +2607,8 @@ body.how-to-get-page {
   }
 
   .hero h1,
-  .page-hero h1 {
+  .page-hero h1,
+  .howto-hero h1 {
     font-size: clamp(2.35rem, 14vw, 3.6rem);
   }
 

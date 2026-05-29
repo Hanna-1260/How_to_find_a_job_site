@@ -527,6 +527,18 @@
             </div>
           </div>
         </div>
+        <div class="carousel-controls" aria-label="פקדי קרוסלה">
+          <button type="button" class="carousel-control-btn" data-carousel-toggle aria-label="עצור תנועת קרוסלה" aria-pressed="false">
+            <!-- Pause Icon (shown when playing) -->
+            <svg class="icon-pause" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+              <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+            </svg>
+            <!-- Play Icon (shown when paused) -->
+            <svg class="icon-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </button>
+        </div>
       </div>
     </section>
 
@@ -582,11 +594,42 @@
               <label><input type="radio" name="experience" value="exp_1">שנה ניסיון</label>
               <label><input type="radio" name="experience" value="exp_2">שנתיים ניסיון</label>
             </fieldset>
+            <div class="calculator-actions">
+              <button type="button" class="btn btn-primary" data-calculate-btn>חשב</button>
+              <button type="button" class="btn btn-secondary" data-reset-btn>איפוס בחירה</button>
+            </div>
           </form>
           <aside class="salary-result" aria-live="polite">
-            <p>לפי הפרטים שהזנתם</p>
-            <strong data-salary-output>5,500–6,500 ש״ח</strong>
-            <span>טווח משוער לחודש במשרה מלאה</span>
+            <div class="result-placeholder" data-result-placeholder>
+              <p>ביחרו את האפשרויות שלכם ולחצו על כפתור <strong>"חשב"</strong> לקבלת תוצאה ופירוט מלא.</p>
+            </div>
+            
+            <div class="result-content" data-result-content hidden>
+              <p class="result-lead-text">לפי הפרטים שהזנתם:</p>
+              <div class="salary-highlight-wrap">
+                <strong data-salary-output>5,500–6,500 ש״ח</strong>
+              </div>
+              <span class="salary-subtext">טווח משוער לחודש במשרה מלאה</span>
+              
+              <div class="result-custom-info">
+                <h4 class="custom-info-title">לפי הבחירות שלכם...</h4>
+                <p class="custom-info-desc" data-salary-desc></p>
+                
+                <div class="salary-tip-box">
+                  <h5 class="tip-box-title">טיפ לשיפור השכר</h5>
+                  <p class="tip-box-text">תיק עבודות פעיל, פרופיל LinkedIn מסודר וניסיון בפרויקטים מהלימודים יכולים לעזור לכם להתבלט מול מועמדים אחרים ולהגדיל את סיכויי הקבלה שלכם.</p>
+                </div>
+                
+                <div class="companies-box">
+                  <h5 class="companies-box-title">חברות שיכולות להתאים לכם</h5>
+                  <div class="companies-tags" data-companies-list>
+                    <!-- populated dynamically -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <p class="salary-disclaimer">הנתונים במחשבון מוצגים לצורכי הערכה כללית בלבד ואינם מייצגים הצעת שכר רשמית.</p>
           </aside>
         </div>
       </div>
