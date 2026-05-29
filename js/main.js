@@ -107,8 +107,8 @@
     const filterFaq = (value) => {
       const query = value.trim().toLowerCase();
       faqItems.forEach((item) => {
-        const text = `${item.textContent} ${item.dataset.keywords || ""}`.toLowerCase();
-        item.hidden = query.length > 0 && !text.includes(query);
+        const keywords = (item.dataset.keywords || "").toLowerCase();
+        item.hidden = query.length > 0 && !keywords.includes(query);
       });
     };
 
