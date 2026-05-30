@@ -22,11 +22,8 @@
   --color-blue: #5d7cff;            /* צבע כחול ראשי */
   --color-forum-blue: #4067FB;      /* צבע כחול לפורומים */
   --color-footer-bg: #7DFFB5;       /* צבע רקע ירוק לחלק התחתון (Footer) */
-  --color-purple: #8d6bf2;          /* צבע סגול */
   --color-pink: #F653D5;            /* צבע ורוד מודגש */
   --color-blue-soft: rgba(93, 124, 255, 0.35); /* צבע כחול שקוף למחצה */
-  --color-orange: #ff6b2d;          /* צבע כתום */
-  --color-yellow: #dfff4f;          /* צבע צהוב זוהר */
   --space-1: 0.5rem;
   --space-2: 0.75rem;
   --space-3: 1rem;
@@ -34,7 +31,6 @@
   --space-5: 2rem;
   --space-6: 3rem;
   --space-7: 5rem;
-  --space-8: 7rem;
   --font-main: "Assistant", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --radius-sm: 8px;
   --radius-md: 18px;
@@ -51,7 +47,7 @@
   --text-section-title: clamp(2rem, 3.5vw, 3.35rem);
   --text-page-title: clamp(2.8rem, 5.6vw, 5rem);
 }
-
+/* בודק ל האלמנטים בדף ישארו באותו גודל */
 *,
 *::before,
 *::after {
@@ -2131,7 +2127,7 @@ body.how-to-get-page {
   height: 80px;
   margin-bottom: var(--space-3);
   border-radius: 50%;
-  background: var(--color-yellow);
+  background: var(--color-blue);
   color: var(--color-ink);
   font-size: 2.5rem;
   border: 2px solid var(--color-ink);
