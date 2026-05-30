@@ -155,8 +155,8 @@ button {
 .brand-mark {
   display: grid;
   place-items: center;
-  inline-size: 44px;
-  block-size: 44px;
+  width: 44px;
+  height: 44px;
   border: 2px solid var(--color-ink);
   border-radius: 50% 50% 8px 50%;
   background: var(--color-primary);
@@ -165,14 +165,14 @@ button {
 }
 .brand-logo {
   display: block;
-  inline-size: 150px;
-  block-size: 64px;
+  width: 150px;
+  height: 64px;
   object-fit: contain;
 }
 .footer-logo {
   display: block;
-  inline-size: 300px;
-  block-size: 100px;
+  width: 300px;
+  height: 100px;
   object-fit: contain;
 
 }
@@ -256,8 +256,8 @@ button {
 }
 .nav-toggle {
   display: none;
-  inline-size: 48px;
-  block-size: 48px;
+  width: 48px;
+  height: 48px;
   border: 2px solid var(--color-ink);
   border-radius: 50%;
   background: var(--color-surface);
@@ -266,8 +266,8 @@ button {
 .nav-toggle-line::before,
 .nav-toggle-line::after {
   display: block;
-  inline-size: 22px;
-  block-size: 2px;
+  width: 22px;
+  height: 2px;
   margin-inline: auto;
   background: var(--color-ink);
   content: "";
@@ -650,8 +650,8 @@ button {
 .resource-icon {
   display: grid;
   place-items: center;
-  inline-size: 76px;
-  block-size: 76px;
+  width: 76px;
+  height: 76px;
   margin-block-end: var(--space-4);
   border-radius: 50%;
   background: var(--color-pink);
@@ -695,8 +695,8 @@ button {
 .carousel-btn {
   display: grid;
   place-items: center;
-  inline-size: 62px;
-  block-size: 62px;
+  width: 62px;
+  height: 62px;
   padding: 0;
   border: 2px solid var(--color-ink);
   border-radius: 50%;
@@ -822,8 +822,8 @@ button {
   background: var(--color-soft);
 }
 .image-frame img {
-  inline-size: 100%;
-  block-size: 100%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 /* Comic scene image and speech bubble styling */
@@ -935,16 +935,16 @@ button {
 .shape-large {
   inset-inline-start: 6%;
   inset-block-start: 0;
-  inline-size: 380px;
-  block-size: 380px;
+  width: 380px;
+  height: 380px;
   border-radius: 50% 50% 0 50%;
   background: var(--color-muted);
 }
 .shape-small {
   inset-inline-start: 48%;
   inset-block-start: 145px;
-  inline-size: 170px;
-  block-size: 170px;
+  width: 170px;
+  height: 170px;
   border-radius: 50% 50% 50% 0;
   background: var(--color-primary);
   box-shadow: 8px 8px 0 var(--color-ink);
@@ -1269,8 +1269,8 @@ body.how-to-get-page {
 .flip-icon {
   display: inline-grid;
   place-items: center;
-  inline-size: 4.4rem;
-  block-size: 2.2rem;
+  width: 4.4rem;
+  height: 2.2rem;
   border-radius: var(--radius-pill);
   background: var(--howto-blue);
   color: var(--color-bg);
@@ -1281,8 +1281,8 @@ body.how-to-get-page {
 .project-toggle-icon {
   display: inline-grid;
   place-items: center;
-  inline-size: 4.4rem;
-  block-size: 2.2rem;
+  width: 4.4rem;
+  height: 2.2rem;
   border-radius: var(--radius-pill);
   background: var(--color-primary);
   color: var(--color-ink);
@@ -1519,7 +1519,7 @@ body.how-to-get-page {
   border: 0;
 }
 .calculator-options legend {
-  inline-size: 100%;
+  width: 100%;
   margin-block-end: var(--space-2);
   color: var(--color-ink);
   font-size: var(--text-card-title);
@@ -2000,7 +2000,7 @@ body.how-to-get-page {
 .contact-form input,
 .contact-form select,
 .contact-form textarea {
-  inline-size: 100%;
+  width: 100%;
   border: 2px solid var(--color-ink);
   border-radius: var(--radius-md);
   background: var(--color-surface);
@@ -2675,7 +2675,7 @@ body.how-to-get-page {
       gap: var(--space-1);
     }
     .primary-nav > ul > li > a {
-      inline-size: 100%;
+      width: 100%;
     }
 }
 
@@ -2707,14 +2707,14 @@ body.how-to-get-page {
       min-height: auto;
     }
     .shape-large {
-      inline-size: 290px;
-      block-size: 290px;
+      width: 290px;
+      height: 290px;
     }
     .shape-small {
       inset-inline-start: 42%;
       inset-block-start: 115px;
-      inline-size: 145px;
-      block-size: 145px;
+      width: 145px;
+      height: 145px;
     }
     .howto-hero-grid {
       grid-template-columns: 1fr;
@@ -2799,8 +2799,8 @@ body.how-to-get-page {
       font-size: 1rem;
     }
     .brand-mark {
-      inline-size: 38px;
-      block-size: 38px;
+      width: 38px;
+      height: 38px;
     }
     .hero {
       padding-block: 4.5rem var(--space-5);
