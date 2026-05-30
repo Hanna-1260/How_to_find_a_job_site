@@ -241,7 +241,8 @@ button {
   transition: transform var(--transition);
   display: inline-block;
 }
-.nav-dropdown:hover .nav-arrow {
+.nav-dropdown:hover .nav-arrow,
+.nav-dropdown.is-open .nav-arrow {
   transform: rotate(180deg);
 }
 /* Desktop dropdown */
@@ -587,9 +588,15 @@ button {
 .feature-card:hover {
   box-shadow: 0 18px 38px var(--color-blue-soft);
 }
-.scenario-grid .feature-card:hover {
+.scenario-grid .feature-card:hover,
+.scenario-grid .feature-card:focus-visible {
   transform: translateY(-6px) scale(1.01);
   box-shadow: var(--color-blue) 0 8px 24px;
+}
+.scenario-grid .feature-card:focus-visible {
+  outline: 4px solid var(--color-blue);
+  outline-offset: 4px;
+  border-radius: 16px;
 }
 .scenario-grid .feature-card .card-number {
   display: none;
@@ -2864,7 +2871,8 @@ body.how-to-get-page {
       height: 12px;
       background: transparent;
     }
-    .nav-dropdown:hover .dropdown-menu {
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown.is-open .dropdown-menu {
       opacity: 1;
       visibility: visible;
       pointer-events: auto;
