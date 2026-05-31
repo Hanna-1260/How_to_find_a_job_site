@@ -1964,22 +1964,6 @@ body.how-to-get-page {
   display: grid;
   gap: 1.5rem;
 }
-@media (min-width: 980px) {
-  .contact-form-container {
-    position: sticky;
-    top: 120px;
-    align-self: start;
-    max-height: calc(100vh - 140px);
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-
-  .contact-form-container::-webkit-scrollbar {
-    display: none;
-  }
-}
 .contact-form-container .contact-form {
   max-width: 100%;
   padding: clamp(1.5rem, 3vw, 2.5rem);

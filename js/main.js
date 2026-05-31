@@ -286,73 +286,7 @@
     setActiveProjectCategory("simulations");
   }
 
-  const initContactAutoScroll = () => {
-    const contactSection = document.querySelector(".contact-section");
-    const contactFormContainer = document.querySelector(".contact-form-container");
-    if (!contactSection || !contactFormContainer) {
-      return;
-    }
 
-    const canScrollContainer = (deltaY) => {
-      const currentScroll = contactFormContainer.scrollTop;
-      const maxScroll = contactFormContainer.scrollHeight - contactFormContainer.clientHeight;
-      return deltaY > 0
-        ? currentScroll < maxScroll - 1
-        : currentScroll > 0;
-    };
-
-    const isSectionVisible = () => {
-      const rect = contactSection.getBoundingClientRect();
-      return rect.bottom > 0 && rect.top < window.innerHeight;
-    };
-
-    const redirectScrollToForm = (deltaY) => {
-      if (window.innerWidth < 980) {
-        return false;
-      }
-      if (!isSectionVisible()) {
-        return false;
-      }
-      return canScrollContainer(deltaY);
-    };
-
-    document.addEventListener("wheel", (event) => {
-      if (!redirectScrollToForm(event.deltaY)) {
-        return;
-      }
-
-      event.preventDefault();
-      contactFormContainer.scrollBy({
-        top: event.deltaY,
-        behavior: "auto"
-      });
-    }, { passive: false });
-
-    let touchStartY = 0;
-    document.addEventListener("touchstart", (event) => {
-      touchStartY = event.touches[0]?.clientY ?? 0;
-    }, { passive: true });
-
-    document.addEventListener("touchmove", (event) => {
-      if (window.innerWidth < 980) {
-        return;
-      }
-      const touchCurrentY = event.touches[0]?.clientY ?? 0;
-      const deltaY = touchStartY - touchCurrentY;
-      if (!redirectScrollToForm(deltaY)) {
-        touchStartY = touchCurrentY;
-        return;
-      }
-      event.preventDefault();
-      contactFormContainer.scrollBy({
-        top: deltaY,
-        behavior: "auto"
-      });
-      touchStartY = touchCurrentY;
-    }, { passive: false });
-  };
-
-  initContactAutoScroll();
 
   const isKeyboardActivation = (event) => event.key === "Enter" || event.key === " ";
   const expandableCards = [...document.querySelectorAll("[data-expand-card]")];
