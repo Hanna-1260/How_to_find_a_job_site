@@ -1685,13 +1685,22 @@ body.how-to-get-page {
 }
 .salary-disclaimer {
   margin-block-start: auto;
-  padding-block-start: var(--space-3);
-  font-size: 0.78rem;
-  color: rgba(16, 17, 18, 0.6);
-  line-height: 1.35;
-  text-align: center;
-  border-block-start: 1px solid rgba(16, 17, 18, 0.08);
+  padding: 0.8rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-ink);
+  line-height: 1.45;
+  text-align: right;
+  border: 2px solid var(--color-ink);
+  border-radius: var(--radius-md);
+  background: #fff9e6; /* Soft warning yellow/cream background */
+  box-shadow: 4px 4px 0 var(--color-ink);
   width: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.salary-disclaimer:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--color-ink);
 }
 .job-list {
   display: grid;
