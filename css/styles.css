@@ -2959,6 +2959,50 @@ body.how-to-get-page {
       color: var(--color-ink) !important;
       transform: none !important;
     }
+
+
+/* פירורי לחם (Breadcrumbs) */
+.breadcrumbs {
+  display: flex;
+  justify-content: flex-start;
+  margin-block-end: clamp(1rem, 2vw, 1.5rem);
+}
+.breadcrumbs ul {
+  display: inline-flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 0.5rem;
+  align-items: center;
+}
+.breadcrumbs li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-ink);
+}
+.breadcrumbs li:not(:last-child)::after {
+  content: "←";
+  color: var(--color-subtle);
+  font-weight: normal;
+  font-size: 0.9rem;
+}
+.breadcrumbs a {
+  color: var(--color-subtle);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.breadcrumbs a:hover {
+  color: var(--color-ink);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.breadcrumbs li:last-child {
+  color: var(--color-ink);
+  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
