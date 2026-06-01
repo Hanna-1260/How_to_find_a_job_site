@@ -56,7 +56,8 @@
 [hidden],
 .project-card[hidden],
 .result-content[hidden],
-.result-placeholder[hidden] {
+.result-placeholder[hidden],
+.calculator-options label[hidden] {
   display: none;
 }
 html {
