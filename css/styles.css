@@ -53,8 +53,11 @@
 *::after {
   box-sizing: border-box;
 }
-[hidden] {
-  display: none !important;
+[hidden],
+.project-card[hidden],
+.result-content[hidden],
+.result-placeholder[hidden] {
+  display: none;
 }
 html {
   scroll-behavior: smooth;
@@ -787,9 +790,9 @@ button {
   margin: 0;
 }
 .footer-column a {
-  color: var(--color-text) !important;
+  color: var(--color-text);
   font-weight: 600;
-  text-decoration: none !important;
+  text-decoration: none;
   position: relative;
   right: 0;
   transition: color var(--transition), right var(--transition);
@@ -797,8 +800,8 @@ button {
   font-size: 0.95rem;
 }
 .footer-column a:hover {
-  color: var(--color-ink) !important;
-  text-decoration: underline !important;
+  color: var(--color-ink);
+  text-decoration: underline;
   text-underline-offset: 0.25em;
   right: 2px;
 }
@@ -1194,9 +1197,7 @@ body.how-to-get-page {
   box-shadow: 0 30px 60px rgba(15, 23, 42, 0.16);
   bottom: 2px;
 }
-.project-card[hidden] {
-  display: none !important;
-}
+
 .project-thumb {
   display: grid;
   place-items: center;
@@ -1780,7 +1781,7 @@ body.how-to-get-page {
   animation-play-state: paused;
 }
 .companies-carousel-track.is-paused {
-  animation-play-state: paused !important;
+  animation-play-state: paused;
 }
 .carousel-controls {
   display: flex;
@@ -1791,9 +1792,9 @@ body.how-to-get-page {
 .carousel-control-btn {
   width: 52px;
   height: 52px;
-  min-height: 52px !important;
-  padding: 0 !important;
-  border-radius: 50% !important;
+  min-height: 52px;
+  padding: 0;
+  border-radius: 50%;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -2289,7 +2290,7 @@ body.how-to-get-page {
   border: 2px solid var(--color-ink);
   border-radius: var(--radius-md);
   color: var(--color-ink);
-  text-decoration: none !important;
+  text-decoration: none;
   box-shadow: 6px 7px 0 var(--color-ink);
   position: relative;
   bottom: 0;
@@ -2396,14 +2397,14 @@ body.how-to-get-page {
 .branch-links li {
   margin: 0;
 }
-.branch-link {
+.sitemap-grid .branch-link {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-2);
-  color: var(--color-text) !important;
+  color: var(--color-text);
   font-weight: 600;
-  text-decoration: none !important;
+  text-decoration: none;
   padding: 0.55rem 0.75rem;
   border-radius: var(--radius-sm);
   border: 2px solid transparent;
@@ -2411,19 +2412,19 @@ body.how-to-get-page {
   right: 0;
   transition: all var(--transition);
 }
-.branch-link.link-developed {
+.sitemap-grid .branch-link.link-developed {
   border-color: rgba(93, 124, 255, 0.12);
   background-color: rgba(93, 124, 255, 0.04);
 }
-.branch-link:hover {
-  border-color: var(--color-ink) !important;
-  background-color: var(--color-soft) !important;
-  color: var(--color-ink) !important;
+.sitemap-grid .branch-link:hover {
+  border-color: var(--color-ink);
+  background-color: var(--color-soft);
+  color: var(--color-ink);
   right: 4px;
   box-shadow: 2px 2px 0 var(--color-ink);
 }
-.branch-link.link-developed:hover {
-  background-color: rgba(120, 242, 167, 0.15) !important;
+.sitemap-grid .branch-link.link-developed:hover {
+  background-color: rgba(120, 242, 167, 0.15);
 }
 .link-bullet {
   color: var(--color-subtle);
@@ -2607,7 +2608,7 @@ body.how-to-get-page {
   transition: bottom var(--transition), box-shadow var(--transition), background-color var(--transition);
   font-weight: 700;
   color: var(--color-ink);
-  text-decoration: none !important;
+  text-decoration: none;
   box-shadow: 4px 4px 0 var(--color-ink);
 }
 .about-page-body .page-link-card:hover {
@@ -2658,19 +2659,19 @@ body.how-to-get-page {
     .dropdown-menu a {
       display: inline-flex;
       align-items: center;
-      min-height: 38px !important;
+      min-height: 38px;
       font-size: 0.92rem;
       color: var(--color-subtle);
       font-weight: 600;
-      padding: 0.25rem 0.5rem !important;
-      border-radius: var(--radius-sm) !important;
-      background: transparent !important;
+      padding: 0.25rem 0.5rem;
+      border-radius: var(--radius-sm);
+      background: transparent;
     }
     .dropdown-menu a:hover,
     .dropdown-menu a:focus-visible,
     .dropdown-menu a[aria-current="page"] {
-      color: var(--color-ink) !important;
-      background: var(--color-primary) !important;
+      color: var(--color-ink);
+      background: var(--color-primary);
     }
     .dropdown-toggle {
       pointer-events: auto; /* Allow clicking the dropdown toggle on mobile */
@@ -2893,7 +2894,7 @@ body.how-to-get-page {
   .dropdown-menu {
       position: absolute;
       top: 100%;
-      right: 0; /* Align to the right in RTL */
+      right: 0;
       background-color: var(--color-surface);
       border: 2px solid var(--color-ink);
       border-radius: var(--radius-md);
@@ -2904,14 +2905,12 @@ body.how-to-get-page {
       margin: var(--space-1) 0 0 0;
       z-index: 1000;
 
-      /* Smooth fade and slide transition */
       opacity: 0;
       visibility: hidden;
       pointer-events: none;
       transform: translateY(8px);
       transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
     }
-    /* Transparent bridge to prevent losing hover when crossing the margin gap */
     .dropdown-menu::before {
       content: "";
       position: absolute;
@@ -2936,32 +2935,30 @@ body.how-to-get-page {
       display: block;
       width: 100%;
       padding: 0.8rem 1.2rem;
-      border-radius: 0 !important;
+      border-radius: 0;
       color: var(--color-text);
       font-size: 0.95rem;
       font-weight: 600;
       text-align: right;
       transition: background var(--transition), color var(--transition);
     }
-    /* Round top and bottom corners of the first and last links to match the container's rounded borders */
     .dropdown-menu li:first-child a {
-      border-top-left-radius: calc(var(--radius-md) - 2px) !important;
-      border-top-right-radius: calc(var(--radius-md) - 2px) !important;
+      border-top-left-radius: calc(var(--radius-md) - 2px);
+      border-top-right-radius: calc(var(--radius-md) - 2px);
     }
     .dropdown-menu li:last-child a {
-      border-bottom-left-radius: calc(var(--radius-md) - 2px) !important;
-      border-bottom-right-radius: calc(var(--radius-md) - 2px) !important;
+      border-bottom-left-radius: calc(var(--radius-md) - 2px);
+      border-bottom-right-radius: calc(var(--radius-md) - 2px);
     }
     .dropdown-menu a:hover,
     .dropdown-menu a:focus-visible,
     .dropdown-menu a[aria-current="page"] {
-      background-color: var(--color-primary) !important;
-      color: var(--color-ink) !important;
-      transform: none !important;
+      background-color: var(--color-primary);
+      color: var(--color-ink);
+      transform: none;
     }
+}
 
-
-/* פירורי לחם (Breadcrumbs) */
 .breadcrumbs {
   display: flex;
   justify-content: flex-start;
@@ -3007,11 +3004,11 @@ body.how-to-get-page {
 
 @media (prefers-reduced-motion: reduce) {
   *,
-    *::before,
-    *::after {
-      scroll-behavior: auto !important;
-      transition-duration: 0.01ms !important;
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-    }
+  *::before,
+  *::after {
+    scroll-behavior: auto;
+    transition-duration: 0.01ms;
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+  }
 }
