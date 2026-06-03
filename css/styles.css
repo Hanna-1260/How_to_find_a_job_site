@@ -1447,7 +1447,7 @@ body.how-to-get-page {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-block: var(--space-5);
+  flex: 1;
   color: var(--color-text);
   font-size: var(--text-base);
   width: 100%;
