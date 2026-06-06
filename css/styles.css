@@ -1685,8 +1685,8 @@ body.how-to-get-page {
 }
 /* עצירה ואיפוס של אנימציית הקרוסלה בעת כניסת פוקוס מקלדת, לטובת ניווט נגיש ונוח בין הכרטיסיות */
 .companies-carousel-container:has(a:focus-visible) .companies-carousel-track {
-  animation: none !important;
-  transform: none !important;
+  animation: none;
+  transform: none;
 }
 .company-logo-link {
   display: block;
