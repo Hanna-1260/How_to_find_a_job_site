@@ -2009,7 +2009,7 @@ body.how-to-get-page {
   border-bottom: 2px solid var(--color-ink);
 }
 .cv-flip-card:nth-child(1) .back-header {
-  background: var(--color-yellow);
+  background: var(--color-blue);
 }
 .cv-flip-card:nth-child(2) .back-header {
   background: var(--color-pink);
