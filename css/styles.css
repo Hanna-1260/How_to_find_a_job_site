@@ -1,10 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&display=swap");
 
 /* ==========================================================================
-   הגדרת משתנים גלובליים (CSS Variables / Design Tokens)
+   הגדרת משתנים גלובליים (משתני CSS)
    ========================================================================== */
 :root {
-  /* צבעי רקע סמנטיים (משמשים להפרדה והכנה נוחה למצב כהה / Dark Mode בעתיד) */
+  /* צבעי רקע סמנטיים (משמשים להפרדה והכנה נוחה למצב כהה או מצב כהה בעתיד) */
   --color-bg: #ffffff;       /* צבע הרקע הראשי של דפי האתר */
   --color-surface: #ffffff;  /* צבע הרקע של רכיבים וכרטיסיות (למשל כרטיסיות מילון משרות) */
   --color-soft: #ffffff;     /* צבע רקע עדין משני */
@@ -21,7 +21,7 @@
   --color-primary-strong: #43dc80;  /* צבע ירוק כהה וחזק יותר */
   --color-blue: #5d7cff;            /* צבע כחול ראשי */
   --color-forum-blue: #4067FB;      /* צבע כחול לפורומים */
-  --color-footer-bg: #7DFFB5;       /* צבע רקע ירוק לחלק התחתון (Footer) */
+  --color-footer-bg: #7DFFB5;       /* צבע רקע ירוק לחלק התחתון (תחתית האתר) */
   --color-pink: #F653D5;            /* צבע ורוד מודגש */
   --color-blue-soft: rgba(93, 124, 255, 0.35); /* צבע כחול שקוף למחצה */
   --space-1: 0.5rem;
@@ -199,11 +199,11 @@ button {
 .primary-nav > ul > li > a:hover {
   bottom: 2px;
 }
-/* Dropdown Navigation Menu Styles */
+/* סגנונות תפריט ניווט נפתח (תפריט נפתח) */
 .nav-dropdown {
   position: relative;
 }
-/* Arrow indicator styling */
+/* עיצוב חץ חיווי לתפריט נפתח */
 .nav-arrow {
   margin-inline-start: 4px;
   font-size: 0.8rem;
@@ -214,9 +214,9 @@ button {
 .nav-dropdown.is-open .nav-arrow {
   transform: rotate(180deg);
 }
-/* Desktop dropdown */
+/* תפריט נפתח למסכי דסקטופ */
 
-/* Mobile dropdown (nested in the vertical flow) */
+/* תפריט נפתח למובייל (מוטמע בזרימה האנכית) */
 @keyframes navFadeIn {
   from {
     opacity: 0;
@@ -304,7 +304,7 @@ button {
   justify-self: center;
   margin-inline: auto;
 }
-/* Jobs tabs and accordion */
+/* כרטיסיות משרות ואקורדיון */
 .job-tab-list {
   display: flex;
   flex-wrap: wrap;
@@ -343,7 +343,7 @@ button {
   background: #93f7bd;
   color: #101112;
 }
-   /* מילון משרות ותפקידים - מיכלי המידע (Job Panels) */
+   /* מילון משרות ותפקידים - מיכלי המידע של המשרות */
 .job-panels {
   display: grid;
   gap: 1rem;
@@ -371,7 +371,7 @@ button {
   overflow: hidden;
   visibility: hidden;
 }
-/* סגנונות מעבר (Transitions) - מוגדרים בסוף כדי שייגברו על הגדרות ברירת המחדל */
+/* סגנונות מעבר (אפקטי מעבר) - מוגדרים בסוף כדי שייגברו על הגדרות ברירת המחדל */
 .job-panel.fade-in {
   opacity: 1;
   transform: translateY(0);
@@ -533,6 +533,12 @@ button {
   background: var(--color-primary);
   box-shadow: 0 0 0 transparent;
   transform: translate(4px, 4px);
+}
+/* פוקוס נגישות כחול בולט לכל הלחצנים באתר (ניווט מקלדת) */
+.btn:focus-visible,
+.btn:focus {
+  outline: 4px solid var(--color-blue);
+  outline-offset: 4px;
 }
 .btn-secondary:hover {
   background: var(--color-pink);
@@ -786,7 +792,7 @@ button {
   color: var(--color-text);
 }
 
-/* Comic scene image and speech bubble styling */
+/* עיצוב תמונת סצנת הקומיקס ובועות הדיבור */
 .scenario-grid .feature-card img {
   display: block;
   width: 100%;
@@ -841,7 +847,7 @@ button {
   right: 1.2rem;
   left: auto;
 }
-/* Replace protruding tail with a sharp corner per scene */
+/* החלפת הזנב הבולט בפינה חדה לפי כל סצנה */
 .speech-bubble--scene2,
 .speech-bubble--scene3 {
   border-bottom-left-radius: 0;
@@ -1099,7 +1105,7 @@ body.how-to-get-page {
   max-height: 12rem;
   opacity: 1;
   transform: translateY(0);
-  overflow: visible; /* Prevent clipping of link shadows */
+  overflow: visible; /* מניעת חיתוך של צללי הקישורים */
 }
 .project-more span {
   display: grid;
@@ -1272,7 +1278,7 @@ body.how-to-get-page {
 }
 .flip-card {
   position: relative;
-  min-height: 190px;
+  min-height: 200px;
   width: 100%;
   padding: 0;
   background: transparent;
@@ -1282,7 +1288,7 @@ body.how-to-get-page {
 }
 .flip-card__inner {
   position: relative;
-  min-height: 190px;
+  min-height: 200px;
   transform-style: preserve-3d;
   transition: transform 520ms ease;
 }
@@ -1321,6 +1327,7 @@ body.how-to-get-page {
   max-width: 22rem;
   font-weight: 800;
   line-height: 1.35;
+  margin: 0 auto;
 }
 .flip-icon {
   position: absolute;
@@ -1370,9 +1377,9 @@ body.how-to-get-page {
   height: 48px;
   white-space: nowrap;
   padding: 0.55rem 1.2rem;
-  border: 2px solid var(--color-ink); /* black outline when unselected */
+  border: 2px solid var(--color-ink); /* קו מתאר שחור כאשר לא נבחר */
   border-radius: var(--radius-pill);
-  background: transparent; /* transparent background when unselected */
+  background: transparent; /* רקע שקוף כאשר לא נבחר */
   color: var(--color-ink);
   font-weight: 800;
   cursor: pointer;
@@ -1382,10 +1389,17 @@ body.how-to-get-page {
 }
 .calculator-options label:hover,
 .calculator-options label:has(input:checked),
-.calculator-options label:has(input:focus-visible) {
-  background: var(--color-primary); /* green background on hover/checked */
+.calculator-options label:has(input:focus-visible),
+.calculator-options label:has(input:focus) {
+  background: var(--color-primary); /* רקע ירוק במעבר עכבר או בחירה */
   transform: translateY(2px);
   box-shadow: 2px 2px 0 var(--color-ink);
+}
+/* הדגשת פוקוס כחולה ברורה לתוויות של כפתורי הרדיו במחשבון השכר בעת ניווט מקלדת */
+.calculator-options label:has(input:focus-visible),
+.calculator-options label:has(input:focus) {
+  outline: 4px solid var(--color-blue);
+  outline-offset: 4px;
 }
 .calculator {
   display: grid;
@@ -1393,7 +1407,7 @@ body.how-to-get-page {
   grid-template-columns: 1.2fr 0.8fr;
   border: 2px solid var(--color-ink);
   border-radius: var(--radius-lg);
-  background: var(--color-surface); /* white background */
+  background: var(--color-surface); /* רקע לבן */
   overflow: hidden;
   min-height: 450px;
 }
@@ -1441,7 +1455,7 @@ body.how-to-get-page {
   padding: clamp(1.25rem, 2.4vw, 2.1rem);
   background: transparent;
   text-align: center;
-  border-inline-start: 2px solid var(--color-ink); /* black dividing line */
+  border-inline-start: 2px solid var(--color-ink); /* קו מפריד שחור */
 }
 .result-placeholder {
   display: flex;
@@ -1473,7 +1487,7 @@ body.how-to-get-page {
   color: var(--color-ink);
   font-size: clamp(2rem, 3.2vw, 2.7rem);
   line-height: 1.1;
-  background: #ff70e2; /* pink highlight background */
+  background: #ff70e2; /* רקע הדגשה ורוד */
   padding: 0.55rem 1.45rem;
   border: 2px solid var(--color-ink);
   border-radius: var(--radius-md);
@@ -1489,7 +1503,7 @@ body.how-to-get-page {
   flex-direction: column;
   gap: var(--space-4);
   width: 100%;
-  text-align: right; /* RTL align */
+  text-align: right; /* יישור לימין (מימין לשמאל) */
   border-block-start: 1px dashed rgba(16, 17, 18, 0.15);
   padding-block-start: var(--space-4);
   margin-block-start: auto;
@@ -1552,35 +1566,41 @@ body.how-to-get-page {
   text-align: right;
   border: 2px solid var(--color-ink);
   border-radius: var(--radius-md);
-  background: #fff9e6; /* Soft warning yellow/cream background */
+  background: #fff9e6; /* רקע צהוב/קרם רך לאזהרה/חיווי */
   box-shadow: 4px 4px 0 var(--color-ink);
+  /* שימוש במיקום יחסי (מיקום יחסי) להתרוממות הכרטיסייה ללא שימוש בערכים שליליים */
+  position: relative;
+  bottom: 0;
+  right: 0;
   width: 100%;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: bottom 0.2s ease, right 0.2s ease, box-shadow 0.2s ease;
 }
+/* אפקט הרמה בריחוף (הרמה בריחוף) חיובי להדגשת הכרטיסייה */
 .salary-disclaimer:hover {
-  transform: translate(-2px, -2px);
+  bottom: 2px;
+  right: 2px;
   box-shadow: 6px 6px 0 var(--color-ink);
 }
 
-   /* קרוסלת חברות מובילות (Infinite Marquee Carousel) */
+   /* קרוסלת חברות מובילות (קרוסלה רציפה אינסופית) */
 .companies-carousel-container {
   overflow: hidden;
   width: 100%;
   padding-block: var(--space-4) var(--space-5);
   position: relative;
-  /* אפקט טשטוש (Fade) בצדדים של הקרוסלה ליצירת מראה יוקרתי */
+  /* אפקט טשטוש (טשטוש) בצדדים של הקרוסלה ליצירת מראה יוקרתי */
   mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
   -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
-  /* הגדרה קריטית ל-LTR כדי שהקרוסלה תתחיל משמאל, ותאפשר גלישת תוכן ימינה מחוץ למסך בדפי עברית (RTL) */
+  /* הגדרה קריטית למשמאל לימין כדי שהקרוסלה תתחיל משמאל, ותאפשר גלישת תוכן ימינה מחוץ למסך בדפי עברית (מימין לשמאל) */
   direction: ltr; 
 }
 .companies-carousel-track {
   display: flex;
   width: max-content;
   gap: var(--space-4);
-  /* אנימציית הזזה רציפה (Marquee) */
+  /* אנימציית הזזה רציפה (גלילה רציפה) */
   animation: marquee-scroll 32s linear infinite;
-  /* פריסת ה-Flex של הכרטיסיות משמאל לימין כדי להבטיח חישוב תזוזה תקין בכל המסכים */
+  /* פריסת הפריסת Flex של הכרטיסיות משמאל לימין כדי להבטיח חישוב תזוזה תקין בכל המסכים */
   direction: ltr; 
 }
 .companies-carousel-track:hover {
@@ -1651,15 +1671,22 @@ body.how-to-get-page {
   background: var(--color-surface);
   color: var(--color-ink);
   text-align: center;
-  direction: rtl; /* Restore RTL alignment for text inside cards */
+  direction: rtl; /* שחזור יישור לימין לטקסט בתוך כרטיסיות */
   position: relative;
   bottom: 0;
   transition: background var(--transition), bottom var(--transition), box-shadow var(--transition);
 }
-.company-card:hover {
+/* אפקט הרמה של כרטיסיית החברה ושינוי צבע בעת מעבר עכבר (מעבר עכבר) או פוקוס מקלדת (פוקוס מקלדת) */
+.company-card:hover,
+.company-card:has(.company-logo-link:focus-visible) {
   background: var(--color-primary);
   bottom: 6px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+/* עצירה ואיפוס של אנימציית הקרוסלה בעת כניסת פוקוס מקלדת, לטובת ניווט נגיש ונוח בין הכרטיסיות */
+.companies-carousel-container:focus-within .companies-carousel-track {
+  animation: none !important;
+  transform: none !important;
 }
 .company-logo-link {
   display: block;
@@ -1713,7 +1740,7 @@ body.how-to-get-page {
     transform: translateX(calc(0% - 50%));
   }
 }
-   /* עמוד צור קשר (Contact Page Layout & Cards) */
+   /* עמוד צור קשר (עיצוב וכרטיסיות של עמוד צור קשר) */
 .contact-section {
   padding-block: clamp(2rem, 5vw, 4rem) clamp(3.2rem, 7vw, 5.6rem);
 }
@@ -1849,7 +1876,10 @@ body.how-to-get-page {
 .full-span {
   grid-column: span 2;
 }
+/* לחצן שליחת הטופס - מוגדר בפריסת flex ורוחב מותאם לתוכן כדי לאפשר מרכוז אופקי תקני באמצעות שוליים אוטומטיים */
 .form-submit {
+  display: flex;
+  width: fit-content;
   margin: var(--space-5) auto 0;
 }
 .form-status {
@@ -1859,9 +1889,9 @@ body.how-to-get-page {
   text-align: center;
 }
 
-   /* CV Keywords Section (Interactive Flip Cards) */
+   /* אזור מילות מפתח לקורות חיים (כרטיסיות אינטראקטיביות מתהפכות) */
 .cv-keywords-section {
-  overflow: visible; /* Ensure it doesn't clip */
+  overflow: visible; /* מניעת חיתוך של תוכן בולט */
   padding-block: var(--space-6);
 }
 .keywords-grid {
@@ -1877,7 +1907,7 @@ body.how-to-get-page {
   cursor: pointer;
   border-radius: var(--radius-lg);
   outline: none;
-  border: none; /* override old border if any */
+  border: none; /* דריסת גבולות קודמים במידה וקיימים */
   position: relative;
   bottom: 0;
   transition: bottom 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -1896,14 +1926,14 @@ body.how-to-get-page {
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
 }
-/* Hover Effect for the whole card */
+/* אפקט מעבר עכבר (מעבר עכבר) לכל הכרטיסייה */
 .cv-flip-card:not(.is-flipped):hover {
   bottom: 8px;
 }
 .cv-flip-card:not(.is-flipped):hover .cv-flip-card-inner {
   box-shadow: 0 18px 38px var(--color-blue-soft);
 }
-/* Flipped State */
+/* מצב הפוך (הפוך) של הכרטיסייה */
 .cv-flip-card.is-flipped .cv-flip-card-inner {
   transform: rotateY(180deg);
   box-shadow: 0 18px 38px var(--color-blue-soft);
@@ -1922,7 +1952,7 @@ body.how-to-get-page {
   display: flex;
   flex-direction: column;
 }
-/* --- FRONT SIDE --- */
+/* --- צד קדמי --- */
 .cv-flip-card-front {
   padding: clamp(1.5rem, 3vw, 2.5rem);
   justify-content: center;
@@ -1962,7 +1992,7 @@ body.how-to-get-page {
   font-size: var(--text-sub);
   margin: 0;
 }
-/* --- BACK SIDE --- */
+/* --- צד אחורי --- */
 .cv-flip-card-back {
   transform: rotateY(180deg);
   padding: 0;
@@ -2001,7 +2031,7 @@ body.how-to-get-page {
   padding: 1.2rem 1.5rem;
   flex: 1;
   overflow-y: auto;
-  /* Styling scrollbar for aesthetics */
+  /* עיצוב פס גלילה לאסתטיקה */
   scrollbar-width: thin;
   scrollbar-color: var(--color-ink) transparent;
   direction: ltr;
@@ -2074,7 +2104,7 @@ body.how-to-get-page {
   justify-content: center;
   gap: var(--space-4);
   padding: 1.35rem 2.8rem;
-  background-color: var(--color-primary); /* #78f2a7 */
+  background-color: var(--color-primary); /* צבע ירוק מותג */
   border: 2px solid var(--color-ink);
   border-radius: var(--radius-md);
   color: var(--color-ink);
@@ -2117,7 +2147,7 @@ body.how-to-get-page {
   flex-direction: column;
   gap: var(--space-3);
   background-clip: padding-box;
-  overflow: hidden; /* Prevents top color bar from sticking out of the card's rounded borders */
+  overflow: hidden; /* מונע מהסרגל הצבעוני העליון לחרוג מהפינות המעוגלות של הכרטיסייה */
 }
 .sitemap-branch-card:hover {
   bottom: 4px;
@@ -2226,7 +2256,7 @@ body.how-to-get-page {
   font-size: 1.05rem;
 }
 
-   /* ABOUT PAGE STYLES (.about-page-body) */
+   /* סגנונות עמוד אודות (גוף עמוד אודות) */
 .about-page-body .about-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2245,7 +2275,7 @@ body.how-to-get-page {
   flex-direction: column;
   gap: var(--space-3);
   background-clip: padding-box;
-  overflow: hidden; /* Prevents absolute child elements (like the top color bar) from overflowing the rounded corners */
+  overflow: hidden; /* מונע מאלמנטים מוחלטים (כמו הסרגל הצבעוני) לחרוג מהפינות המעוגלות */
 }
 .about-page-body .about-card:hover {
   bottom: 5px;
@@ -2411,12 +2441,12 @@ body.how-to-get-page {
 }
 
 /* ==========================================================================
-   CONSOLIDATED RESPONSIVE MEDIA QUERIES
+   שאילתות מדיה רספונסיביות מאוחדות (שאילתות מדיה)
    ========================================================================== */
 
 @media (max-width: 1200px) {
   .dropdown-menu {
-      display: none; /* Hide by default on mobile */
+      display: none; /* הסתרה כברירת מחדל במובייל */
       position: static;
       opacity: 1;
       visibility: visible;
@@ -2431,7 +2461,7 @@ body.how-to-get-page {
       border-right: 2px solid var(--color-border);
       padding-inline-start: var(--space-2);
     }
-    /* Show when open */
+    /* הצגה כאשר התפריט פתוח */
     .nav-dropdown.is-open .dropdown-menu {
       display: block;
     }
@@ -2456,7 +2486,7 @@ body.how-to-get-page {
       background: var(--color-primary);
     }
     .dropdown-toggle {
-      pointer-events: auto; /* Allow clicking the dropdown toggle on mobile */
+      pointer-events: auto; /* אישור לחיצה על כפתור התפריט הנפתח במובייל */
       cursor: pointer;
     }
     .nav-arrow {

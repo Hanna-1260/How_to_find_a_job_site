@@ -556,7 +556,7 @@
         const isActive = tab.dataset.jobTarget === target;
         tab.classList.toggle('is-active', isActive);
         tab.setAttribute('aria-selected', String(isActive));
-        tab.setAttribute('tabindex', isActive ? '0' : '-1');
+        tab.setAttribute('tabindex', '0');
       });
 
       const currentPanel = getCurrentPanel();
@@ -580,7 +580,7 @@
       jobTabs.forEach((tab) => {
         tab.classList.remove('is-active');
         tab.setAttribute('aria-selected', 'false');
-        tab.setAttribute('tabindex', '-1');
+        tab.setAttribute('tabindex', '0');
       });
 
       // Show all panels
@@ -656,6 +656,48 @@
         }
       });
     }
+  }
+
+  // Setup companies carousel keyboard navigation accessibility
+  const carouselContainer = document.querySelector(".companies-carousel-container");
+  if (carouselContainer) {
+    const carouselLinks = document.querySelectorAll(".companies-carousel-track .company-card a");
+    
+    // Limit tab focus to the first 11 unique cards (Set 1)
+    carouselLinks.forEach((link, index) => {
+      if (index >= 11) {
+        link.setAttribute("tabindex", "-1");
+        // Also hide Set 2 cards from screen readers to prevent duplicate reading
+        const parentCard = link.closest(".company-card");
+        if (parentCard) {
+          parentCard.setAttribute("aria-hidden", "true");
+        }
+      } else {
+        // Listen to focus event on Set 1 links to center the focused card
+        link.addEventListener("focus", () => {
+          const containerWidth = carouselContainer.offsetWidth;
+          const linkLeft = link.getBoundingClientRect().left - carouselContainer.getBoundingClientRect().left + carouselContainer.scrollLeft;
+          const linkWidth = link.offsetWidth;
+          
+          carouselContainer.scrollTo({
+            left: linkLeft - (containerWidth / 2) + (linkWidth / 2),
+            behavior: "smooth"
+          });
+        });
+      }
+    });
+
+    // Reset scroll when focus leaves the carousel
+    carouselContainer.addEventListener("focusout", () => {
+      setTimeout(() => {
+        if (!carouselContainer.contains(document.activeElement)) {
+          carouselContainer.scrollTo({
+            left: 0,
+            behavior: "smooth"
+          });
+        }
+      }, 50);
+    });
   }
 
   window.addEventListener("DOMContentLoaded", () => {
