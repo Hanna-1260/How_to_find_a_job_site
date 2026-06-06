@@ -675,6 +675,9 @@
       } else {
         // Listen to focus event on Set 1 links to center the focused card
         link.addEventListener("focus", () => {
+          // Only center scroll if focused via keyboard (focus-visible)
+          if (!link.matches(":focus-visible")) return;
+
           const containerWidth = carouselContainer.offsetWidth;
           const linkLeft = link.getBoundingClientRect().left - carouselContainer.getBoundingClientRect().left + carouselContainer.scrollLeft;
           const linkWidth = link.offsetWidth;

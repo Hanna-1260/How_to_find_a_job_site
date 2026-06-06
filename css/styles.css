@@ -1684,7 +1684,7 @@ body.how-to-get-page {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 /* עצירה ואיפוס של אנימציית הקרוסלה בעת כניסת פוקוס מקלדת, לטובת ניווט נגיש ונוח בין הכרטיסיות */
-.companies-carousel-container:focus-within .companies-carousel-track {
+.companies-carousel-container:has(a:focus-visible) .companies-carousel-track {
   animation: none !important;
   transform: none !important;
 }
