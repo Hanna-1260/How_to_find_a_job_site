@@ -543,6 +543,9 @@ button {
 .btn-secondary:hover {
   background: var(--color-pink);
 }
+#why-talm {
+  scroll-margin-top: 100px;
+}
 .scenario-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
