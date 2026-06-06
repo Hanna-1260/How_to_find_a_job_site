@@ -912,9 +912,9 @@ body.how-to-get-page {
   max-width: 34rem;
   margin: 35px 0 0;
   color: var(--color-ink);
-  font-size: clamp(1.45rem, 2.1vw, 1.9rem);
-  font-weight: 600;
-  line-height: 1.12;
+  font-size: var(--text-sub);
+  font-weight: 500;
+  line-height: 1.35;
 }
 .howto-hero-cta {
   display: inline-flex;
